@@ -1,0 +1,3 @@
+method,method_label,paired_cases,practical_score_win_rate,coef_error_win_rate,support_f1_win_rate
+pydmd_optdmd,PyDMD optimized DMD,318,0.7044025157232704,0.7044025157232704,0.1540880503144654
+pod_edmd_rbf,POD-EDMD-RBF,320,0.646875,0.64375,0.1

@@ -1,0 +1,4 @@
+method,method_label,paired_cases,practical_score_win_rate,coef_error_win_rate,support_f1_win_rate
+edmd_poly3,EDMD-polynomial,400,0.8025,0.8075,0.295
+linear_interp,Linear interpolation,400,0.7525,0.7525,0.3125
+smoothing_spline_cv,Tuned smoothing spline,400,0.6925,0.7525,0.3125

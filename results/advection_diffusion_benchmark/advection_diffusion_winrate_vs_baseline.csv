@@ -1,0 +1,3 @@
+method,method_label,matched_cases,coef_error_win_rate,practical_score_win_rate
+optdmd,optDMD,60,0.8333333333333334,0.8333333333333334
+pod_edmd_rbf,POD-EDMD-RBF,60,0.9833333333333333,0.9666666666666667

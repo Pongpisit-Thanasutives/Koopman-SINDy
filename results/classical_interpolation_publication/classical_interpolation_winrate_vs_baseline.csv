@@ -1,0 +1,7 @@
+setting,method,method_label,paired_cases,support_f1_win_rate,coef_error_win_rate,practical_score_win_rate
+ODE,edmd_poly3,EDMD-polynomial,400,0.295,0.8075,0.8025
+ODE,linear_interp,Linear interpolation,400,0.3125,0.7525,0.7525
+ODE,smoothing_spline_cv,Tuned smoothing spline,400,0.3125,0.7525,0.6925
+PDE,linear_interp,Linear interpolation,480,0.04375,0.8270833333333333,0.8041666666666667
+PDE,pod_edmd_rbf,POD-EDMD-RBF,480,0.17291666666666666,0.8354166666666667,0.8229166666666666
+PDE,smoothing_spline_cv,Tuned smoothing spline,480,0.1375,0.8020833333333334,0.7895833333333333

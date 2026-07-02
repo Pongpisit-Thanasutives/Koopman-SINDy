@@ -1,0 +1,241 @@
+system,method,method_label,sparse_factor,noise,seed,feature,coef,true_coef
+burgers,baseline,Baseline,4,0.0,0,u*u_x,-0.9994074935966719,-1.0
+burgers,baseline,Baseline,4,0.0,0,u_xx,0.04997630405152662,0.05
+burgers,linear_interp,Linear interpolation,4,0.0,0,u*u_x,-1.000005779765255,-1.0
+burgers,linear_interp,Linear interpolation,4,0.0,0,u_xx,0.05002279765125581,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,4,0.0,0,u*u_x,-0.9999760325936213,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,4,0.0,0,u_xx,0.04999899383318642,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u*u_x,-0.9976945770264555,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_xx,0.04965926659525334,0.05
+burgers,baseline,Baseline,4,0.1,0,u*u_x,-0.3069024999963273,-1.0
+burgers,baseline,Baseline,4,0.1,0,u_xx,0.0,0.05
+burgers,linear_interp,Linear interpolation,4,0.1,0,u*u_x,-0.39913226362038423,-1.0
+burgers,linear_interp,Linear interpolation,4,0.1,0,u_xx,0.0,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,4,0.1,0,u*u_x,-0.7792851356841434,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,4,0.1,0,u_xx,0.0,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u*u_x,-0.7524729389414818,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_xx,0.0,0.05
+burgers,baseline,Baseline,8,0.0,0,u*u_x,-0.9976286300098187,-1.0
+burgers,baseline,Baseline,8,0.0,0,u_xx,0.04990799463748978,0.05
+burgers,linear_interp,Linear interpolation,8,0.0,0,u*u_x,-0.9999534745825778,-1.0
+burgers,linear_interp,Linear interpolation,8,0.0,0,u_xx,0.0500830329660473,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,u*u_x,-0.9999050209124204,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,u_xx,0.04999616297625945,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u*u_x,-0.9978261915968044,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_xx,0.049786821470306684,0.05
+burgers,baseline,Baseline,8,0.1,0,u,-0.10253554185901526,0.0
+burgers,baseline,Baseline,8,0.1,0,u*u_x,-0.28326712242817703,-1.0
+burgers,baseline,Baseline,8,0.1,0,u_xx,0.0,0.05
+burgers,linear_interp,Linear interpolation,8,0.1,0,u*u_x,-0.362248555424154,-1.0
+burgers,linear_interp,Linear interpolation,8,0.1,0,u_xx,0.0,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,u*u_x,-0.6901472821941721,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,u_xx,0.0,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u*u_x,-0.6438530118090946,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_xx,0.0,0.05
+burgers,baseline,Baseline,16,0.0,0,u*u_x,-0.9905399862130951,-1.0
+burgers,baseline,Baseline,16,0.0,0,u_xx,0.04965678173744938,0.05
+burgers,linear_interp,Linear interpolation,16,0.0,0,u*u_x,-0.9997705955569721,-1.0
+burgers,linear_interp,Linear interpolation,16,0.0,0,u_xx,0.05032370787945292,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,u*u_x,-0.9996199588784875,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,u_xx,0.049983998036767514,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u*u_x,-0.9978556531418771,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_xx,0.0499923043767437,0.05
+burgers,baseline,Baseline,16,0.1,0,u*u_x,-0.22482599436290887,-1.0
+burgers,baseline,Baseline,16,0.1,0,u_xx,0.0,0.05
+burgers,linear_interp,Linear interpolation,16,0.1,0,u*u_x,-0.29266249228849006,-1.0
+burgers,linear_interp,Linear interpolation,16,0.1,0,u_xx,0.0,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,u*u_x,-0.6023017718274389,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,u_xx,0.0,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u*u_x,-0.5420406160523084,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_xx,0.0,0.05
+burgers,baseline,Baseline,32,0.0,0,u*u_x,-0.9637607823625445,-1.0
+burgers,baseline,Baseline,32,0.0,0,u_xx,0.04710094718914288,0.05
+burgers,linear_interp,Linear interpolation,32,0.0,0,u*u_x,-0.998443945963707,-1.0
+burgers,linear_interp,Linear interpolation,32,0.0,0,u_xx,0.051062766575755564,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,u*u_x,-0.9984169967926395,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,u_xx,0.05007295384144805,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u*u_x,-0.9839579878966065,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_xx,0.04426726935387682,0.05
+burgers,baseline,Baseline,32,0.1,0,u*u_x,-0.2832212693052205,-1.0
+burgers,baseline,Baseline,32,0.1,0,u_xx,0.0,0.05
+burgers,linear_interp,Linear interpolation,32,0.1,0,u*u_x,-0.3735600528021873,-1.0
+burgers,linear_interp,Linear interpolation,32,0.1,0,u_xx,0.0,0.05
+burgers,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u*u_x,-0.5920669989485783,-1.0
+burgers,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u_xx,0.0,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u*u_x,-0.5205482625757623,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_xx,0.0,0.05
+fisher_kpp,baseline,Baseline,4,0.0,0,u,0.999983293983711,1.0
+fisher_kpp,baseline,Baseline,4,0.0,0,u^2,-0.9999883286411035,-1.0
+fisher_kpp,baseline,Baseline,4,0.0,0,u_xx,0.02998965523664967,0.03
+fisher_kpp,linear_interp,Linear interpolation,4,0.0,0,u,0.9999896263012459,1.0
+fisher_kpp,linear_interp,Linear interpolation,4,0.0,0,u^2,-0.9999925983061801,-1.0
+fisher_kpp,linear_interp,Linear interpolation,4,0.0,0,u_xx,0.02998486812696488,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,4,0.0,0,u,1.0000121642647035,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,4,0.0,0,u^2,-1.0000250809451088,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,4,0.0,0,u_xx,0.029983665820087806,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u,1.0000089318554226,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u^2,-1.0000189734598124,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_xx,0.029985036245556113,0.03
+fisher_kpp,baseline,Baseline,4,0.1,0,u,1.0174353143660035,1.0
+fisher_kpp,baseline,Baseline,4,0.1,0,u^2,-1.0289552871985135,-1.0
+fisher_kpp,baseline,Baseline,4,0.1,0,u_xx,0.0,0.03
+fisher_kpp,linear_interp,Linear interpolation,4,0.1,0,u,1.0119771404833084,1.0
+fisher_kpp,linear_interp,Linear interpolation,4,0.1,0,u^2,-1.0078466352069209,-1.0
+fisher_kpp,linear_interp,Linear interpolation,4,0.1,0,u_xx,0.0,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,4,0.1,0,u,1.0311147657119855,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,4,0.1,0,u^2,-1.0600479812400116,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,4,0.1,0,u_xx,0.0,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u,1.0173199082019733,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u^2,-1.0270065898185134,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_xx,0.0,0.03
+fisher_kpp,baseline,Baseline,8,0.0,0,u,0.9998995176633102,1.0
+fisher_kpp,baseline,Baseline,8,0.0,0,u^2,-0.9998843742253121,-1.0
+fisher_kpp,baseline,Baseline,8,0.0,0,u_xx,0.030004748436033023,0.03
+fisher_kpp,linear_interp,Linear interpolation,8,0.0,0,u,0.9999369417640813,1.0
+fisher_kpp,linear_interp,Linear interpolation,8,0.0,0,u^2,-0.9999264243183081,-1.0
+fisher_kpp,linear_interp,Linear interpolation,8,0.0,0,u_xx,0.02998752206910765,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,u,1.0000066871714948,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,u^2,-1.000017304161368,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,u_xx,0.029985517851061138,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u,1.0000026731020404,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u^2,-1.000010100800036,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_xx,0.029988141108607987,0.03
+fisher_kpp,baseline,Baseline,8,0.1,0,u,1.0164239695722013,1.0
+fisher_kpp,baseline,Baseline,8,0.1,0,u^2,-1.0388901871187342,-1.0
+fisher_kpp,baseline,Baseline,8,0.1,0,u_xx,0.0,0.03
+fisher_kpp,linear_interp,Linear interpolation,8,0.1,0,u,1.009209532625364,1.0
+fisher_kpp,linear_interp,Linear interpolation,8,0.1,0,u^2,-1.0232707647798465,-1.0
+fisher_kpp,linear_interp,Linear interpolation,8,0.1,0,u_xx,0.0,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,u,1.032599869863608,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,u^2,-1.067952559314772,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,u_xx,0.0,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u,1.0148253559983866,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u^2,-1.0336432261647897,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_xx,0.0,0.03
+fisher_kpp,baseline,Baseline,16,0.0,0,u,0.9995650145129236,1.0
+fisher_kpp,baseline,Baseline,16,0.0,0,u^2,-0.9994696594658684,-1.0
+fisher_kpp,baseline,Baseline,16,0.0,0,u_xx,0.03006585406291701,0.03
+fisher_kpp,linear_interp,Linear interpolation,16,0.0,0,u,0.9997154507171483,1.0
+fisher_kpp,linear_interp,Linear interpolation,16,0.0,0,u^2,-0.9996389562302307,-1.0
+fisher_kpp,linear_interp,Linear interpolation,16,0.0,0,u_xx,0.02999523394967311,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,u,0.9999931630030375,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,u^2,-1.0000003881308541,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,u_xx,0.029987979624877478,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u,0.999987246702704,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u^2,-0.9999891726972976,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_xx,0.029995783770060062,0.03
+fisher_kpp,baseline,Baseline,16,0.1,0,u,1.004367146385451,1.0
+fisher_kpp,baseline,Baseline,16,0.1,0,u^2,-1.004388069002571,-1.0
+fisher_kpp,baseline,Baseline,16,0.1,0,u_xx,0.0,0.03
+fisher_kpp,linear_interp,Linear interpolation,16,0.1,0,u,0.9983210668083206,1.0
+fisher_kpp,linear_interp,Linear interpolation,16,0.1,0,u^2,-0.9928781725552557,-1.0
+fisher_kpp,linear_interp,Linear interpolation,16,0.1,0,u_xx,0.0,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,u,1.0140451077520019,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,u^2,-1.0234790524788309,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,u_xx,0.0,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u,1.025391595912859,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u^2,-1.0307792378858147,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_xx,0.0,0.03
+fisher_kpp,baseline,Baseline,32,0.0,0,u,0.9956835068015885,1.0
+fisher_kpp,baseline,Baseline,32,0.0,0,u^2,-0.9929816444345484,-1.0
+fisher_kpp,baseline,Baseline,32,0.0,0,u_xx,0.030282474984004496,0.03
+fisher_kpp,linear_interp,Linear interpolation,32,0.0,0,u,0.9986934695999293,1.0
+fisher_kpp,linear_interp,Linear interpolation,32,0.0,0,u^2,-0.9982139021347622,-1.0
+fisher_kpp,linear_interp,Linear interpolation,32,0.0,0,u_xx,0.03001485241648238,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,u,0.9999426847004041,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,u^2,-0.9999393817627217,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,u_xx,0.02999485780975533,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u,0.9988782175034812,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u^2,-0.996665615808795,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_xx,0.030400692053271124,0.03
+fisher_kpp,baseline,Baseline,32,0.1,0,u,1.01536211449076,1.0
+fisher_kpp,baseline,Baseline,32,0.1,0,u^2,-1.0250155678553878,-1.0
+fisher_kpp,baseline,Baseline,32,0.1,0,u_xx,0.0,0.03
+fisher_kpp,linear_interp,Linear interpolation,32,0.1,0,u,1.0180483844043642,1.0
+fisher_kpp,linear_interp,Linear interpolation,32,0.1,0,u^2,-1.0299214837799198,-1.0
+fisher_kpp,linear_interp,Linear interpolation,32,0.1,0,u_xx,0.0,0.03
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u,1.0158104197478794,1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u^2,-1.026649576519069,-1.0
+fisher_kpp,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u_xx,0.0,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u,1.000444602384986,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u^2,-1.0028259887767543,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_xx,0.0,0.03
+advection_diffusion,baseline,Baseline,4,0.0,0,u_x,-0.9997999235355519,-1.0
+advection_diffusion,baseline,Baseline,4,0.0,0,u_xx,0.019977023038297462,0.02
+advection_diffusion,linear_interp,Linear interpolation,4,0.0,0,u_x,-0.99999671618037,-1.0
+advection_diffusion,linear_interp,Linear interpolation,4,0.0,0,u_xx,0.019996905212801088,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,4,0.0,0,u_x,-0.9999919071965728,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,4,0.0,0,u_xx,0.01999908762893586,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_x,-0.9999921052513999,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_xx,0.01999909730530579,0.02
+advection_diffusion,baseline,Baseline,4,0.1,0,u_x,-0.4839310457250471,-1.0
+advection_diffusion,baseline,Baseline,4,0.1,0,u^2*u_x,0.38854911838293804,0.0
+advection_diffusion,baseline,Baseline,4,0.1,0,u_xx,0.0,0.02
+advection_diffusion,linear_interp,Linear interpolation,4,0.1,0,u_x,-0.6086464515424012,-1.0
+advection_diffusion,linear_interp,Linear interpolation,4,0.1,0,u^2*u_x,0.5039856057643949,0.0
+advection_diffusion,linear_interp,Linear interpolation,4,0.1,0,u_xx,0.0,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,4,0.1,0,u_x,-0.961877964534198,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,4,0.1,0,u_xx,0.0,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_x,-0.9093894098035822,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_xx,0.0,0.02
+advection_diffusion,baseline,Baseline,8,0.0,0,u_x,-0.9992001057314854,-1.0
+advection_diffusion,baseline,Baseline,8,0.0,0,u_xx,0.019908181175505864,0.02
+advection_diffusion,linear_interp,Linear interpolation,8,0.0,0,u_x,-0.9999690892886,-1.0
+advection_diffusion,linear_interp,Linear interpolation,8,0.0,0,u_xx,0.02001143059495509,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,u_x,-0.9999679388119795,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,u_xx,0.019996369241759755,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_x,-0.9995093924092282,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_xx,0.020158213440969085,0.02
+advection_diffusion,baseline,Baseline,8,0.1,0,u_x,-0.3120232915966951,-1.0
+advection_diffusion,baseline,Baseline,8,0.1,0,u_xx,0.0,0.02
+advection_diffusion,linear_interp,Linear interpolation,8,0.1,0,u_x,-0.5464228441319381,-1.0
+advection_diffusion,linear_interp,Linear interpolation,8,0.1,0,u^2*u_x,0.31854165387703914,0.0
+advection_diffusion,linear_interp,Linear interpolation,8,0.1,0,u_xx,0.0,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,u_x,-0.8783670639248768,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,u_xx,0.0,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_x,-0.8482754418422355,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_xx,0.0,0.02
+advection_diffusion,baseline,Baseline,16,0.0,0,u_x,-0.9968056379266957,-1.0
+advection_diffusion,baseline,Baseline,16,0.0,0,u_xx,0.0196339112824594,0.02
+advection_diffusion,linear_interp,Linear interpolation,16,0.0,0,u_x,-0.9998860585882523,-1.0
+advection_diffusion,linear_interp,Linear interpolation,16,0.0,0,u_xx,0.02004751163161096,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,u_x,-0.9998710735515333,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,u_xx,0.01998593932396884,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_x,-0.9995390142359597,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_xx,0.020104696235734854,0.02
+advection_diffusion,baseline,Baseline,16,0.1,0,u_x,-0.3089696486376707,-1.0
+advection_diffusion,baseline,Baseline,16,0.1,0,u_xx,0.0,0.02
+advection_diffusion,linear_interp,Linear interpolation,16,0.1,0,u_x,-0.5471423009694907,-1.0
+advection_diffusion,linear_interp,Linear interpolation,16,0.1,0,u^2*u_x,0.3276795094671393,0.0
+advection_diffusion,linear_interp,Linear interpolation,16,0.1,0,u_xx,0.0,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,u_x,-0.7441850719784131,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,u_xx,0.0,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_x,-0.7287973909385466,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_xx,0.0,0.02
+advection_diffusion,baseline,Baseline,32,0.0,0,u_x,-0.987878615715498,-1.0
+advection_diffusion,baseline,Baseline,32,0.0,0,u_xx,0.015907638969962105,0.02
+advection_diffusion,linear_interp,Linear interpolation,32,0.0,0,u_x,-0.9995469572029401,-1.0
+advection_diffusion,linear_interp,Linear interpolation,32,0.0,0,u_xx,0.020034145632859355,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,u_x,-0.999468319545969,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,u_xx,0.01995915068223793,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_x,-1.001741072764614,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_xx,0.020206588017843266,0.02
+advection_diffusion,baseline,Baseline,32,0.1,0,u_x,-0.3236990519272512,-1.0
+advection_diffusion,baseline,Baseline,32,0.1,0,u_xx,0.0,0.02
+advection_diffusion,linear_interp,Linear interpolation,32,0.1,0,u_x,-0.5637357622390489,-1.0
+advection_diffusion,linear_interp,Linear interpolation,32,0.1,0,u^2*u_x,0.30172879162184135,0.0
+advection_diffusion,linear_interp,Linear interpolation,32,0.1,0,u_xx,0.0,0.02
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,1,0.026946905393994382,0.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u,-0.04287621648251623,0.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u^2,-0.04002836136588197,0.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u_x,-0.8819901605383857,-1.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u*u_x,0.33556686624996623,0.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u^2*u_x,0.5531597041807682,0.0
+advection_diffusion,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,u_xx,0.0011712139751799404,0.02
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,1,0.025678215451294957,0.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u,-0.05094030248847535,0.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u^2,-0.03814212177510864,0.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_x,-0.864657151243831,-1.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u*u_x,0.31444834802005855,0.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u^2*u_x,0.5520488119825351,0.0
+advection_diffusion,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_xx,0.0010834795220403157,0.02
