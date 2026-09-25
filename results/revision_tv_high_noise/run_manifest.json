@@ -1,0 +1,113 @@
+{
+  "command": "revision_tv_comparison.py --jobs 4",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pandas": "2.2.3",
+  "config": {
+    "lorenz63": {
+      "kind": "ode",
+      "dt": 0.005,
+      "factors": [
+        16,
+        64
+      ],
+      "rank": 0
+    },
+    "vanderpol_mu2": {
+      "kind": "ode",
+      "dt": 0.005,
+      "factors": [
+        16,
+        64
+      ],
+      "rank": 0
+    },
+    "burgers": {
+      "kind": "pde",
+      "dt": 0.005,
+      "factors": [
+        8,
+        32
+      ],
+      "rank": 8,
+      "nx": 64,
+      "centers": 30
+    },
+    "fisher_kpp": {
+      "kind": "pde",
+      "dt": 0.005,
+      "factors": [
+        8,
+        32
+      ],
+      "rank": 5,
+      "nx": 64,
+      "centers": 30
+    },
+    "advection_diffusion": {
+      "kind": "pde",
+      "dt": 0.01,
+      "factors": [
+        4,
+        16
+      ],
+      "rank": 4,
+      "nx": 48,
+      "centers": 12
+    }
+  },
+  "lambdas": [
+    0.0,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "tv_tolerance": 1e-05,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "noise": [
+    0.05,
+    0.1,
+    0.2,
+    0.5
+  ],
+  "downstream_selection": "oracle STLSQ threshold grid; ground truth excluded from all preprocessing",
+  "sampling": "uniform sparse observations only; omit shortened final interval for every method; dense grid includes exact observed endpoints",
+  "tv_cv": "3 deterministic interior folds; endpoints in training; raw PDE uses 8 equally spaced positions; POD refit in each fold",
+  "started_utc": "2026-09-24T05:34:59Z",
+  "source_sha256": {
+    "revision_tv_comparison.py": "ce6f0406bba46d7474c67953b6305d0027ef01f3ed4bb03d019f2507057f667c",
+    "revision_tv_solver.py": "732341fee0a2d3c5061c9bf2e1be807f63c297679bcd433fc1517993cec34e9f",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "4038823a559d543c7b351b56f6768e005a488a224441ab56de91987065a48fd7",
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683"
+  },
+  "elapsed_seconds": 22.04141420499991,
+  "finished_utc": "2026-09-24T05:35:21Z",
+  "final_package_source_sha256": {
+    "revision_tv_comparison.py": "ce6f0406bba46d7474c67953b6305d0027ef01f3ed4bb03d019f2507057f667c",
+    "revision_tv_solver.py": "732341fee0a2d3c5061c9bf2e1be807f63c297679bcd433fc1517993cec34e9f",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "a35128f1a94aaa06362936533e27e2a9af32ae22b27bbd7a902fe4ac4b413cef",
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683"
+  },
+  "post_run_nonfunctional_changes": [
+    {
+      "file": "koopman_sindy_pde_benchmark.py",
+      "type": "documentation only",
+      "description": "Corrected restricted-real-exponent comparator docstring to acknowledge oscillatory travelling modes; no function body changed."
+    }
+  ],
+  "final_package_hashes_recorded_utc": "2026-09-24T05:42:17Z"
+}

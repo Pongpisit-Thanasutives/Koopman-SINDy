@@ -1,0 +1,11 @@
+system,method,paired_n,coefficient_wins,coefficient_win_percent,score_wins,score_win_percent
+lorenz63,edmd_poly3,200,119,59.5,114,57.0
+lorenz63,edmd_rbf,200,105,52.5,113,56.5
+vanderpol_mu2,edmd_poly3,200,192,96.0,192,96.0
+vanderpol_mu2,edmd_rbf,200,191,95.5,188,94.0
+burgers,pydmd_optdmd,159,140,88.0503144654088,140,88.0503144654088
+burgers,pod_edmd_rbf,160,139,86.875,139,86.875
+fisher_kpp,pydmd_optdmd,159,84,52.83018867924528,84,52.83018867924528
+fisher_kpp,pod_edmd_rbf,160,65,40.625,65,40.625
+advection_diffusion,optdmd,60,50,83.33333333333333,50,83.33333333333333
+advection_diffusion,pod_edmd_rbf,60,59,98.33333333333333,58,96.66666666666667

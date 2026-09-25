@@ -1,4 +1,4 @@
 method,method_label,paired_cases,practical_score_win_rate,coef_error_win_rate,support_f1_win_rate
-pod_edmd_rbf,POD-EDMD-RBF,480,0.8229166666666666,0.8354166666666667,0.17291666666666666
+pod_edmd_rbf,POD-EDMD-RBF,480,0.7666666666666667,0.7791666666666667,0.175
 linear_interp,Linear interpolation,480,0.8041666666666667,0.8270833333333333,0.04375
 smoothing_spline_cv,Tuned smoothing spline,480,0.7895833333333333,0.8020833333333334,0.1375

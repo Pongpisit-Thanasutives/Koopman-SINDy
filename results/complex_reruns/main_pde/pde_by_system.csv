@@ -1,0 +1,3 @@
+system,method,support_f1_mean,coef_error_median,practical_score_mean,method_label
+burgers,pod_edmd_rbf,0.7773611111111112,0.21526926934248541,0.6631986933813845,POD-EDMD-RBF
+fisher_kpp,pod_edmd_rbf,0.828116883116883,0.03868901528529714,0.7855562499922275,POD-EDMD-RBF

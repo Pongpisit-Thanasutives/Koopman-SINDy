@@ -1,0 +1,4 @@
+system,method,support_f1_mean,coef_error_median,practical_score_mean,method_label
+advection_diffusion,pod_edmd_rbf,0.7182638888888888,0.026544670388139503,0.6775229938296045,POD-EDMD-RBF
+burgers,pod_edmd_rbf,0.7708333333333333,0.19697300554164798,0.6715105750536222,POD-EDMD-RBF
+fisher_kpp,pod_edmd_rbf,0.83495670995671,0.03733675042871828,0.788514166858246,POD-EDMD-RBF

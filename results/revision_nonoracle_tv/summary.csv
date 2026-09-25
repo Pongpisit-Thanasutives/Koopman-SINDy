@@ -1,0 +1,15 @@
+setting,system,equation,method,method_label,n_valid,true_support_size,exact_support_count,exact_k_count,selected_k_min,selected_k_max,selected_k_median,support_f1_mean,coef_error_median,n_expected
+ODE,vanderpol_mu2,dx/dt,baseline,Raw FD,5,1,5,5,1,1,1.0,1.0,0.0053008308844902,5
+ODE,vanderpol_mu2,dx/dt,edmd_poly3,Polynomial EDMD,5,1,5,5,1,1,1.0,1.0,0.0010078555060117,5
+ODE,vanderpol_mu2,dx/dt,tv_diff,TV,5,1,5,5,1,1,1.0,1.0,0.0053078805937544,5
+ODE,vanderpol_mu2,dy/dt,baseline,Raw FD,5,3,5,5,3,3,3.0,1.0,0.0313064587027758,5
+ODE,vanderpol_mu2,dy/dt,edmd_poly3,Polynomial EDMD,5,3,5,5,3,3,3.0,1.0,0.0045313612532095,5
+ODE,vanderpol_mu2,dy/dt,tv_diff,TV,5,3,5,5,3,3,3.0,1.0,0.0312975021623114,5
+PDE,burgers,u_t,baseline,Raw FD,5,2,5,5,2,2,2.0,1.0,0.0460754579661039,5
+PDE,burgers,u_t,pod_edmd_rbf,POD-EDMD-RBF,5,2,5,5,2,2,2.0,1.0,0.0186291159752175,5
+PDE,burgers,u_t,pod_tv_diff,POD+TV,5,2,5,5,2,2,2.0,1.0,0.0158315030560901,5
+PDE,burgers,u_t,tv_diff,TV,5,2,5,5,2,2,2.0,1.0,0.0155875461384314,5
+PDE,fisher_kpp,u_t,baseline,Raw FD,5,3,0,3,2,5,3.0,0.6599999999999999,0.058688207508052,5
+PDE,fisher_kpp,u_t,pod_edmd_rbf,POD-EDMD-RBF,5,3,5,5,3,3,3.0,1.0,0.0107815528962748,5
+PDE,fisher_kpp,u_t,pod_tv_diff,POD+TV,5,3,5,5,3,3,3.0,1.0,0.0079280290081818,5
+PDE,fisher_kpp,u_t,tv_diff,TV,5,3,2,2,3,5,4.0,0.7785714285714286,0.0612254215915525,5

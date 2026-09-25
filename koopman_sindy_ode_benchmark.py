@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Koopman/DMD upsampling benchmark for SINDy on two ODEs.
+Koopman-based DMD/EDMD upsampling benchmark for SINDy on two ODEs.
 
 Systems: Lorenz-63 and Van der Pol oscillator.
-Question: Does a DMD/Koopman interpolation-denoising step improve sparse-regression
+Question: Does a Koopman-based DMD/EDMD interpolation-denoising step improve sparse-regression
 recovery relative to using the sparse noisy samples directly?
 
 Dependencies: numpy, scipy, pandas, matplotlib.
 No PySINDy dependency; STLSQ and feature libraries are implemented here.
 
 Typical runs:
-  python koopman_sindy_ode_benchmark.py --quick
+  python koopman_sindy_ode_benchmark.py --preset quick
   python koopman_sindy_ode_benchmark.py --seeds 0,1,2,3,4 --noise 0,0.01,0.03,0.05,0.10 --sparse-factors 10,20,40
 
 Outputs are written to --outdir:
@@ -37,6 +37,9 @@ from scipy.integrate import solve_ivp
 from scipy.linalg import expm, logm, pinv, sqrtm, svd
 from scipy.interpolate import UnivariateSpline
 import matplotlib.pyplot as plt
+
+from koopman_propagation import (FractionalEvolution, fractional_step_matrix,
+                                 nominal_observation_pairs, local_observable_reconstruction)
 
 EPS = 1e-12
 
@@ -334,31 +337,12 @@ def edmd_reconstruct(
         feature_fun = lambda Z: rbf_features(Z, params)
     else:
         raise ValueError(kind)
-    Phi0 = Phi[:-1]
-    Phi1 = Phi[1:]
-    K = ridge_lstsq(Phi0, Phi1, alpha=alpha)  # row-vector map: phi_next = phi @ K
-    dt_obs = t[1] - t[0]
-    dt_new = t_new[1] - t_new[0] if len(t_new) > 1 else dt_obs
-    K_step = fractional_step_matrix(K, dt_new / dt_obs)
-    out = []
-    j = 0
-    phi = np.real(feature_fun(X[[0]])[0])
-    # Local Koopman interpolation with resets at observed snapshots.
-    for tt in t_new:
-        while j + 1 < len(t) and tt >= t[j + 1] - 0.5 * dt_new:
-            j += 1
-            phi = np.real(feature_fun(X[[j]])[0])
-        out.append(phi[state_indices].copy())
-        phi = np.real(phi @ K_step)
-    return np.asarray(out)
+    nominal_dt, usable_pairs = nominal_observation_pairs(t)
+    Phi0, Phi1 = Phi[:-1][usable_pairs], Phi[1:][usable_pairs]
+    K = ridge_lstsq(Phi0, Phi1, alpha=alpha)
+    return local_observable_reconstruction(K, Phi, t, t_new, state_indices, nominal_dt)
 
 
-
-def fractional_step_matrix(M: np.ndarray, frac: float) -> np.ndarray:
-    vals, vecs = np.linalg.eig(M)
-    vals = np.where(np.abs(vals) < EPS, EPS + 0j, vals)
-    Mf = vecs @ np.diag(np.exp(frac * np.log(vals))) @ pinv(vecs)
-    return np.real(Mf)
 
 def linear_interp_reconstruct(X: np.ndarray, t: np.ndarray, t_new: np.ndarray) -> np.ndarray:
     """Componentwise piecewise-linear temporal interpolation.
@@ -442,6 +426,126 @@ def _normalized_validation_mse(y_true: np.ndarray, y_pred: np.ndarray, y_train: 
     return float(np.mean(((y_pred - y_true) ** 2) / scale))
 
 
+def parse_gp_kernel_grid(s: str | Sequence[str] | None) -> list[str]:
+    """Return candidate GP kernels for observation-only validation.
+
+    Each specification has the form ``family:length_scale:noise`` in normalized
+    time units.  Supported families are ``rbf``, ``matern32``, ``matern52``, and
+    ``rq``.  The targets are standardized coordinatewise before fitting, so the
+    noise value is dimensionless.
+    """
+    if s is None:
+        vals = [
+            "rbf:0.15:1e-4",
+            "rbf:0.30:1e-3",
+            "matern32:0.30:1e-3",
+            "matern52:0.30:1e-3",
+            "rq:0.30:1e-3",
+        ]
+    elif isinstance(s, str):
+        vals = [x.strip() for x in s.split(',') if x.strip()]
+    else:
+        vals = [str(x).strip() for x in s if str(x).strip()]
+    if not vals:
+        raise ValueError("GP kernel grid must contain at least one kernel specification")
+    return vals
+
+
+def _make_gp_kernel(spec: str):
+    """Create a fixed scikit-learn GP kernel from a compact specification."""
+    try:
+        from sklearn.gaussian_process.kernels import ConstantKernel, Matern, RBF, RationalQuadratic, WhiteKernel
+    except Exception as exc:  # pragma: no cover - only triggered if sklearn is absent
+        raise ImportError("gp_smoothing_cv requires scikit-learn. Install requirements.txt.") from exc
+
+    parts = spec.split(':')
+    family = parts[0].strip().lower()
+    length = float(parts[1]) if len(parts) > 1 and parts[1] else 0.30
+    noise = float(parts[2]) if len(parts) > 2 and parts[2] else 1e-3
+    length = max(length, 1e-6)
+    noise = max(noise, 1e-10)
+
+    if family == "rbf":
+        base = RBF(length_scale=length, length_scale_bounds="fixed")
+    elif family in {"matern32", "matern3/2"}:
+        base = Matern(length_scale=length, length_scale_bounds="fixed", nu=1.5)
+    elif family in {"matern52", "matern5/2"}:
+        base = Matern(length_scale=length, length_scale_bounds="fixed", nu=2.5)
+    elif family in {"rq", "rational_quadratic"}:
+        base = RationalQuadratic(length_scale=length, alpha=1.0, length_scale_bounds="fixed", alpha_bounds="fixed")
+    else:
+        raise ValueError(f"Unknown GP kernel family in specification '{spec}'")
+    return ConstantKernel(1.0, constant_value_bounds="fixed") * base + WhiteKernel(noise_level=noise, noise_level_bounds="fixed")
+
+
+def _normalize_time_for_gp(t: np.ndarray, reference_t: np.ndarray) -> np.ndarray:
+    reference_t = np.asarray(reference_t, dtype=float)
+    scale = max(float(reference_t[-1] - reference_t[0]), EPS)
+    return ((np.asarray(t, dtype=float) - reference_t[0]) / scale).reshape(-1, 1)
+
+
+def _fit_gp_matrix(X: np.ndarray, t: np.ndarray, t_eval: np.ndarray, kernel_spec: str) -> np.ndarray:
+    """Fit independent scalar GP smoothers for each coordinate and evaluate them."""
+    try:
+        from sklearn.gaussian_process import GaussianProcessRegressor
+    except Exception as exc:  # pragma: no cover - only triggered if sklearn is absent
+        raise ImportError("gp_smoothing_cv requires scikit-learn. Install requirements.txt.") from exc
+
+    tt = _normalize_time_for_gp(t, t)
+    te = _normalize_time_for_gp(t_eval, t)
+    kernel = _make_gp_kernel(kernel_spec)
+    out = []
+    for j in range(X.shape[1]):
+        y = np.asarray(X[:, j], dtype=float)
+        mu = float(np.mean(y))
+        sig = max(float(np.std(y)), EPS)
+        y_std = (y - mu) / sig
+        gp = GaussianProcessRegressor(kernel=kernel, alpha=1e-10, optimizer=None, normalize_y=False, copy_X_train=False)
+        gp.fit(tt, y_std)
+        out.append(mu + sig * gp.predict(te))
+    return np.column_stack(out)
+
+
+def select_gp_kernel_cv(
+    X: np.ndarray,
+    t: np.ndarray,
+    kernel_specs: Sequence[str],
+    n_folds: int = 4,
+) -> tuple[str, float, int]:
+    """Select a GP kernel by validation on sparse noisy observations only."""
+    splits = _cv_splits_from_observations(len(t), n_folds)
+    if not splits:
+        return str(kernel_specs[0]), np.nan, 0
+    best_spec, best_score = str(kernel_specs[0]), np.inf
+    for spec in kernel_specs:
+        fold_scores = []
+        for train_idx, val_idx in splits:
+            X_train = X[train_idx]
+            t_train = t[train_idx]
+            try:
+                pred = _fit_gp_matrix(X_train, t_train, t[val_idx], str(spec))
+                if np.all(np.isfinite(pred)):
+                    fold_scores.append(_normalized_validation_mse(X[val_idx], pred, X_train))
+            except Exception:
+                continue
+        score = float(np.mean(fold_scores)) if fold_scores else np.inf
+        if score < best_score - 1e-12:
+            best_spec, best_score = str(spec), score
+    if not np.isfinite(best_score):
+        return str(kernel_specs[0]), np.nan, len(splits)
+    return best_spec, best_score, len(splits)
+
+
+def gp_smoothing_reconstruct_cv(X: np.ndarray, t: np.ndarray, t_new: np.ndarray, args: argparse.Namespace) -> np.ndarray:
+    kernel_specs = parse_gp_kernel_grid(getattr(args, "gp_kernel_grid", None))
+    n_folds = int(getattr(args, "gp_cv_folds", 4))
+    spec, val_score, n_splits = select_gp_kernel_cv(X, t, kernel_specs, n_folds=n_folds)
+    args._last_gp_kernel = spec
+    args._last_gp_cv_error = val_score
+    args._last_gp_cv_folds = n_splits
+    return _fit_gp_matrix(X, t, t_new, kernel_spec=spec)
+
+
 def select_smoothing_spline_alpha_cv(
     X: np.ndarray,
     t: np.ndarray,
@@ -503,6 +607,8 @@ METHOD_LABELS = {
     "smoothing_spline": "Smoothing spline",
     "smoothing_spline_cv": "Tuned smoothing spline",
     "spline": "Smoothing spline",
+    "gp_smoothing_cv": "Tuned GP smoothing",
+    "gaussian_process_cv": "Tuned GP smoothing",
     "edmd_poly3": "EDMD-polynomial",
     "edmd_rbf": "EDMD-RBF",
 }
@@ -510,20 +616,14 @@ DEFAULT_METHODS = ["baseline", "edmd_poly3", "edmd_rbf"]
 
 
 def configure_preset(args: argparse.Namespace) -> argparse.Namespace:
-    if args.preset == "quick":
-        args.dt = 0.01
-        args.sparse_factors = [16, 64]
-        args.noise = [0.0, 0.05, 0.10]
-        args.seeds = [0, 1]
-        args.rbf_centers = 25
-    elif args.preset == "publication":
-        args.dt = 0.005
-        args.sparse_factors = [8, 16, 32, 64]
-        args.noise = [0.0, 0.01, 0.03, 0.05, 0.10]
-        args.seeds = list(range(10))
-        args.rbf_centers = 40
-    else:
-        raise ValueError(args.preset)
+    """Apply defaults only; explicit command-line values take precedence."""
+    presets = {
+        "quick": dict(dt=0.01, sparse_factors=[16, 64], noise=[0.0, 0.05, 0.10], seeds=[0, 1], rbf_centers=25),
+        "publication": dict(dt=0.005, sparse_factors=[8, 16, 32, 64], noise=[0.0, 0.01, 0.03, 0.05, 0.10], seeds=list(range(10)), rbf_centers=40),
+    }
+    for name, value in presets[args.preset].items():
+        if getattr(args, name, None) is None:
+            setattr(args, name, value)
     return args
 
 
@@ -556,6 +656,8 @@ def reconstruct_ode_method(method: str, X_obs: np.ndarray, t_obs: np.ndarray, t_
         return spline_reconstruct(X_obs, t_obs, t_new, rel_noise=noise), t_new
     if method in {"smoothing_spline_cv", "tuned_smoothing_spline"}:
         return spline_reconstruct_cv(X_obs, t_obs, t_new, args=args), t_new
+    if method in {"gp_smoothing_cv", "gaussian_process_cv"}:
+        return gp_smoothing_reconstruct_cv(X_obs, t_obs, t_new, args=args), t_new
     if method == "edmd_poly3":
         return edmd_reconstruct(X_obs, t_obs, t_new, kind="poly", degree=3, var_names=sys.var_names, rng=rng), t_new
     if method == "edmd_rbf":
@@ -609,6 +711,9 @@ def run_benchmark(args: argparse.Namespace) -> Tuple[pd.DataFrame, pd.DataFrame,
             args._last_spline_alpha = np.nan
             args._last_spline_cv_error = np.nan
             args._last_spline_cv_folds = 0
+            args._last_gp_kernel = ""
+            args._last_gp_cv_error = np.nan
+            args._last_gp_cv_folds = 0
             X_use, t_use = reconstruct_ode_method(method, X_obs, t_obs, t_new, sys, rng, args, noise)
             if not np.all(np.isfinite(X_use)) or len(t_use) < 5:
                 raise FloatingPointError("non-finite reconstruction")
@@ -624,7 +729,7 @@ def run_benchmark(args: argparse.Namespace) -> Tuple[pd.DataFrame, pd.DataFrame,
         except Exception as exc:
             f1 = cerr = score = thr = np.nan
             status = f"fail: {type(exc).__name__}: {exc}"
-        row = {"system": sys.name, "method": method, "method_label": METHOD_LABELS.get(method, method), "sparse_factor": sparse_factor, "obs_dt": float(t_obs[1]-t_obs[0]), "noise": noise, "seed": seed, "upsample": args.upsample if method != "baseline" else 1, "spline_alpha": getattr(args, "_last_spline_alpha", np.nan), "spline_cv_error": getattr(args, "_last_spline_cv_error", np.nan), "spline_cv_folds": getattr(args, "_last_spline_cv_folds", 0), "support_f1": f1, "coef_error": cerr, "practical_score": score, "threshold": thr, "status": status}
+        row = {"system": sys.name, "method": method, "method_label": METHOD_LABELS.get(method, method), "sparse_factor": sparse_factor, "obs_dt": float(t_obs[1]-t_obs[0]), "noise": noise, "seed": seed, "upsample": args.upsample if method != "baseline" else 1, "spline_alpha": getattr(args, "_last_spline_alpha", np.nan), "spline_cv_error": getattr(args, "_last_spline_cv_error", np.nan), "spline_cv_folds": getattr(args, "_last_spline_cv_folds", 0), "gp_kernel": getattr(args, "_last_gp_kernel", ""), "gp_cv_error": getattr(args, "_last_gp_cv_error", np.nan), "gp_cv_folds": getattr(args, "_last_gp_cv_folds", 0), "support_f1": f1, "coef_error": cerr, "practical_score": score, "threshold": thr, "status": status}
         rows.append(row)
         if args.verbose:
             print(row, flush=True)
@@ -711,7 +816,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--preset", choices=["quick","publication"], default="quick")
     parser.add_argument("--outdir", default="results_ode")
-    parser.add_argument("--dt", type=float, default=0.005)
+    parser.add_argument("--dt", type=float, default=None)
     parser.add_argument("--sparse-factors", type=str, default=None)
     parser.add_argument("--noise", type=str, default=None)
     parser.add_argument("--seeds", type=str, default=None)
@@ -720,6 +825,8 @@ def main() -> None:
     parser.add_argument("--rbf-centers", type=int, default=None)
     parser.add_argument("--spline-alpha-grid", type=str, default=None, help="Comma-separated dimensionless smoothing levels for tuned smoothing_spline_cv.")
     parser.add_argument("--spline-cv-folds", type=int, default=4, help="Number of deterministic interior folds used to tune smoothing_spline_cv.")
+    parser.add_argument("--gp-kernel-grid", type=str, default=None, help="Comma-separated GP kernel specs family:length_scale:noise for gp_smoothing_cv.")
+    parser.add_argument("--gp-cv-folds", type=int, default=4, help="Number of deterministic interior folds used to tune gp_smoothing_cv.")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-progress", action="store_true")
     parser.add_argument("--verbose", action="store_true")

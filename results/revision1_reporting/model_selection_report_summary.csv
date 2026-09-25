@@ -1,0 +1,9 @@
+setting,system,equation,method,n,true_k,selected_k_min,selected_k_max,selected_k_median,exact_k_count,exact_support_count,f1_mean,coef_error_median
+ODE,vanderpol_mu2,dx/dt,baseline,5,1,1,1,1.0,5,5,1.0,0.0053008308844902
+ODE,vanderpol_mu2,dx/dt,edmd_poly3,5,1,1,1,1.0,5,5,1.0,0.0010078555060117
+ODE,vanderpol_mu2,dy/dt,baseline,5,3,3,3,3.0,5,5,1.0,0.0313064587027758
+ODE,vanderpol_mu2,dy/dt,edmd_poly3,5,3,3,3,3.0,5,5,1.0,0.0045313612532095
+PDE,burgers,u_t,baseline,5,2,2,2,2.0,5,5,1.0,0.0460754579661039
+PDE,burgers,u_t,pod_edmd_rbf,5,2,2,2,2.0,5,5,1.0,0.0186291159752175
+PDE,fisher_kpp,u_t,baseline,5,3,2,5,3.0,3,0,0.6599999999999999,0.058688207508052
+PDE,fisher_kpp,u_t,pod_edmd_rbf,5,3,3,3,3.0,5,5,1.0,0.0107815528962748

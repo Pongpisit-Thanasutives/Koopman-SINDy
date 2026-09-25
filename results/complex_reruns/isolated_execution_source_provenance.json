@@ -1,0 +1,20 @@
+{
+  "execution_stages": [
+    "main_ode",
+    "main_pde",
+    "appendix_c_pod"
+  ],
+  "execution_source_sha256": {
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "4038823a559d543c7b351b56f6768e005a488a224441ab56de91987065a48fd7",
+    "dmd_upsampling_strategy_ablation.py": "7427d8370c68cdee665cb8e29f4efced64f9828cebd05eb45308e25410a89ea6"
+  },
+  "subsequent_change": "Documentation-only clarification in optimized_dmd_latent: the ADE comparator uses restricted real exponents. No function body or numerical expression changed.",
+  "final_package_source_sha256": {
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "a35128f1a94aaa06362936533e27e2a9af32ae22b27bbd7a902fe4ac4b413cef",
+    "dmd_upsampling_strategy_ablation.py": "7427d8370c68cdee665cb8e29f4efced64f9828cebd05eb45308e25410a89ea6"
+  }
+}

@@ -2,7 +2,7 @@
 """
 Targeted ablation of DMD/EDMD temporal upsampling strategies for SINDy/PDE-FIND.
 
-This script compares how a fitted finite-dimensional Koopman/DMD model is used
+This script compares how a fitted finite-dimensional Koopman-based DMD/EDMD model is used
 inside [t_min,t_max]. It does not introduce new discovery methods; it only
 changes the reconstruction strategy after the same DMD/EDMD model has been fit.
 
@@ -20,7 +20,7 @@ The default run is compact and uses the highest sparse/noisy
 setting reported in the paper.
 """
 from __future__ import annotations
-import argparse, os, sys, time, shutil, zipfile
+import argparse, os, sys, time, shutil, zipfile, copy
 from pathlib import Path
 from typing import Dict, Tuple, Sequence
 import numpy as np
@@ -72,6 +72,8 @@ def _obs_indices(t_new: np.ndarray, t_obs: np.ndarray) -> np.ndarray:
 
 def _residual_correct(t_new: np.ndarray, t_obs: np.ndarray, Y_global: np.ndarray, Y_obs: np.ndarray) -> np.ndarray:
     idx = _obs_indices(t_new, t_obs)
+    if not np.allclose(t_new[idx], t_obs, rtol=1e-10, atol=1e-12):
+        raise ValueError("residual correction requires anchor times on the evaluated rollout grid")
     R = Y_obs - Y_global[idx]
     # CubicSpline is stable for the short smooth trajectories here; fall back to linear if needed.
     try:
@@ -82,7 +84,7 @@ def _residual_correct(t_new: np.ndarray, t_obs: np.ndarray, Y_global: np.ndarray
     return Y_global + Rc
 
 
-def _fit_ode_edmd(X: np.ndarray, var_names: Sequence[str], kind: str, degree: int, rng: np.random.Generator, n_centers: int):
+def _fit_ode_edmd(X: np.ndarray, var_names: Sequence[str], kind: str, degree: int, rng: np.random.Generator, n_centers: int, t_obs=None):
     if kind == 'poly':
         Phi, names = ode.polynomial_library(X, var_names, degree=degree)
         state_indices = [names.index(v) for v in var_names]
@@ -94,36 +96,38 @@ def _fit_ode_edmd(X: np.ndarray, var_names: Sequence[str], kind: str, degree: in
         feature_fun = lambda Z: ode.rbf_features(Z, params)
     else:
         raise ValueError(kind)
-    K = ode.ridge_lstsq(Phi[:-1], Phi[1:], alpha=1e-8)
+    usable = np.ones(len(Phi)-1, dtype=bool) if t_obs is None else ode.nominal_observation_pairs(t_obs)[1]
+    K = ode.ridge_lstsq(Phi[:-1][usable], Phi[1:][usable], alpha=1e-8)
     return K, feature_fun, state_indices
 
 
 def _ode_global_rollout(X: np.ndarray, t_obs: np.ndarray, t_new: np.ndarray, var_names, kind: str, degree: int, rng, n_centers: int):
-    K, ffun, state_idx = _fit_ode_edmd(X, var_names, kind, degree, rng, n_centers)
-    dt_obs = t_obs[1] - t_obs[0]
+    K, ffun, state_idx = _fit_ode_edmd(X, var_names, kind, degree, rng, n_centers, t_obs=t_obs)
+    dt_obs = ode.nominal_observation_pairs(t_obs)[0]
     dt_new = t_new[1] - t_new[0]
     Kstep = ode.fractional_step_matrix(K, dt_new / dt_obs)
-    phi = np.real(ffun(X[[0]])[0])
+    phi = np.asarray(ffun(X[[0]])[0], dtype=complex)
     out = []
     for _ in t_new:
-        out.append(phi[state_idx].copy())
-        phi = np.real(phi @ Kstep)
+        out.append(np.real(phi[state_idx]).copy())
+        phi = phi @ Kstep
     return np.asarray(out)
 
 
 def _ode_two_sided(X: np.ndarray, t_obs: np.ndarray, t_new: np.ndarray, var_names, kind: str, degree: int, rng, n_centers: int):
-    K, ffun, state_idx = _fit_ode_edmd(X, var_names, kind, degree, rng, n_centers)
-    dt_obs = t_obs[1] - t_obs[0]
+    K, ffun, state_idx = _fit_ode_edmd(X, var_names, kind, degree, rng, n_centers, t_obs=t_obs)
+    dt_obs = ode.nominal_observation_pairs(t_obs)[0]
     out = []
+    evolution = ode.FractionalEvolution(K)
     for tt in t_new:
         j = np.searchsorted(t_obs, tt, side='right') - 1
         j = int(max(0, min(j, len(t_obs) - 2)))
-        tau = float((tt - t_obs[j]) / dt_obs)
+        tau = float((tt - t_obs[j]) / (t_obs[j + 1] - t_obs[j]))
         tau = min(max(tau, 0.0), 1.0)
-        phi_l = np.real(ffun(X[[j]])[0])
-        phi_r = np.real(ffun(X[[j + 1]])[0])
-        Kf = ode.fractional_step_matrix(K, tau)
-        Kb = ode.fractional_step_matrix(K, -(1.0 - tau))
+        phi_l = np.asarray(ffun(X[[j]])[0], dtype=complex)
+        phi_r = np.asarray(ffun(X[[j + 1]])[0], dtype=complex)
+        Kf = evolution.power(float((tt - t_obs[j]) / dt_obs))
+        Kb = evolution.power(float((tt - t_obs[j + 1]) / dt_obs))
         xf = np.real(phi_l @ Kf)[state_idx]
         xb = np.real(phi_r @ Kb)[state_idx]
         out.append((1.0 - tau) * xf + tau * xb)
@@ -149,7 +153,7 @@ def ode_reconstruct_strategy(X_obs, t_obs, t_new, sys, method, strategy, rng, n_
     raise ValueError(strategy)
 
 
-def _fit_pod_edmd(U, rank, kind, rng, rbf_centers):
+def _fit_pod_edmd(U, rank, kind, rng, rbf_centers, t_obs=None):
     mean, modes, Z = pde.pod_fit(U, rank)
     if kind == 'rbf':
         params = pde.rbf_fit(Z, rbf_centers, rng)
@@ -162,37 +166,40 @@ def _fit_pod_edmd(U, rank, kind, rng, rbf_centers):
         ffun = lambda Y: pde.poly_features(Y, degree=2)
     else:
         raise ValueError(kind)
-    K = np.linalg.solve(Phi[:-1].T @ Phi[:-1] + 1e-8 * np.eye(Phi.shape[1]), Phi[:-1].T @ Phi[1:])
+    usable = np.ones(len(Phi)-1, dtype=bool) if t_obs is None else pde.nominal_observation_pairs(t_obs)[1]
+    left, right = Phi[:-1][usable], Phi[1:][usable]
+    K = np.linalg.solve(left.T @ left + 1e-8 * np.eye(Phi.shape[1]), left.T @ right)
     return mean, modes, Z, K, ffun, state_indices
 
 
 def _pde_global_rollout(U, t_obs, t_new, rank, kind, rng, rbf_centers):
-    mean, modes, Z, K, ffun, state_idx = _fit_pod_edmd(U, rank, kind, rng, rbf_centers)
-    dt_obs = t_obs[1] - t_obs[0]
+    mean, modes, Z, K, ffun, state_idx = _fit_pod_edmd(U, rank, kind, rng, rbf_centers, t_obs=t_obs)
+    dt_obs = pde.nominal_observation_pairs(t_obs)[0]
     dt_new = t_new[1] - t_new[0]
     Kstep = pde.fractional_step_matrix(K, dt_new / dt_obs)
-    phi = np.real(ffun(Z[[0]])[0])
+    phi = np.asarray(ffun(Z[[0]])[0], dtype=complex)
     out = []
     for _ in t_new:
-        out.append(phi[state_idx].copy())
-        phi = np.real(phi @ Kstep)
+        out.append(np.real(phi[state_idx]).copy())
+        phi = phi @ Kstep
     Zrec = np.asarray(out)
     return pde.pod_reconstruct(mean, modes, Zrec)
 
 
 def _pde_two_sided(U, t_obs, t_new, rank, kind, rng, rbf_centers):
-    mean, modes, Z, K, ffun, state_idx = _fit_pod_edmd(U, rank, kind, rng, rbf_centers)
-    dt_obs = t_obs[1] - t_obs[0]
+    mean, modes, Z, K, ffun, state_idx = _fit_pod_edmd(U, rank, kind, rng, rbf_centers, t_obs=t_obs)
+    dt_obs = pde.nominal_observation_pairs(t_obs)[0]
     outZ = []
+    evolution = pde.FractionalEvolution(K)
     for tt in t_new:
         j = np.searchsorted(t_obs, tt, side='right') - 1
         j = int(max(0, min(j, len(t_obs) - 2)))
-        tau = float((tt - t_obs[j]) / dt_obs)
+        tau = float((tt - t_obs[j]) / (t_obs[j + 1] - t_obs[j]))
         tau = min(max(tau, 0.0), 1.0)
-        phi_l = np.real(ffun(Z[[j]])[0])
-        phi_r = np.real(ffun(Z[[j + 1]])[0])
-        Kf = pde.fractional_step_matrix(K, tau)
-        Kb = pde.fractional_step_matrix(K, -(1.0 - tau))
+        phi_l = np.asarray(ffun(Z[[j]])[0], dtype=complex)
+        phi_r = np.asarray(ffun(Z[[j + 1]])[0], dtype=complex)
+        Kf = evolution.power(float((tt - t_obs[j]) / dt_obs))
+        Kb = evolution.power(float((tt - t_obs[j + 1]) / dt_obs))
         zf = np.real(phi_l @ Kf)[state_idx]
         zb = np.real(phi_r @ Kb)[state_idx]
         outZ.append((1.0 - tau) * zf + tau * zb)
@@ -234,8 +241,10 @@ def run(args):
             t_obs, X_obs_true = t_full[idx], X_full[idx]
             X_obs = ode.add_noise(X_obs_true, args.noise, rng)
             t_new = ode.make_tnew(t_obs, args.upsample)
+            shared_rng_state = copy.deepcopy(rng.bit_generator.state)
             for method in ['edmd_poly3','edmd_rbf']:
                 for strategy in strategies:
+                    rng.bit_generator.state = copy.deepcopy(shared_rng_state)
                     try:
                         if strategy == 'baseline':
                             X_use, t_use = X_obs, t_obs
@@ -269,7 +278,9 @@ def run(args):
             t_obs, U_obs_true = t_full[idx], U_full[idx]
             U_obs = pde.add_noise(U_obs_true, args.noise, rng)
             t_new = pde.make_tnew(t_obs, args.upsample)
+            shared_rng_state = copy.deepcopy(rng.bit_generator.state)
             for strategy in strategies:
+                rng.bit_generator.state = copy.deepcopy(shared_rng_state)
                 try:
                     if strategy == 'baseline':
                         U_use, t_use = U_obs, t_obs

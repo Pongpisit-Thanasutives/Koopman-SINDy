@@ -1,0 +1,2 @@
+method,method_label,support_f1_mean,coef_error_median,practical_score_mean
+pod_edmd_rbf,POD-EDMD-RBF,0.774684644059644,0.04218010657916444,0.7125159119138242

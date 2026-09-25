@@ -1,0 +1,3 @@
+system,method,method_label,sparse_factor,obs_dt,noise,seed,upsample,support_f1,coef_error,practical_score,threshold,status,spline_alpha,spline_cv_error,spline_cv_folds,gp_kernel,gp_cv_error,gp_cv_folds,source_file,pod_rank,rank_mode,rank_cv_error,rank_cv_folds,rank_grid,gp_cv_spatial_points,valid
+burgers,pydmd_optdmd,PyDMD optimized DMD,32,0.16,0.1,0,5,,,,,fail: RuntimeError: LinAlgError: SVD did not converge in Linear Least Squares,,,,,,,results/pde_publication/pde_raw_results.csv,0.0,system,,,,,False
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.08,0.03,3,5,,,,,fail: RuntimeError: LinAlgError: SVD did not converge in Linear Least Squares,,,,,,,results/pde_publication/pde_raw_results.csv,0.0,system,,,,,False

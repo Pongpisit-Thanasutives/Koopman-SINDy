@@ -1,0 +1,5 @@
+{
+  "execution_source_sha256": "7427d8370c68cdee665cb8e29f4efced64f9828cebd05eb45308e25410a89ea6",
+  "final_package_source_sha256": "cccdaac3653888c198a50474611a440d9c4f99e4f670783ca523240f6fc71d5a",
+  "subsequent_change": "Added an explicit guard rejecting residual-correction queries whose observation anchors are off the rollout grid. Every reported strategy case uses cropped uniform observations exactly on the dense grid; the guard changes no reported numerical calculation."
+}

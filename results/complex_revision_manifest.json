@@ -1,0 +1,170 @@
+{
+  "python": "3.12.14",
+  "stages": [
+    "main_ode",
+    "main_pde",
+    "advection",
+    "appendix_a",
+    "appendix_c",
+    "model_selection",
+    "fisher_front",
+    "strategy",
+    "finalize"
+  ],
+  "seed_policy": "Original main observation/RBF seeds retained; ADE replays original prior optDMD row draw; Appendix A uses paired stable seeds; strategy uses shared post-noise RNG state across strategies.",
+  "final_package_source_sha256": {
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "a35128f1a94aaa06362936533e27e2a9af32ae22b27bbd7a902fe4ac4b413cef",
+    "dmd_upsampling_strategy_ablation.py": "cccdaac3653888c198a50474611a440d9c4f99e4f670783ca523240f6fc71d5a",
+    "rerun_complex_revision.py": "6957143c531931ef4168852e238c6a8414cbd42e56f7438fea5392bcfffbd091"
+  },
+  "outputs": {
+    "ode_publication/ode_raw_results.csv": {
+      "records": 1200,
+      "sha256": "93e647eaf34fd25a54722e26a6a7cddc0d7a66ae85e7c35eff68720329699ee8",
+      "status_counts": {
+        "ok": 1200
+      },
+      "baseline_records_matching_to_tolerance": 400,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "pde_publication/pde_raw_results.csv": {
+      "records": 960,
+      "sha256": "6dc0025d5fab3273c58b055bdd4719635d2f37cbc730aca848b8cfe127d31fd6",
+      "status_counts": {
+        "ok": 958,
+        "fail: RuntimeError: LinAlgError: SVD did not converge in Linear Least Squares": 2
+      },
+      "baseline_records_matching_to_tolerance": 320,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "advection_diffusion_benchmark/advection_diffusion_raw.csv": {
+      "records": 180,
+      "sha256": "404c84abb7cd3262f74dcf3b87fdd92f069bb30d2a235b9e53e2f41d3ad8501d",
+      "status_counts": {
+        "ok": 180
+      },
+      "baseline_records_matching_to_tolerance": 60,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "qr_sensitivity/qr_sensitivity_raw.csv": {
+      "records": 545,
+      "sha256": "e4f42d1a3226322ae0341d7ceab548dc743e8b751f3c61e7f6e2eebec1c6c975",
+      "status_counts": {
+        "ok": 545
+      },
+      "baseline_records_matching_to_tolerance": 25,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "classical_interpolation_publication/ode/ode_raw_results.csv": {
+      "records": 1600,
+      "sha256": "b0deea152b9e600c48fdf9689d945b5bc4298fc2f9db86704bc5a03e072fde9e",
+      "status_counts": {
+        "ok": 1600
+      },
+      "baseline_records_matching_to_tolerance": 400,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "classical_interpolation_publication/pde/pde_raw_results.csv": {
+      "records": 1920,
+      "sha256": "91a3a16425f7c1fc1c2ac59ee27478ff8c30607d145be9b2de339143d97edb2e",
+      "status_counts": {
+        "ok": 1920
+      },
+      "baseline_records_matching_to_tolerance": 480,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "model_selection_publication/model_selection_selected_by_equation.csv": {
+      "records": 40,
+      "sha256": "c2a0bfbea8d54b69d6b8262c0692852e435731b34220b03112defeef05f87e62",
+      "baseline_records_matching_to_tolerance": 20,
+      "maximum_absolute_baseline_metric_drift": 1.0532799632478884e-10,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "fisher_kpp_front_sensitivity/fisher_kpp_front_raw.csv": {
+      "records": 10,
+      "sha256": "1ad53bf63407016605ddff3e2994af72b8471b5687247f0a530263f22bf2ee2e",
+      "baseline_records_matching_to_tolerance": 5,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    },
+    "upsampling_strategy_publication/upsampling_strategy_raw.csv": {
+      "records": 600,
+      "sha256": "6fb53771361e216629acf3f0f3506a1a4743e1174e7671ab090ecb2c53db8601",
+      "status_counts": {
+        "ok": 600
+      },
+      "baseline_records_matching_to_tolerance": 120,
+      "maximum_absolute_baseline_metric_drift": 0.0,
+      "baseline_comparison_tolerance": {
+        "rtol": 1e-08,
+        "atol": 1e-08
+      }
+    }
+  },
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "kneed": "0.8.6",
+    "tabulate": "0.9.0"
+  },
+  "strategy_execution_source_provenance": {
+    "execution_source_sha256": "7427d8370c68cdee665cb8e29f4efced64f9828cebd05eb45308e25410a89ea6",
+    "final_package_source_sha256": "cccdaac3653888c198a50474611a440d9c4f99e4f670783ca523240f6fc71d5a",
+    "subsequent_change": "Added an explicit guard rejecting residual-correction queries whose observation anchors are off the rollout grid. Every reported strategy case uses cropped uniform observations exactly on the dense grid; the guard changes no reported numerical calculation."
+  },
+  "strategy_archived_baseline_maximum_reexecution_coefficient_error_drift": 1.727764516119834e-05,
+  "isolated_execution_source_provenance": {
+    "execution_stages": [
+      "main_ode",
+      "main_pde",
+      "appendix_c_pod"
+    ],
+    "execution_source_sha256": {
+      "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683",
+      "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+      "koopman_sindy_pde_benchmark.py": "4038823a559d543c7b351b56f6768e005a488a224441ab56de91987065a48fd7",
+      "dmd_upsampling_strategy_ablation.py": "7427d8370c68cdee665cb8e29f4efced64f9828cebd05eb45308e25410a89ea6"
+    },
+    "subsequent_change": "Documentation-only clarification in optimized_dmd_latent: the ADE comparator uses restricted real exponents. No function body or numerical expression changed.",
+    "final_package_source_sha256": {
+      "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683",
+      "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+      "koopman_sindy_pde_benchmark.py": "a35128f1a94aaa06362936533e27e2a9af32ae22b27bbd7a902fe4ac4b413cef",
+      "dmd_upsampling_strategy_ablation.py": "7427d8370c68cdee665cb8e29f4efced64f9828cebd05eb45308e25410a89ea6"
+    }
+  }
+}

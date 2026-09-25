@@ -1,0 +1,508 @@
+{
+  "started_utc": "2026-09-24T12:27:25.345674+00:00",
+  "command": [
+    "revision_weak_comparison.py",
+    "--jobs",
+    "4"
+  ],
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pandas": "2.2.3",
+  "source_sha256": {
+    "revision_weak_comparison.py": "a12ebbcabccb1cb0020651f9be4eba71e0dcbacb159ba1be76b525a9d42bc73c",
+    "weak_integral_library.py": "cb9c307fdfa8753c589b50a5353e979567642990b7ad1de420aa8f6c9cf6edd6",
+    "revision_weak_protocol.json": "ad995f64e4ad1834644655535da987b011a7bfc1f35da2c7c4954a1dc9359ba3",
+    "revision_tv_comparison.py": "5d13d1d1bfb19040f4b44ae7d2785b0ae426d06b7d6a97cc698d151d7a6e49c8",
+    "revision_tv_solver.py": "732341fee0a2d3c5061c9bf2e1be807f63c297679bcd433fc1517993cec34e9f",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "a35128f1a94aaa06362936533e27e2a9af32ae22b27bbd7a902fe4ac4b413cef",
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683"
+  },
+  "protocol": {
+    "study": "Focused compact-test weak SINDy preprocessing comparison",
+    "status": "frozen before any noisy identification outcomes",
+    "systems": {
+      "vanderpol_mu2": {
+        "base_dt": 0.005,
+        "factors": [
+          16,
+          64
+        ],
+        "horizon": 19.84,
+        "time_halfwidth": 1.28,
+        "time_center_stride": 0.32,
+        "n_time_centers": 55,
+        "methods": [
+          "raw_weak",
+          "linear_weak",
+          "edmd_weak",
+          "tv_weak"
+        ],
+        "edmd_dictionary": "all monomials through degree3",
+        "upsample": 5
+      },
+      "burgers": {
+        "base_dt": 0.005,
+        "factors": [
+          8,
+          32
+        ],
+        "horizon": 1.92,
+        "nx": 64,
+        "time_halfwidth": 0.48,
+        "time_center_stride": 0.16,
+        "n_time_centers": 7,
+        "space_halfwidth": "pi/2",
+        "n_space_centers": 16,
+        "pod_rank": 8,
+        "rbf_centers": 30,
+        "upsample": 5,
+        "methods": [
+          "raw_weak",
+          "linear_weak",
+          "edmd_weak",
+          "tv_weak",
+          "pod_weak",
+          "pod_tv_weak"
+        ]
+      }
+    },
+    "noise": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "noise_seed": "seed + 1000*factor + 100000*int(noise*1000)",
+    "noise_scaling": "existing ODE per-coordinate std(ddof=1), PDE global std(ddof=0); all arms share identical noisy array",
+    "records": 60,
+    "method_rows": 300,
+    "test_function": "product over axes of (1-s^2)^4 for |s|<=1, zero elsewhere",
+    "test_windows": "fixed physical supports and deterministic centers, identical across methods and sampling densities; centered at H+j*stride, periodic spatial centers 2*pi*j/16",
+    "quadrature": "analytic integration of nodal-feature piecewise-linear interpolants; tensor-product in space-time; no observation differentiation",
+    "ode_library": "all monomials through total degree3 (10 columns for VdP)",
+    "pde_library": [
+      "1",
+      "u",
+      "u^2",
+      "u_x",
+      "u*u_x=(u^2/2)_x",
+      "u^2*u_x=(u^3/3)_x",
+      "u_xx",
+      "(u^2)_xx"
+    ],
+    "pde_library_change": "The original nuisance u*u_xx is explicitly replaced by (u^2)_xx; all arms share this fully weak library; no direct strong-vs-weak library-matched causal claim",
+    "threshold_selection": "oracle same as original benchmark: maximize (F1/(1+relative coefficient error), F1, -relative coefficient error), first ascending threshold wins exact tie",
+    "ode_thresholds": [
+      0,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0
+    ],
+    "pde_thresholds": [
+      0,
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1,
+      0.3
+    ],
+    "stlsq": "existing solver; column-normalized ridge alpha1e-8, max12 support iterations, thresholds in physical coefficient units",
+    "tv": "reuse revision_tv_comparison.tv_cv: 3 deterministic interior folds; observation-only standardized prediction error; original9 lambda grid; POD refit per training fold; tolerance1e-5; only reconstructed states passed to weak library",
+    "native_grids": "raw,TV,POD,PODTV use observed grid; EDMD and linear-state interpolation use q5 grid. Same physical test supports with analytic nodal-feature-interpolant quadrature on each grid",
+    "reporting": "all planned conditions and seeds, including failures; condition means/SE across5 independent seeds; pooled means, coefficient-error medians; paired score/F1/error changes; no retuning after outcomes",
+    "scope": "controlled compact-test weak-SINDy diagnostic with oracle sparsity tuning, not a reproduction or performance assessment of full Messenger-Bortz WSINDy or PySINDy"
+  },
+  "tasks": [
+    [
+      "vanderpol_mu2",
+      16,
+      0.05,
+      0
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.05,
+      1
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.05,
+      2
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.05,
+      3
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.05,
+      4
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.1,
+      0
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.1,
+      1
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.1,
+      2
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.1,
+      3
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.1,
+      4
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.2,
+      0
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.2,
+      1
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.2,
+      2
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.2,
+      3
+    ],
+    [
+      "vanderpol_mu2",
+      16,
+      0.2,
+      4
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.05,
+      0
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.05,
+      1
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.05,
+      2
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.05,
+      3
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.05,
+      4
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.1,
+      0
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.1,
+      1
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.1,
+      2
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.1,
+      3
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.1,
+      4
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.2,
+      0
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.2,
+      1
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.2,
+      2
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.2,
+      3
+    ],
+    [
+      "vanderpol_mu2",
+      64,
+      0.2,
+      4
+    ],
+    [
+      "burgers",
+      8,
+      0.05,
+      0
+    ],
+    [
+      "burgers",
+      8,
+      0.05,
+      1
+    ],
+    [
+      "burgers",
+      8,
+      0.05,
+      2
+    ],
+    [
+      "burgers",
+      8,
+      0.05,
+      3
+    ],
+    [
+      "burgers",
+      8,
+      0.05,
+      4
+    ],
+    [
+      "burgers",
+      8,
+      0.1,
+      0
+    ],
+    [
+      "burgers",
+      8,
+      0.1,
+      1
+    ],
+    [
+      "burgers",
+      8,
+      0.1,
+      2
+    ],
+    [
+      "burgers",
+      8,
+      0.1,
+      3
+    ],
+    [
+      "burgers",
+      8,
+      0.1,
+      4
+    ],
+    [
+      "burgers",
+      8,
+      0.2,
+      0
+    ],
+    [
+      "burgers",
+      8,
+      0.2,
+      1
+    ],
+    [
+      "burgers",
+      8,
+      0.2,
+      2
+    ],
+    [
+      "burgers",
+      8,
+      0.2,
+      3
+    ],
+    [
+      "burgers",
+      8,
+      0.2,
+      4
+    ],
+    [
+      "burgers",
+      32,
+      0.05,
+      0
+    ],
+    [
+      "burgers",
+      32,
+      0.05,
+      1
+    ],
+    [
+      "burgers",
+      32,
+      0.05,
+      2
+    ],
+    [
+      "burgers",
+      32,
+      0.05,
+      3
+    ],
+    [
+      "burgers",
+      32,
+      0.05,
+      4
+    ],
+    [
+      "burgers",
+      32,
+      0.1,
+      0
+    ],
+    [
+      "burgers",
+      32,
+      0.1,
+      1
+    ],
+    [
+      "burgers",
+      32,
+      0.1,
+      2
+    ],
+    [
+      "burgers",
+      32,
+      0.1,
+      3
+    ],
+    [
+      "burgers",
+      32,
+      0.1,
+      4
+    ],
+    [
+      "burgers",
+      32,
+      0.2,
+      0
+    ],
+    [
+      "burgers",
+      32,
+      0.2,
+      1
+    ],
+    [
+      "burgers",
+      32,
+      0.2,
+      2
+    ],
+    [
+      "burgers",
+      32,
+      0.2,
+      3
+    ],
+    [
+      "burgers",
+      32,
+      0.2,
+      4
+    ]
+  ],
+  "n_tasks": 60,
+  "n_expected_method_rows": 300,
+  "completed_utc": "2026-09-24T12:27:46.301433+00:00",
+  "wall_seconds": 20.957679295999696,
+  "n_method_rows": 300,
+  "n_failed": 0,
+  "sources_unchanged": true,
+  "output_sha256": {
+    "raw_results.csv": "0e4c9c7e671cd1f68f3fda7ec6e5b3726f46831345aa67ab1145d28668bafb36",
+    "coefficients.csv": "a169d2c0130f4dd4289911bff84dc6d6103eb0663ae84194af0dadb2a613e413",
+    "tv_cv.csv": "79fe7df36774cdc769de0c3d20422fe9e694e4c245f477f2798a3ffc311af0c7"
+  }
+}

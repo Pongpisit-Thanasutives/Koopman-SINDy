@@ -1,0 +1,9 @@
+system,method,n,lower_edge,upper_edge,lambda_min,lambda_max
+advection_diffusion,pod_tv_diff,40,1.0,0.0,0.0,10.0
+advection_diffusion,tv_diff,40,1.0,0.0,0.0,10.0
+burgers,pod_tv_diff,40,0.0,0.0,0.01,10.0
+burgers,tv_diff,40,3.0,0.0,0.0,10.0
+fisher_kpp,pod_tv_diff,40,0.0,0.0,0.1,100.0
+fisher_kpp,tv_diff,40,1.0,0.0,0.0,100.0
+lorenz63,tv_diff,40,1.0,0.0,0.0,100.0
+vanderpol_mu2,tv_diff,40,4.0,0.0,0.0,1.0

@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "scope": "Reporting-path regression and isolated standalone reporting; no experiments rerun",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "kneed": "0.8.6"
+  },
+  "path_regression_tests": {
+    "run": 3,
+    "passed": 3
+  },
+  "standalone_reporting": {
+    "passed": true,
+    "invoked_from_outside_checkout": true,
+    "custom_relative_destination_outside_checkout": true,
+    "destination_contains_spaces": true,
+    "required_manuscript_figures": 9,
+    "identical_generated_tex_fragments": [
+      "appendices/appendix_a_qr_sensitivity.tex",
+      "appendices/appendix_c_classical_interpolation.tex",
+      "tables/revision_interpolated_data_figure.tex",
+      "tables/revision_nonoracle_tv_table.tex",
+      "tables/revision_ode_regime_figure.tex",
+      "tables/revision_ode_system.tex",
+      "tables/revision_paired_wins.tex",
+      "tables/revision_pde_regime_figure.tex",
+      "tables/revision_pde_system.tex",
+      "tables/revision_pod_attribution.tex",
+      "tables/revision_strategy_ablation.tex",
+      "tables/revision_tv_high_noise.tex",
+      "tables/revision_weak_comparison.tex"
+    ],
+    "protected_execution_files_unchanged": 34,
+    "unexpected_sibling_latex_source_created": false,
+    "generated_asset_provenance_paths_resolve": true
+  },
+  "release_preservation": {
+    "historical_result_files_unchanged": 249,
+    "unchanged_top_level_python_modules": [
+      "classical_interpolation_baselines.py",
+      "dmd_upsampling_strategy_ablation.py",
+      "koopman_propagation.py",
+      "koopman_sindy_advection_diffusion_benchmark.py",
+      "koopman_sindy_model_selection_experiment.py",
+      "koopman_sindy_ode_benchmark.py",
+      "koopman_sindy_pde_benchmark.py",
+      "koopman_sindy_qr_sensitivity.py",
+      "make_manuscript_figures.py",
+      "rerun_complex_revision.py",
+      "revision_nonoracle_tv.py",
+      "revision_tv_comparison.py",
+      "revision_tv_reporting.py",
+      "revision_tv_solver.py",
+      "revision_weak_comparison.py",
+      "validate_complex_propagation.py",
+      "validate_revision_tv_outputs.py",
+      "validate_revision_weak.py",
+      "weak_integral_library.py"
+    ],
+    "reporting_only_python_changes": [
+      "make_revision1_figures_tables.py",
+      "make_revision_weak_table.py",
+      "regenerate_presentation_assets.py",
+      "sync_revision_outputs.py"
+    ],
+    "numerical_reporting_function_bodies_unchanged_except_output_directory_parameters": true,
+    "weak_table_scientific_loops_unchanged": true
+  },
+  "full_submission_validator": "Historical only; not run against the modified standalone release",
+  "submitted_paper_changed": false,
+  "experiments_rerun": false,
+  "historical_validator_preflight": {
+    "passed": true,
+    "standalone_checkout_rejected_with_scope_message": true,
+    "no_traceback": true
+  },
+  "reporting_cli_help": {
+    "passed": true,
+    "drivers": 3
+  }
+}

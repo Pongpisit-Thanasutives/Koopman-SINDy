@@ -6,8 +6,8 @@ and formats the resulting CSV, Markdown, and LaTeX summaries.  Tuning uses only
 the sparse noisy observations.
 
 Publication-level comparison:
-  ODE: baseline, linear interpolation, tuned smoothing spline, EDMD-polynomial
-  PDE: baseline, linear interpolation, tuned smoothing spline, POD-EDMD-RBF
+  ODE: baseline, linear interpolation, tuned smoothing spline, EDMD-polynomial (optional: --include-gp)
+  PDE: baseline, linear interpolation, tuned smoothing spline, POD-EDMD-RBF (optional: --include-gp)
 
 Typical use:
   python classical_interpolation_baselines.py --preset publication \
@@ -33,11 +33,13 @@ ODE_METHODS = ["baseline", "linear_interp", "smoothing_spline_cv", "edmd_poly3"]
 PDE_METHODS = ["baseline", "linear_interp", "smoothing_spline_cv", "pod_edmd_rbf"]
 
 METHOD_LABELS = {
-    "baseline": "Baseline",
+    "baseline": "Raw FD",
     "linear_interp": "Linear interpolation",
     "smoothing_spline": "Smoothing spline",
     "smoothing_spline_cv": "Tuned smoothing spline",
     "spline": "Smoothing spline",
+    "gp_smoothing_cv": "Tuned GP smoothing",
+    "gaussian_process_cv": "Tuned GP smoothing",
     "edmd_poly3": "EDMD-polynomial",
     "pod_edmd_rbf": "POD-EDMD-RBF",
 }
@@ -63,19 +65,24 @@ def run_benchmarks(args: argparse.Namespace, root: Path) -> None:
     ode_dir.mkdir(parents=True, exist_ok=True)
     pde_dir.mkdir(parents=True, exist_ok=True)
 
+    ode_methods = ODE_METHODS + (["gp_smoothing_cv"] if args.include_gp else [])
+    pde_methods = PDE_METHODS + (["gp_smoothing_cv"] if args.include_gp else [])
     if args.run in {"both", "ode"}:
         cmd = [
             sys.executable,
             "koopman_sindy_ode_benchmark.py",
             "--preset", args.preset,
             "--outdir", str(ode_dir),
-            "--methods", ",".join(ODE_METHODS),
+            "--methods", ",".join(ode_methods),
             "--upsample", str(args.upsample),
             "--checkpoint", str(args.checkpoint),
             "--spline-cv-folds", str(args.spline_cv_folds),
+            "--gp-cv-folds", str(args.gp_cv_folds),
         ]
         if args.spline_alpha_grid:
             cmd.extend(["--spline-alpha-grid", str(args.spline_alpha_grid)])
+        if args.gp_kernel_grid:
+            cmd.extend(["--gp-kernel-grid", str(args.gp_kernel_grid)])
         if args.resume:
             cmd.append("--resume")
         if args.no_progress:
@@ -88,17 +95,22 @@ def run_benchmarks(args: argparse.Namespace, root: Path) -> None:
             "koopman_sindy_pde_benchmark.py",
             "--preset", args.preset,
             "--outdir", str(pde_dir),
-            "--methods", ",".join(PDE_METHODS),
+            "--methods", ",".join(pde_methods),
             "--upsample", str(args.upsample),
             "--checkpoint", str(args.checkpoint),
             "--spline-cv-folds", str(args.spline_cv_folds),
+            "--systems", "burgers,fisher_kpp,advection_diffusion",
             "--rank-mode", args.pde_rank_mode,
             "--rank-cv-folds", str(args.rank_cv_folds),
+            "--gp-cv-folds", str(args.gp_cv_folds),
+            "--gp-cv-spatial-points", str(args.gp_cv_spatial_points),
         ]
         if args.rank_grid:
             cmd.extend(["--rank-grid", str(args.rank_grid)])
         if args.spline_alpha_grid:
             cmd.extend(["--spline-alpha-grid", str(args.spline_alpha_grid)])
+        if args.gp_kernel_grid:
+            cmd.extend(["--gp-kernel-grid", str(args.gp_kernel_grid)])
         if args.resume:
             cmd.append("--resume")
         if args.no_progress:
@@ -115,7 +127,7 @@ def read_raw(path: Path, setting: str) -> pd.DataFrame:
 
 
 def valid_records(df: pd.DataFrame) -> pd.DataFrame:
-    for col in ["spline_alpha", "spline_cv_error", "spline_cv_folds", "pod_rank", "rank_cv_error", "rank_cv_folds"]:
+    for col in ["spline_alpha", "spline_cv_error", "spline_cv_folds", "gp_kernel", "gp_cv_error", "gp_cv_folds", "gp_cv_spatial_points", "pod_rank", "rank_cv_error", "rank_cv_folds"]:
         if col not in df.columns:
             df[col] = np.nan
     ok = df[df["status"] == "ok"].copy()
@@ -139,6 +151,7 @@ def summarize(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
             spline_alpha_median=("spline_alpha", "median"),
             spline_cv_error_median=("spline_cv_error", "median"),
             rank_cv_error_median=("rank_cv_error", "median"),
+            gp_cv_error_median=("gp_cv_error", "median"),
             n_ok=("status", "size"),
         )
     )
@@ -153,6 +166,7 @@ def summarize(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
             spline_alpha_median=("spline_alpha", "median"),
             spline_cv_error_median=("spline_cv_error", "median"),
             rank_cv_error_median=("rank_cv_error", "median"),
+            gp_cv_error_median=("gp_cv_error", "median"),
             n_ok=("status", "size"),
         )
     )
@@ -181,7 +195,7 @@ def summarize(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
 
 
 def ordered_methods(setting: str) -> list[str]:
-    return ODE_METHODS if setting == "ODE" else PDE_METHODS
+    return (ODE_METHODS if setting == "ODE" else PDE_METHODS) + ["gp_smoothing_cv"]
 
 
 def fmt_float(x: float) -> str:
@@ -196,7 +210,7 @@ def latex_fmt(x: float, best: bool) -> str:
 def method_qr_cell(row: pd.Series, method: str, setting: str) -> tuple[str, str]:
     q_cell = "--" if method == "baseline" else str(int(round(float(row.get("upsample_median", 5)))))
     r_val = row.get("pod_rank_median", np.nan)
-    if setting != "PDE" or method in {"baseline", "linear_interp", "smoothing_spline", "smoothing_spline_cv", "spline"} or pd.isna(r_val) or float(r_val) <= 0:
+    if setting != "PDE" or method in {"baseline", "linear_interp", "smoothing_spline", "smoothing_spline_cv", "spline", "gp_smoothing_cv", "gaussian_process_cv"} or pd.isna(r_val) or float(r_val) <= 0:
         r_cell = "--"
     else:
         r_cell = str(int(round(float(r_val))))
@@ -208,7 +222,7 @@ def latex_table(by_system: pd.DataFrame, setting: str, label: str, caption: str)
     methods = ordered_methods(setting)
     systems = [s for s in SYSTEM_LABELS if s in set(d["system"])]
     lines: list[str] = []
-    lines.append(r"\begin{table}[H]")
+    lines.append(r"\begin{table}[!htbp]" if setting == "PDE" else r"\begin{table}[H]")
     lines.append(r"\centering")
     lines.append(rf"\TBL{{\caption{{{caption}\label{{{label}}}}}}}")
     lines.append(r"{%")
@@ -292,17 +306,62 @@ def markdown_table(by_system: pd.DataFrame, setting: str) -> str:
     return "\n".join(lines)
 
 
+def markdown_winrate_table(winrate: pd.DataFrame) -> str:
+    """Format the matched win rates without pandas' optional tabulate dependency."""
+    lines = [
+        "| Setting | Method | Paired cases | F1 win rate | Coefficient-error win rate | Score win rate |",
+        "|---|---|---:|---:|---:|---:|",
+    ]
+    for row in winrate.itertuples(index=False):
+        lines.append(
+            f"| {row.setting} | {row.method_label} | {int(row.paired_cases)} | "
+            f"{fmt_float(row.support_f1_win_rate)} | {fmt_float(row.coef_error_win_rate)} | "
+            f"{fmt_float(row.practical_score_win_rate)} |"
+        )
+    return "\n".join(lines)
+
+
 def build_appendix_fragment(by_system: pd.DataFrame) -> str:
+    def descriptive_winners(setting: str) -> str:
+        """Describe current per-system winners without frozen dominance claims."""
+        blocks = []
+        for system in SYSTEM_LABELS:
+            frame = by_system[(by_system.setting == setting) & (by_system.system == system)]
+            if frame.empty:
+                continue
+            score_best = frame.practical_score_mean.max()
+            error_best = frame.coef_error_median.min()
+            score_names = ", ".join(frame.loc[np.isclose(frame.practical_score_mean,score_best,rtol=0,atol=5e-4), "method_label"])
+            error_names = ", ".join(frame.loc[np.isclose(frame.coef_error_median,error_best,rtol=0,atol=5e-4), "method_label"])
+            blocks.append(f"For {SYSTEM_LABELS[system]}, the highest mean Score is attained by {score_names}; the lowest median coefficient error is attained by {error_names}.")
+        return " ".join(blocks) + " Near-ties use the same numerical tolerance as the table boldface. These comparisons describe the tested grid and metrics, rather than establishing a general ordering of preprocessing methods."
+
+    has_gp = "gp_smoothing_cv" in set(by_system["method"])
+    if has_gp:
+        ode_alt = "Linear interpolation, the validation-tuned smoothing spline, and validation-tuned GP smoothing insert"
+        ode_tuning = "The spline smoothing parameter and GP kernel are selected only from sparse noisy observations."
+        pde_alt = "The linear, validation-tuned smoothing-spline, and validation-tuned GP techniques apply"
+        interp_list = "componentwise smoothing-spline interpolation, componentwise Gaussian-process smoothing, and the main assisted preprocessors"
+        tuning_list = "the smoothing-spline parameter, the GP kernel, and the PDE POD rank $r$"
+    else:
+        ode_alt = "Linear interpolation and the validation-tuned smoothing spline insert"
+        ode_tuning = "The spline smoothing parameter is selected only from sparse noisy observations."
+        pde_alt = "The linear and validation-tuned smoothing-spline techniques apply"
+        interp_list = "componentwise smoothing-spline interpolation, and the main assisted preprocessors"
+        tuning_list = "the smoothing-spline parameter and the PDE POD rank $r$"
+
     ode_caption = (
         "Classical non-dynamical interpolation techniques for the ODE benchmark. "
-        "Linear interpolation and the validation-tuned smoothing spline insert the same number of temporal points as the assisted method "
-        "but do not estimate a flow map or Koopman operator. The spline smoothing parameter is selected only from sparse noisy observations. F1 and Score are means, Coeff. err. is the median, "
+        f"{ode_alt} the same number of temporal points as the assisted method "
+        "but do not estimate a flow map or Koopman operator. "
+        f"{ode_tuning} F1 and Score are means, Coeff. err. is the median, "
         "and boldface marks the best value within each system and metric."
     )
     pde_caption = (
-        "Classical non-dynamical interpolation techniques and observation-validated POD-DMD/Koopman preprocessing for the PDE benchmark. "
-        "The linear and validation-tuned smoothing-spline techniques apply separate temporal interpolants at each spatial grid point, with a single validation-selected smoothing level shared across the field; they do not use POD, DMD, or EDMD. "
-        "For POD-EDMD-RBF, the POD rank $r$ is selected by deterministic interior holdout validation on the sparse noisy snapshots only. "
+        "Classical non-dynamical interpolation techniques and observation-validated Koopman-based preprocessing for the PDE benchmark. "
+        f"{pde_alt} separate temporal interpolants at each spatial grid point, with one validation-selected "
+        + ("smoothing level or kernel" if has_gp else "smoothing level") + " shared across the field; they do not use POD, DMD, or EDMD. "
+        "For POD-EDMD-RBF, the POD rank $r$ is selected by deterministic interior holdout validation on the sparse noisy snapshots only; the displayed $r$ is its median across records. "
         "All non-baseline methods use the same fixed interpolation factor $q$. F1 and Score are means, Coeff. err. is the median, and boldface marks the best value within each system and metric."
     )
     parts = [
@@ -310,19 +369,21 @@ def build_appendix_fragment(by_system: pd.DataFrame) -> str:
         r"\section{Classical non-dynamical interpolation techniques}",
         r"\label{app:classical_interpolation}",
         "",
-        "This appendix evaluates whether the improvements from Koopman/DMD-assisted preprocessing can be explained by inserting additional time points before sparse regression. The comparison focuses on direct non-dynamical alternatives: the no-upsampling baseline, componentwise piecewise-linear interpolation, componentwise smoothing-spline interpolation, and the main assisted preprocessors. The ODE assisted method is EDMD-polynomial. The PDE assisted method is POD-EDMD-RBF.",
+        f"This appendix evaluates whether the improvements from Koopman-based preprocessing can be explained by inserting additional time points before sparse regression. The comparison focuses on direct non-dynamical alternatives: the no-upsampling baseline, componentwise piecewise-linear interpolation, {interp_list}. The ODE assisted method is EDMD-polynomial. The PDE assisted method is POD-EDMD-RBF.",
         "",
-        "The interpolation factor $q$ is fixed across all non-baseline methods rather than tuned by validation, because it controls the output grid resolution used for subsequent derivative estimation. Observation-only validation at the original sparse measurement times cannot identify a preferred dense-grid spacing without using downstream SINDy/PDE-FIND information. In contrast, the smoothing-spline parameter and the PDE POD rank $r$ directly affect reconstruction of held-out sparse noisy measurements, so these parameters are selected by deterministic interior holdout validation using only the observed sparse noisy trajectories or snapshots.",
+        r"The ODE comparison uses the main ODE grid in Table~\ref{tab:settings}. All three PDEs in this appendix, including advection--diffusion, use $n_x=64$, base $\Delta t=0.005$, $T=2$, sparse factors $\{4,8,16,32\}$, noise levels $\{0,0.01,0.03,0.05,0.10\}$, eight seeds, and $q=5$. POD-rank validation uses three interior folds, candidate ranks $\{1,2,3,4,6,8\}$, and at most 30 RBF centres. Spline validation uses four interior folds and the smoothing-parameter grid $\{0,10\}\cup\{10^j,3\cdot10^j:j=-8,\ldots,0\}$.",
         "",
-        "No dense clean trajectory, true coefficient vector, threshold oracle, or downstream SINDy/PDE-FIND score is used to tune any Appendix~C preprocessing parameter. The appendix therefore provides a fair check against the most direct alternative explanation: ordinary temporal interpolation plus classical smoothing. The Appendix-C advection--diffusion comparison follows this grid, which differs from the main advection--diffusion experiment reported in Table~\\ref{tab:pde_system}.",
+        f"The interpolation factor $q$ is fixed across all non-baseline methods rather than tuned by validation, because it controls the output grid resolution used for subsequent derivative estimation. Observation-only validation at the original sparse measurement times cannot identify a preferred dense-grid spacing without using downstream SINDy/PDE-FIND information. In contrast, {tuning_list} directly affect reconstruction of held-out sparse noisy measurements, so these parameters are selected by deterministic interior holdout validation using only the observed sparse noisy trajectories or snapshots.",
+        "",
+        r"The POD basis and RBF centers are fitted using the training observations only. The EDMD map is fitted using training pairs separated by the original observation interval; pairs touching held-out snapshots or spanning a longer gap are excluded. Each held-out snapshot is predicted from the nearest preceding training anchor using the actual elapsed time. No dense clean trajectory, true coefficient vector, threshold oracle, or downstream SINDy/PDE-FIND score is used to tune any Appendix~C preprocessing parameter. The appendix therefore provides a fair check against the most direct alternative explanation: ordinary temporal interpolation plus classical smoothing. The Appendix-C advection--diffusion comparison follows this grid, which differs from the main advection--diffusion experiment reported in Table~\ref{tab:pde_system}.",
         "",
         latex_table(by_system, "ODE", "tab:appendix_c_ode_classical", ode_caption),
         "",
-        "The ODE comparison in Table~\\ref{tab:appendix_c_ode_classical} supports the main conclusion: non-dynamical interpolation improves over the raw sparse baseline, while EDMD-polynomial gives the best score and coefficient accuracy in both ODE systems.",
+        descriptive_winners("ODE"),
         "",
         latex_table(by_system, "PDE", "tab:appendix_c_pde_classical", pde_caption),
         "",
-        "In the PDE comparison in Table~\\ref{tab:appendix_c_pde_classical}, tuned smoothing splines are competitive, especially for coefficient accuracy in some rows, while POD-EDMD-RBF gives the best aggregate PDE practical score and support recovery over the same publication grid. Thus, the improvements in the main benchmark are not explained solely by adding intermediate time points. The PDE results indicate a system-dependent advantage for learned low-rank dynamics rather than a uniform dominance over classical smoothing.",
+        descriptive_winners("PDE"),
         "",
     ]
     return "\n".join(parts)
@@ -354,7 +415,7 @@ def write_outputs(args: argparse.Namespace) -> None:
         "",
         "## Win rate versus no-upsampling baseline",
         "",
-        winrate.to_markdown(index=False, floatfmt=".3f"),
+        markdown_winrate_table(winrate),
         "",
     ]
     (outdir / "appendix_c_classical_interpolation.md").write_text("\n".join(md_parts))
@@ -367,6 +428,7 @@ def main() -> None:
     parser.add_argument("--preset", choices=["quick", "publication"], default="publication")
     parser.add_argument("--outdir", default="results/classical_interpolation_publication")
     parser.add_argument("--run", choices=["both", "ode", "pde"], default="both")
+    parser.add_argument("--include-gp", action="store_true", help="Run optional GP extension; not part of the archived four-method comparison.")
     parser.add_argument("--upsample", type=int, default=5)
     parser.add_argument("--checkpoint", type=int, default=25)
     parser.add_argument(
@@ -380,6 +442,24 @@ def main() -> None:
         type=int,
         default=4,
         help="Number of deterministic interior folds for smoothing_spline_cv tuning.",
+    )
+    parser.add_argument(
+        "--gp-kernel-grid",
+        type=str,
+        default=None,
+        help="Comma-separated GP kernel specs family:length_scale:noise for gp_smoothing_cv.",
+    )
+    parser.add_argument(
+        "--gp-cv-folds",
+        type=int,
+        default=4,
+        help="Number of deterministic interior folds for gp_smoothing_cv tuning.",
+    )
+    parser.add_argument(
+        "--gp-cv-spatial-points",
+        type=int,
+        default=8,
+        help="Number of deterministic spatial grid points used for PDE GP-kernel validation.",
     )
     parser.add_argument(
         "--pde-rank-mode",

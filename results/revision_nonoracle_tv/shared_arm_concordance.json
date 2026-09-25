@@ -1,0 +1,34 @@
+{
+  "n_common_equation_selections": 40,
+  "all_selected_rules_match": true,
+  "checks": {
+    "threshold": {
+      "max_absolute_difference": 0.0,
+      "match": true
+    },
+    "support_size": {
+      "max_absolute_difference": 0.0,
+      "match": true
+    },
+    "support_f1": {
+      "max_absolute_difference": 0.0,
+      "match": true
+    },
+    "coef_error": {
+      "max_absolute_difference": 0.0,
+      "match": true
+    },
+    "rss": {
+      "max_absolute_difference": 0.0,
+      "match": true
+    },
+    "bic": {
+      "max_absolute_difference": 0.0,
+      "match": true
+    },
+    "ebic": {
+      "max_absolute_difference": 0.0,
+      "match": true
+    }
+  }
+}

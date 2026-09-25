@@ -1,0 +1,3 @@
+method,method_label,support_f1_mean,coef_error_median,practical_score_mean
+edmd_poly3,EDMD-polynomial,0.8684673993482227,0.030236193305721352,0.7630287171879447
+edmd_rbf,EDMD-RBF,0.8536758504785104,0.037967001263660885,0.7354800580119047

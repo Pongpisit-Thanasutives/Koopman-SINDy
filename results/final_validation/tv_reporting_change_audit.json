@@ -1,0 +1,18 @@
+{
+  "description": "Independent structural comparison of original executed TV source and current reporting wrapper; no numerical routine or configuration change.",
+  "executed_source_sha256": "ce6f0406bba46d7474c67953b6305d0027ef01f3ed4bb03d019f2507057f667c",
+  "current_source_sha256": "5d13d1d1bfb19040f4b44ae7d2785b0ae426d06b7d6a97cc698d151d7a6e49c8",
+  "unchanged_numeric_function_ast_sha256": {
+    "dataset": "da5beb881f363b39038063bccddd1669131c39918d3bb52e0a6ae15e090e8b6f",
+    "prep_tv": "42093836e676999b88f017a3542d4eec9f1a8bddf5f9a5d2c98202fbc54778a5",
+    "unprep": "428862096077a8d88e5252b82f81faedb5955f9484e46b858174b5a96bc261dd",
+    "tv_cv": "5638d1b5dbce9d32d908b34e3d116d0f07bc792938a7cbf8b8a3595d36605377",
+    "fit_oracle": "2752ec206c3700bc63b2df52cea4b0309ef7eded913b7151fddd52409d93202e",
+    "run_record": "e0c0bdd4bed33484fb49ba6615901edbe73d41f743321531263fe4bfe921015e"
+  },
+  "unchanged_module_excluding_main_and_summarize_ast_sha256": "a55a1b67a5fe7e5349304107fa87faf479350e3d45d4c80a22c9fbbdc7d8ff99",
+  "reviewed_changes": [
+    "summarize delegates saved-data reporting to revision_tv_reporting.summarize",
+    "main default output path is script-relative; no other main changes"
+  ]
+}

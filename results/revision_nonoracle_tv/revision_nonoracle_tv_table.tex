@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\TBL{\caption{Matched non-oracle comparison at 1\% noise using five seeds per equation and method. Selected $k$ gives the support-size range across seeds. Exact support counts require the correct terms, not only the correct size. F1 is the mean and coefficient error is the median after the same EBIC/Pareto selection. TV strength is selected from noisy observations only. Boldface marks the best displayed value within each equation.\label{tab:nonoracle_tv}\label{tab:model_selection}}}
+{\begin{tabular}{@{}llcccc@{}}\toprule
+\TCH{System/equation} & \TCH{Method} & \TCH{Selected $k$} & \TCH{Exact support} & \TCH{F1} & \TCH{Coeff. err.} \\ \midrule
+\multirow{3}{*}{Van der Pol $\dot{x}$} & Raw FD & 1 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & 0.005 \\
+ & Polynomial EDMD & 1 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & $\mathbf{0.001}$ \\
+ & TV & 1 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & 0.005 \\
+\midrule
+\multirow{3}{*}{Van der Pol $\dot{y}$} & Raw FD & 3 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & 0.031 \\
+ & Polynomial EDMD & 3 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & $\mathbf{0.005}$ \\
+ & TV & 3 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & 0.031 \\
+\midrule
+\multirow{4}{*}{Burgers} & Raw FD & 2 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & 0.046 \\
+ & POD-EDMD-RBF & 2 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & 0.019 \\
+ & TV & 2 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & $\mathbf{0.016}$ \\
+ & POD+TV & 2 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & $\mathbf{0.016}$ \\
+\midrule
+\multirow{4}{*}{Fisher--KPP (front)} & Raw FD & 2--5 & 0/5 & 0.660 & 0.059 \\
+ & POD-EDMD-RBF & 3 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & 0.011 \\
+ & TV & 3--5 & 2/5 & 0.779 & 0.061 \\
+ & POD+TV & 3 & $\mathbf{5/5}$ & $\mathbf{1.000}$ & $\mathbf{0.008}$ \\
+\botrule\end{tabular}}
+\end{table}

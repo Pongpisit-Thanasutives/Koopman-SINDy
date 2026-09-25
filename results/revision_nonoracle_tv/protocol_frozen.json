@@ -1,0 +1,88 @@
+{
+  "protocol": {
+    "noise": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "q": 5,
+    "tv_tolerance": 1e-05,
+    "ode_dt": 0.01,
+    "ode_sparse_factor": 8,
+    "ode_system": "vanderpol_mu2",
+    "pde_dt": 0.01,
+    "pde_sparse_factor": 4,
+    "nx": 48,
+    "pde_max_rows": 5000,
+    "burgers_rank": 6,
+    "fisher_rank": 2,
+    "fisher_ic": "front",
+    "rbf_centers": 20,
+    "ebic_gamma": 0.5,
+    "knee_sensitivity": 1.0,
+    "selection_rule": "elbow_ebic",
+    "ode_thresholds": [
+      0.0,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0
+    ],
+    "pde_thresholds": [
+      0.0,
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003,
+      0.001,
+      0.002,
+      0.003,
+      0.005,
+      0.007,
+      0.01,
+      0.013,
+      0.015,
+      0.02,
+      0.03,
+      0.05,
+      0.07,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "tv_grid": [
+      0.0,
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "sampling": "uniform observed intervals and endpoint-inclusive q5 grids; all factors divide horizons",
+    "arms_ode": [
+      "baseline",
+      "edmd_poly3",
+      "tv_diff"
+    ],
+    "arms_pde": [
+      "baseline",
+      "pod_edmd_rbf",
+      "tv_diff",
+      "pod_tv_diff"
+    ],
+    "row_policy": "Original 5000-row PDE cap and record RNG convention; TV/raw grids fall below cap",
+    "purpose": "Focused matched extension of existing non-oracle 1%-noise demonstration; no additional regimes"
+  },
+  "frozen_utc": "2026-09-24T05:32:34Z"
+}

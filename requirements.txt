@@ -1,4 +1,4 @@
-# Pinned dependency set for the Koopman-assisted SINDy/PDE-FIND benchmarks.
+# Pinned dependency set for the Koopman-based and DMD-assisted SINDy/PDE-FIND benchmarks.
 #
 # Provenance: these versions were resolved and import-tested at packaging time
 # (every benchmark module imports cleanly under this set, including

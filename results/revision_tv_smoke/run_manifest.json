@@ -1,0 +1,81 @@
+{
+  "command": "revision_tv_comparison.py --jobs 2 --systems lorenz63,burgers --noise 0.10 --seeds 0 --tol 1e-4 --outdir results/revision_tv_smoke",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pandas": "2.2.3",
+  "config": {
+    "lorenz63": {
+      "kind": "ode",
+      "dt": 0.005,
+      "factors": [
+        16,
+        64
+      ],
+      "rank": 0
+    },
+    "vanderpol_mu2": {
+      "kind": "ode",
+      "dt": 0.005,
+      "factors": [
+        16,
+        64
+      ],
+      "rank": 0
+    },
+    "burgers": {
+      "kind": "pde",
+      "dt": 0.005,
+      "factors": [
+        8,
+        32
+      ],
+      "rank": 8,
+      "nx": 64,
+      "centers": 30
+    },
+    "fisher_kpp": {
+      "kind": "pde",
+      "dt": 0.005,
+      "factors": [
+        8,
+        32
+      ],
+      "rank": 5,
+      "nx": 64,
+      "centers": 30
+    },
+    "advection_diffusion": {
+      "kind": "pde",
+      "dt": 0.01,
+      "factors": [
+        4,
+        16
+      ],
+      "rank": 4,
+      "nx": 48,
+      "centers": 12
+    }
+  },
+  "lambdas": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "tv_tolerance": 0.0001,
+  "seeds": [
+    0
+  ],
+  "noise": [
+    0.1
+  ],
+  "downstream_selection": "oracle STLSQ threshold grid; ground truth excluded from all preprocessing",
+  "tv_cv": "3 deterministic interior folds; endpoints in training; raw PDE uses 8 equally spaced positions; POD refit in each fold",
+  "started_utc": "2026-09-24T04:51:28Z",
+  "elapsed_seconds": 0.9823124129998178,
+  "finished_utc": "2026-09-24T04:51:29Z"
+}

@@ -1,0 +1,32 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "studies": {
+    "appendix_a_records": 545,
+    "appendix_c_corrected_pod_records": 480
+  },
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "scikit-learn": "1.8.0",
+    "pydmd": null,
+    "kneed": null,
+    "SciencePlots": null,
+    "tabulate": null
+  },
+  "appendix_c_formatting": {
+    "runtime": "Python 3.12.14 (same default python as the numerical reruns)",
+    "tabulate_installed": false,
+    "initial_generation": "Updated summary CSVs were written by --skip-run; initial LaTeX used build_appendix_fragment directly and Markdown used the existing markdown_table functions because pandas.to_markdown required absent tabulate",
+    "final_verified_command": "python classical_interpolation_baselines.py --skip-run --outdir results/classical_interpolation_publication",
+    "final_command_exit_status": 0,
+    "final_formatting": "Existing standalone ODE/PDE Markdown formatters plus the added markdown_winrate_table formatter; no tabulate dependency"
+  }
+}

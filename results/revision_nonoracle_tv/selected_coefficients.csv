@@ -1,0 +1,621 @@
+setting,system,method,method_label,seed,noise,sparse_factor,equation,feature,coefficient,true_coefficient
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,y,0.9939632759372803,1.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,x,-0.9980720835072798,-1.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,y,1.9236621224863675,2.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,x*x*y,-1.9363460896453306,-2.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,0,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,y,0.9989921444939882,1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,x,-1.0041276407241517,-1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,y,1.9870481749350906,2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,x*x*y,-2.000109191593561,-2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,0,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,y,0.9939198238677444,1.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,x,-0.9981991768980697,-1.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,y,1.9235692640200055,2.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,x*x*y,-1.9366341301592551,-2.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,0,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,y,0.9956057963841349,1.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,x,-0.9886310702667682,-1.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,y,1.9388333394020654,2.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,x*x*y,-1.929642084478039,-2.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,1,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,y,1.0006952896858545,1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,x,-0.9941891386557371,-1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,y,2.0016754884204193,2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,x*x*y,-1.9921511602962505,-2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,1,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,y,0.9956011744208769,1.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,x,-0.9886341402217548,-1.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,y,1.9388248952863942,2.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,x*x*y,-1.9296848055596825,-2.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,1,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,y,0.99299885092701,1.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,x,-1.002869993250467,-1.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,y,1.947983486829679,2.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,x*x*y,-1.953219527919756,-2.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,2,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,y,0.9979882978395431,1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,x,-1.008850590161049,-1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,y,2.0110682265897366,2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,x*x*y,-2.016490926915068,-2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,2,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,y,0.9929928694822819,1.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,x,-1.0028662279130367,-1.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,y,1.9479194618439506,2.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,x*x*y,-1.9532094827844966,-2.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,2,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,y,0.9959200585789563,1.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,x,-0.9880025145094424,-1.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,y,1.9199263939630717,2.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,x*x*y,-1.915711027085275,-2.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,3,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,y,1.0011250652682835,1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,x,-0.9941286674813742,-1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,y,1.9845206698418327,2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,x*x*y,-1.9801359988866478,-2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,3,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,y,0.9959142156093921,1.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,x,-0.9879962178298586,-1.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,y,1.9198962288606731,2.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,x*x*y,-1.9157222907237121,-2.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,3,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,y,0.9946991691155097,1.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,x,-0.9932127125725528,-1.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,y,1.943777630464691,2.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,x*x*y,-1.9388216340439248,-2.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,baseline,Raw FD,4,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,y,0.9997254128016052,1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,x,-0.9988986129274116,-1.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,y,2.005602750091331,2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,x*x*y,-2.000541733554974,-2.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,edmd_poly3,Polynomial EDMD,4,0.01,8,dy/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,y,0.9946921194062456,1.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,x*x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dx/dt,y*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,1,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,x,-0.9932282887953804,-1.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,y,1.9437939851363273,2.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,x*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,x*x*x,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,x*x*y,-1.9388780924156774,-2.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,x*y*y,0.0,0.0
+ODE,vanderpol_mu2,tv_diff,TV,4,0.01,8,dy/dt,y*y*y,0.0,0.0
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,u*u_x,-0.954842999170806,-1.0
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,u_xx,0.03894603568009475,0.05
+PDE,burgers,baseline,Raw FD,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u*u_x,-0.9781712676411355,-1.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u_xx,0.047602542212746436,0.05
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,u*u_x,-0.9837472161199043,-1.0
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,u_xx,0.04656990720128739,0.05
+PDE,burgers,tv_diff,TV,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,u*u_x,-0.9838074286340367,-1.0
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,u_xx,0.04782202217182255,0.05
+PDE,burgers,pod_tv_diff,POD+TV,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,u*u_x,-0.9564816105794858,-1.0
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,u_xx,0.039230821699490125,0.05
+PDE,burgers,baseline,Raw FD,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u*u_x,-0.9755530565319158,-1.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u_xx,0.04638890528266806,0.05
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,u*u_x,-0.9859053876104013,-1.0
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,u_xx,0.04682711649086135,0.05
+PDE,burgers,tv_diff,TV,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,u*u_x,-0.9843659069808577,-1.0
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,u_xx,0.04775878581726386,0.05
+PDE,burgers,pod_tv_diff,POD+TV,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,u*u_x,-0.9570982922247535,-1.0
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,u_xx,0.039299318906040055,0.05
+PDE,burgers,baseline,Raw FD,2,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u*u_x,-0.9883301397663353,-1.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u_xx,0.048659687866093336,0.05
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,u*u_x,-0.9849644696297799,-1.0
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,u_xx,0.04686525448523162,0.05
+PDE,burgers,tv_diff,TV,2,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,u*u_x,-0.9846039911184438,-1.0
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,u_xx,0.048519512143069966,0.05
+PDE,burgers,pod_tv_diff,POD+TV,2,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,u*u_x,-0.9548105452061548,-1.0
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,u_xx,0.03879152113780099,0.05
+PDE,burgers,baseline,Raw FD,3,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u*u_x,-0.9814573529118524,-1.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u_xx,0.04797965080058858,0.05
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,u*u_x,-0.9834748008969166,-1.0
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,u_xx,0.04650091121796606,0.05
+PDE,burgers,tv_diff,TV,3,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,u*u_x,-0.9825955820362213,-1.0
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,u_xx,0.04803306274746607,0.05
+PDE,burgers,pod_tv_diff,POD+TV,3,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,u*u_x,-0.9552980567189149,-1.0
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,u_xx,0.038598620116502225,0.05
+PDE,burgers,baseline,Raw FD,4,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u*u_x,-0.9820860389269682,-1.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u_xx,0.04790792870751141,0.05
+PDE,burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,u*u_x,-0.984869139449369,-1.0
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,u_xx,0.04617428665453984,0.05
+PDE,burgers,tv_diff,TV,4,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,1,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,u,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,u^2,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,u*u_x,-0.9842984951594471,-1.0
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,u_xx,0.04782610350301061,0.05
+PDE,burgers,pod_tv_diff,POD+TV,4,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,1,0.017629665195641894,0.0
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,u,0.9394811176805153,1.0
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,u^2,-0.9632181327902261,-1.0
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,u*u_x,-0.01382813354301951,0.0
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,u^2*u_x,0.02857363078308936,0.0
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,u_xx,0.0,0.03
+PDE,fisher_kpp,baseline,Raw FD,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u,1.0083041518148435,1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u^2,-1.0152259914768926,-1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u_xx,0.023492736559853823,0.03
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,u,1.0036186548671853,1.0
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,u^2,-1.0067686953072363,-1.0
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,u_xx,0.020389397091171803,0.03
+PDE,fisher_kpp,tv_diff,TV,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,u,1.0047305117755547,1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,u^2,-1.0099483097174884,-1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,u_xx,0.02365425922466898,0.03
+PDE,fisher_kpp,pod_tv_diff,POD+TV,0,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,u,1.022999829875097,1.0
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,u^2,-1.046909142575312,-1.0
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,u_xx,0.0,0.03
+PDE,fisher_kpp,baseline,Raw FD,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u,1.003606108501153,1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u^2,-1.0085683455990668,-1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u_xx,0.024648845917988393,0.03
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,u,1.0107413101050766,1.0
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,u^2,-1.0212969956773095,-1.0
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,u_xx,0.01717355399570471,0.03
+PDE,fisher_kpp,tv_diff,TV,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,u,1.0046800363473203,1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,u^2,-1.0090122304306417,-1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,u_xx,0.025241763074259523,0.03
+PDE,fisher_kpp,pod_tv_diff,POD+TV,1,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,1,0.017602011724640404,0.0
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,u,0.9372469756950305,1.0
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,u^2,-0.9593313240361719,-1.0
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,u_xx,0.0,0.03
+PDE,fisher_kpp,baseline,Raw FD,2,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u,1.0056848203366358,1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u^2,-1.0123560308551944,-1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u_xx,0.02310074622509274,0.03
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,2,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,1,0.014210189919733099,0.0
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,u,0.9391492739989378,1.0
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,u^2,-0.943824654217187,-1.0
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,u_xx,0.011822868917810822,0.03
+PDE,fisher_kpp,tv_diff,TV,2,0.01,4,u_t,u*u_xx,0.010471880181797691,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,u,1.0023250166685875,1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,u^2,-1.0053543558100149,-1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,u_xx,0.025481473557323258,0.03
+PDE,fisher_kpp,pod_tv_diff,POD+TV,2,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,1,0.01894913003704093,0.0
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,u,0.9309945780518778,1.0
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,u^2,-0.9536432939605063,-1.0
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,u_xx,0.0,0.03
+PDE,fisher_kpp,baseline,Raw FD,3,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u,1.0010954707561368,1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u^2,-1.004900150802284,-1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u_xx,0.02251504467394581,0.03
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,3,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,1,0.01942636075526361,0.0
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,u,0.9203461189394515,1.0
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,u^2,-0.9267722253319403,-1.0
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,u_xx,0.0,0.03
+PDE,fisher_kpp,tv_diff,TV,3,0.01,4,u_t,u*u_xx,0.030706684105936164,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,u,1.0024226663386102,1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,u^2,-1.0060784342612115,-1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,u_xx,0.023364260099781344,0.03
+PDE,fisher_kpp,pod_tv_diff,POD+TV,3,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,1,0.018329329362062417,0.0
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,u,0.9362927434696872,1.0
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,u^2,-0.9600358607416004,-1.0
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,u_xx,0.0,0.03
+PDE,fisher_kpp,baseline,Raw FD,4,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u,1.0068187824412484,1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u^2,-1.0137117237163473,-1.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u_xx,0.02364410835296198,0.03
+PDE,fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.01,4,u_t,u*u_xx,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,1,0.01853993874898485,0.0
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,u,0.9261284734921875,1.0
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,u^2,-0.93388067558878,-1.0
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,u_xx,0.0,0.03
+PDE,fisher_kpp,tv_diff,TV,4,0.01,4,u_t,u*u_xx,0.03046702123117917,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,1,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,u,1.0063209613476694,1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,u^2,-1.012749591661395,-1.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,u*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,u^2*u_x,0.0,0.0
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,u_xx,0.023400033357778887,0.03
+PDE,fisher_kpp,pod_tv_diff,POD+TV,4,0.01,4,u_t,u*u_xx,0.0,0.0

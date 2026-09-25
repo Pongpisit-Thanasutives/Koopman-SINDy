@@ -1,131 +1,127 @@
 system,method,method_label,sparse_factor,noise,seed,feature,coef,true_coef
-burgers,baseline,Baseline,4,0.0,0,u*u_x,-0.9994074935966719,-1.0
-burgers,baseline,Baseline,4,0.0,0,u_xx,0.04997630405152662,0.05
-burgers,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u*u_x,-0.9945350119835479,-1.0
-burgers,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u_xx,0.04966132744557249,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u*u_x,-0.9975525544672402,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_xx,0.049620609397821744,0.05
+burgers,baseline,Baseline,4,0.0,0,u*u_x,-0.999407493596672,-1.0
+burgers,baseline,Baseline,4,0.0,0,u_xx,0.0499763040515266,0.05
+burgers,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u*u_x,-0.994535011983548,-1.0
+burgers,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u_xx,0.0496613274455724,0.05
 burgers,baseline,Baseline,4,0.1,0,u*u_x,-0.3069024999963273,-1.0
 burgers,baseline,Baseline,4,0.1,0,u_xx,0.0,0.05
 burgers,pydmd_optdmd,PyDMD optimized DMD,4,0.1,0,u*u_x,-0.72392891993812,-1.0
 burgers,pydmd_optdmd,PyDMD optimized DMD,4,0.1,0,u_xx,0.0,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u*u_x,-0.6354070948658516,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_xx,0.0,0.05
-burgers,baseline,Baseline,8,0.0,0,u*u_x,-0.9976286300098187,-1.0
-burgers,baseline,Baseline,8,0.0,0,u_xx,0.04990799463748978,0.05
+burgers,baseline,Baseline,8,0.0,0,u*u_x,-0.9976286300098188,-1.0
+burgers,baseline,Baseline,8,0.0,0,u_xx,0.0499079946374897,0.05
 burgers,pydmd_optdmd,PyDMD optimized DMD,8,0.0,0,u*u_x,-0.9950012898540894,-1.0
-burgers,pydmd_optdmd,PyDMD optimized DMD,8,0.0,0,u_xx,0.049797255992581745,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u*u_x,-0.9978261947903716,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_xx,0.04978677833785191,0.05
-burgers,baseline,Baseline,8,0.1,0,u,-0.10253554185901526,0.0
-burgers,baseline,Baseline,8,0.1,0,u*u_x,-0.28326712242817703,-1.0
+burgers,pydmd_optdmd,PyDMD optimized DMD,8,0.0,0,u_xx,0.0497972559925817,0.05
+burgers,baseline,Baseline,8,0.1,0,u,-0.1025355418590152,0.0
+burgers,baseline,Baseline,8,0.1,0,u*u_x,-0.283267122428177,-1.0
 burgers,baseline,Baseline,8,0.1,0,u_xx,0.0,0.05
 burgers,pydmd_optdmd,PyDMD optimized DMD,8,0.1,0,u*u_x,-0.6371275381404465,-1.0
 burgers,pydmd_optdmd,PyDMD optimized DMD,8,0.1,0,u_xx,0.0,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u*u_x,-0.24699232571191368,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_xx,0.0,0.05
-burgers,baseline,Baseline,16,0.0,0,u*u_x,-0.9905399862130951,-1.0
-burgers,baseline,Baseline,16,0.0,0,u_xx,0.04965678173744938,0.05
-burgers,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u*u_x,-0.9954332697016125,-1.0
-burgers,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u_xx,0.049966173613284565,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u*u_x,-0.9978556531417043,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_xx,0.04999230437673759,0.05
-burgers,baseline,Baseline,16,0.1,0,u*u_x,-0.22482599436290887,-1.0
+burgers,baseline,Baseline,16,0.0,0,u*u_x,-0.9905399862130952,-1.0
+burgers,baseline,Baseline,16,0.0,0,u_xx,0.0496567817374493,0.05
+burgers,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u*u_x,-0.9954332697016124,-1.0
+burgers,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u_xx,0.0499661736132845,0.05
+burgers,baseline,Baseline,16,0.1,0,u*u_x,-0.2248259943629088,-1.0
 burgers,baseline,Baseline,16,0.1,0,u_xx,0.0,0.05
 burgers,pydmd_optdmd,PyDMD optimized DMD,16,0.1,0,u*u_x,-0.5202120670774962,-1.0
 burgers,pydmd_optdmd,PyDMD optimized DMD,16,0.1,0,u_xx,0.0,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u*u_x,-0.3568728057931046,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_xx,0.0,0.05
-burgers,baseline,Baseline,32,0.0,0,u*u_x,-0.9637607823625445,-1.0
-burgers,baseline,Baseline,32,0.0,0,u_xx,0.04710094718914288,0.05
-burgers,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u*u_x,-0.9949971280693275,-1.0
-burgers,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u_xx,0.05017094948061014,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u*u_x,-0.9949134509288713,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_xx,0.04967489785115193,0.05
+burgers,baseline,Baseline,32,0.0,0,u*u_x,-0.9637607823625444,-1.0
+burgers,baseline,Baseline,32,0.0,0,u_xx,0.0471009471891428,0.05
+burgers,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u*u_x,-0.9949971280693276,-1.0
+burgers,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u_xx,0.0501709494806101,0.05
 burgers,baseline,Baseline,32,0.1,0,u*u_x,-0.2832212693052205,-1.0
 burgers,baseline,Baseline,32,0.1,0,u_xx,0.0,0.05
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,1,0.0053291920484482575,0.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u,-0.10782128191860285,0.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u^2,0.012977099658643987,0.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_x,0.0029197440914896272,0.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u*u_x,-0.006279414943470779,-1.0
-burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_xx,-0.0001417191623434309,0.05
 fisher_kpp,baseline,Baseline,4,0.0,0,u,1.0000519038072138,1.0
 fisher_kpp,baseline,Baseline,4,0.0,0,u^2,-1.000130204210598,-1.0
-fisher_kpp,baseline,Baseline,4,0.0,0,u_xx,0.029892069047047692,0.03
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u,0.9999585325000211,1.0
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u^2,-0.9999293942351853,-1.0
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u_xx,0.029988845656414163,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u,1.0000698237824694,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u^2,-1.0001377346966833,-1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_xx,0.029895050153255394,0.03
-fisher_kpp,baseline,Baseline,4,0.1,0,u,1.0161839144773719,1.0
+fisher_kpp,baseline,Baseline,4,0.0,0,u_xx,0.0298920690470476,0.03
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u,0.9999585325000212,1.0
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u^2,-0.9999293942351852,-1.0
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.0,0,u_xx,0.0299888456564141,0.03
+fisher_kpp,baseline,Baseline,4,0.1,0,u,1.016183914477372,1.0
 fisher_kpp,baseline,Baseline,4,0.1,0,u^2,-1.0274829861626582,-1.0
 fisher_kpp,baseline,Baseline,4,0.1,0,u_xx,0.0,0.03
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.1,0,u,1.0287918814473063,1.0
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.1,0,u,1.0287918814473065,1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.1,0,u^2,-1.0577595190265048,-1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,4,0.1,0,u_xx,0.0,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,1,0.013816668799077388,0.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u,0.9328856059593643,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u^2,-0.9235570714722189,-1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_x,-0.3574570042945135,0.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u*u_x,2.439800270010345,0.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u^2*u_x,-3.3293318311953297,0.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_xx,0.002081057741430152,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u*u_xx,-0.0013061935489227497,0.0
 fisher_kpp,baseline,Baseline,8,0.0,0,u,0.999968811989621,1.0
 fisher_kpp,baseline,Baseline,8,0.0,0,u^2,-1.0000380941447016,-1.0
-fisher_kpp,baseline,Baseline,8,0.0,0,u_xx,0.02989710487769305,0.03
+fisher_kpp,baseline,Baseline,8,0.0,0,u_xx,0.029897104877693,0.03
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,8,0.0,0,u,1.0000199953897464,1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,8,0.0,0,u^2,-1.0000436272032376,-1.0
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,8,0.0,0,u_xx,0.02997305592935222,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u,1.0000694377805368,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u^2,-1.0001449079583178,-1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_xx,0.029896785842497064,0.03
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,8,0.0,0,u_xx,0.0299730559293522,0.03
 fisher_kpp,baseline,Baseline,8,0.1,0,u,1.0068535842658013,1.0
-fisher_kpp,baseline,Baseline,8,0.1,0,u^2,-1.0201049406515459,-1.0
+fisher_kpp,baseline,Baseline,8,0.1,0,u^2,-1.020104940651546,-1.0
 fisher_kpp,baseline,Baseline,8,0.1,0,u_xx,0.0,0.03
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,8,0.1,0,u,1.0118647973135593,1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,8,0.1,0,u^2,-1.0303713027669952,-1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,8,0.1,0,u_xx,0.0,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u,1.0014567633321183,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u^2,-1.0067420795573183,-1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u*u_x,0.39648930641842656,0.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u^2*u_x,-0.9271271120386239,0.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_xx,0.0,0.03
-fisher_kpp,baseline,Baseline,16,0.0,0,u,0.9996333438217043,1.0
-fisher_kpp,baseline,Baseline,16,0.0,0,u^2,-0.9996644889765283,-1.0
-fisher_kpp,baseline,Baseline,16,0.0,0,u_xx,0.02991894746343928,0.03
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u,0.9999977570451941,1.0
+fisher_kpp,baseline,Baseline,16,0.0,0,u,0.9996333438217044,1.0
+fisher_kpp,baseline,Baseline,16,0.0,0,u^2,-0.9996644889765284,-1.0
+fisher_kpp,baseline,Baseline,16,0.0,0,u_xx,0.0299189474634392,0.03
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u,0.999997757045194,1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u^2,-1.0000108451802188,-1.0
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u_xx,0.029983770436853158,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u,1.0000591769173945,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u^2,-1.000136063220145,-1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_xx,0.02989640684543117,0.03
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.0,0,u_xx,0.0299837704368531,0.03
 fisher_kpp,baseline,Baseline,16,0.1,0,u,1.0059319576937726,1.0
 fisher_kpp,baseline,Baseline,16,0.1,0,u^2,-1.0059451750923347,-1.0
 fisher_kpp,baseline,Baseline,16,0.1,0,u_xx,0.0,0.03
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.1,0,u,0.9964796015333809,1.0
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.1,0,u,0.9964796015333808,1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.1,0,u^2,-0.9881608800526096,-1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,16,0.1,0,u_xx,0.0,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u,0.9934868550369949,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u^2,-0.9850211773485447,-1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_xx,0.0,0.03
-fisher_kpp,baseline,Baseline,32,0.0,0,u,0.9954176167981941,1.0
+fisher_kpp,baseline,Baseline,32,0.0,0,u,0.995417616798194,1.0
 fisher_kpp,baseline,Baseline,32,0.0,0,u^2,-0.992054647682109,-1.0
-fisher_kpp,baseline,Baseline,32,0.0,0,u_xx,0.030299081543986892,0.03
+fisher_kpp,baseline,Baseline,32,0.0,0,u_xx,0.0302990815439868,0.03
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u,0.9999353872958616,1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u^2,-0.9999338583374604,-1.0
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u_xx,0.029994740374905113,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u,0.9976469496315216,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u^2,-0.9933266841922912,-1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_xx,0.03110229744070855,0.03
-fisher_kpp,baseline,Baseline,32,0.1,0,u,1.0115298399194945,1.0
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.0,0,u_xx,0.0299947403749051,0.03
+fisher_kpp,baseline,Baseline,32,0.1,0,u,1.0115298399194943,1.0
 fisher_kpp,baseline,Baseline,32,0.1,0,u^2,-1.0197972099511097,-1.0
 fisher_kpp,baseline,Baseline,32,0.1,0,u_xx,0.0,0.03
-fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.1,0,u,1.0132464651109325,1.0
+fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.1,0,u,1.0132464651109323,1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.1,0,u^2,-1.024375175965375,-1.0
 fisher_kpp,pydmd_optdmd,PyDMD optimized DMD,32,0.1,0,u_xx,0.0,0.03
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u,1.0382477353293678,1.0
-fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u^2,-1.059948019862258,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u*u_x,-0.9975525544670616,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_xx,0.0496206093973894,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u*u_x,-0.6608330944797296,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_xx,0.0,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u*u_x,-0.9978261947868244,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_xx,0.0497867783380186,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u*u_x,-0.2858711912964037,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_xx,0.0,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u*u_x,-0.9978556444557392,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_xx,0.049992302271171,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u*u_x,-0.3568740097841267,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_xx,0.0,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u*u_x,-0.9959827011803748,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_xx,0.0501087735355508,0.05
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u*u_x,-0.3438113699408185,-1.0
+burgers,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_xx,0.0,0.05
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u,1.000271214289112,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u^2,-1.0005480822123949,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.0,0,u_xx,0.0296154263349892,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,1,0.0137056065407386,0.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u,0.9332949218732568,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u^2,-0.9226124891176112,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_x,-0.3747706254186629,0.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u*u_x,2.4855025707219243,0.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u^2*u_x,-3.2973458918445,0.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u_xx,0.0026768533958667,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,4,0.1,0,u*u_xx,-0.002968731089382,0.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u,1.0002576675971218,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u^2,-1.0005254515552535,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.0,0,u_xx,0.0296364786343089,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u,1.0039205981064825,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u^2,-1.0118431373539858,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u*u_x,0.479499010911979,0.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u^2*u_x,-1.1041646794231812,0.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,8,0.1,0,u_xx,0.0,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u,1.000198858022073,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u^2,-1.0004180711858872,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.0,0,u_xx,0.0297072774167995,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u,0.9924536835487102,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u^2,-0.9828803016035642,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,16,0.1,0,u_xx,0.0,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u,1.0001799824574171,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u^2,-1.0004547227081693,-1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.0,0,u_xx,0.0296422639681111,0.03
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u,1.0149956048042543,1.0
+fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u^2,-1.0158106679805308,-1.0
 fisher_kpp,pod_edmd_rbf,POD-EDMD-RBF,32,0.1,0,u_xx,0.0,0.03

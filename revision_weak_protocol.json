@@ -1,0 +1,112 @@
+{
+  "study": "Focused compact-test weak SINDy preprocessing comparison",
+  "status": "frozen before any noisy identification outcomes",
+  "systems": {
+    "vanderpol_mu2": {
+      "base_dt": 0.005,
+      "factors": [
+        16,
+        64
+      ],
+      "horizon": 19.84,
+      "time_halfwidth": 1.28,
+      "time_center_stride": 0.32,
+      "n_time_centers": 55,
+      "methods": [
+        "raw_weak",
+        "linear_weak",
+        "edmd_weak",
+        "tv_weak"
+      ],
+      "edmd_dictionary": "all monomials through degree3",
+      "upsample": 5
+    },
+    "burgers": {
+      "base_dt": 0.005,
+      "factors": [
+        8,
+        32
+      ],
+      "horizon": 1.92,
+      "nx": 64,
+      "time_halfwidth": 0.48,
+      "time_center_stride": 0.16,
+      "n_time_centers": 7,
+      "space_halfwidth": "pi/2",
+      "n_space_centers": 16,
+      "pod_rank": 8,
+      "rbf_centers": 30,
+      "upsample": 5,
+      "methods": [
+        "raw_weak",
+        "linear_weak",
+        "edmd_weak",
+        "tv_weak",
+        "pod_weak",
+        "pod_tv_weak"
+      ]
+    }
+  },
+  "noise": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "noise_seed": "seed + 1000*factor + 100000*int(noise*1000)",
+  "noise_scaling": "existing ODE per-coordinate std(ddof=1), PDE global std(ddof=0); all arms share identical noisy array",
+  "records": 60,
+  "method_rows": 300,
+  "test_function": "product over axes of (1-s^2)^4 for |s|<=1, zero elsewhere",
+  "test_windows": "fixed physical supports and deterministic centers, identical across methods and sampling densities; centered at H+j*stride, periodic spatial centers 2*pi*j/16",
+  "quadrature": "analytic integration of nodal-feature piecewise-linear interpolants; tensor-product in space-time; no observation differentiation",
+  "ode_library": "all monomials through total degree3 (10 columns for VdP)",
+  "pde_library": [
+    "1",
+    "u",
+    "u^2",
+    "u_x",
+    "u*u_x=(u^2/2)_x",
+    "u^2*u_x=(u^3/3)_x",
+    "u_xx",
+    "(u^2)_xx"
+  ],
+  "pde_library_change": "The original nuisance u*u_xx is explicitly replaced by (u^2)_xx; all arms share this fully weak library; no direct strong-vs-weak library-matched causal claim",
+  "threshold_selection": "oracle same as original benchmark: maximize (F1/(1+relative coefficient error), F1, -relative coefficient error), first ascending threshold wins exact tie",
+  "ode_thresholds": [
+    0,
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1,
+    0.3,
+    1.0
+  ],
+  "pde_thresholds": [
+    0,
+    1e-05,
+    3e-05,
+    0.0001,
+    0.0003,
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1,
+    0.3
+  ],
+  "stlsq": "existing solver; column-normalized ridge alpha1e-8, max12 support iterations, thresholds in physical coefficient units",
+  "tv": "reuse revision_tv_comparison.tv_cv: 3 deterministic interior folds; observation-only standardized prediction error; original9 lambda grid; POD refit per training fold; tolerance1e-5; only reconstructed states passed to weak library",
+  "native_grids": "raw,TV,POD,PODTV use observed grid; EDMD and linear-state interpolation use q5 grid. Same physical test supports with analytic nodal-feature-interpolant quadrature on each grid",
+  "reporting": "all planned conditions and seeds, including failures; condition means/SE across5 independent seeds; pooled means, coefficient-error medians; paired score/F1/error changes; no retuning after outcomes",
+  "scope": "controlled compact-test weak-SINDy diagnostic with oracle sparsity tuning, not a reproduction or performance assessment of full Messenger-Bortz WSINDy or PySINDy"
+}

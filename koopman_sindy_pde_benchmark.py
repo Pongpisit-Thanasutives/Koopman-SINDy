@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Koopman/DMD upsampling benchmark for PDE-FIND/SINDy on three PDEs.
+Koopman-based DMD/EDMD upsampling benchmark for PDE-FIND/SINDy on three PDEs.
 
 Systems: periodic Burgers, Fisher-KPP/reaction-diffusion, and advection-diffusion.
-Question: Does a DMD/Koopman temporal interpolation-denoising step improve PDE-FIND
+Question: Does a Koopman-based DMD/EDMD temporal interpolation-denoising step improve PDE-FIND
 relative to using sparse noisy snapshots directly?
 
 Dependencies: numpy, scipy, pandas, matplotlib.
 No PySINDy dependency; PDE-FIND regression and spectral derivatives are implemented here.
 
 Typical runs:
-  python koopman_sindy_pde_benchmark.py --quick
+  python koopman_sindy_pde_benchmark.py --preset quick
   python koopman_sindy_pde_benchmark.py --seeds 0,1,2 --noise 0,0.01,0.03,0.05,0.10 --sparse-factors 5,10,20
 
 Outputs are written to --outdir:
@@ -36,6 +36,9 @@ from scipy.linalg import expm, logm, pinv, sqrtm, svd
 from scipy.interpolate import UnivariateSpline
 from scipy.optimize import least_squares
 import matplotlib.pyplot as plt
+
+from koopman_propagation import (FractionalEvolution, fractional_step_matrix,
+                                 nominal_observation_pairs, local_observable_reconstruction)
 
 EPS = 1e-12
 
@@ -341,17 +344,6 @@ def linear_operator_local_reconstruct(A: np.ndarray, Z_obs: np.ndarray, t_obs: n
 
 
 
-def fractional_step_matrix(M: np.ndarray, frac: float) -> np.ndarray:
-    """Fast approximate fractional matrix power via eigendecomposition.
-
-    This is used for EDMD interpolation; it is much faster than logm/expm for
-    noisy, moderately large observable matrices.
-    """
-    vals, vecs = np.linalg.eig(M)
-    vals = np.where(np.abs(vals) < EPS, EPS + 0j, vals)
-    Mf = vecs @ np.diag(np.exp(frac * np.log(vals))) @ pinv(vecs)
-    return np.real(Mf)
-
 def pod_dmd_reconstruct(U: np.ndarray, t_obs: np.ndarray, t_new: np.ndarray, rank: int) -> np.ndarray:
     mean, modes, Z = pod_fit(U, rank)
     Z1, Z2 = Z[:-1].T, Z[1:].T
@@ -448,6 +440,142 @@ def _normalized_validation_mse(y_true: np.ndarray, y_pred: np.ndarray, y_train: 
     return float(np.mean(((y_pred - y_true) ** 2) / scale))
 
 
+def parse_gp_kernel_grid(s: str | Sequence[str] | None) -> list[str]:
+    """Return candidate GP kernels for observation-only validation.
+
+    Each specification has the form ``family:length_scale:noise`` in normalized
+    time units. Supported families are ``rbf``, ``matern32``, ``matern52``, and
+    ``rq``. Targets are standardized before fitting, so the noise level is
+    dimensionless.
+    """
+    if s is None:
+        vals = [
+            "rbf:0.15:1e-4",
+            "rbf:0.30:1e-3",
+            "matern32:0.30:1e-3",
+            "matern52:0.30:1e-3",
+            "rq:0.30:1e-3",
+        ]
+    elif isinstance(s, str):
+        vals = [x.strip() for x in s.split(',') if x.strip()]
+    else:
+        vals = [str(x).strip() for x in s if str(x).strip()]
+    if not vals:
+        raise ValueError("GP kernel grid must contain at least one kernel specification")
+    return vals
+
+
+def _make_gp_kernel(spec: str):
+    try:
+        from sklearn.gaussian_process.kernels import ConstantKernel, Matern, RBF, RationalQuadratic, WhiteKernel
+    except Exception as exc:  # pragma: no cover
+        raise ImportError("gp_smoothing_cv requires scikit-learn. Install requirements.txt.") from exc
+
+    parts = spec.split(':')
+    family = parts[0].strip().lower()
+    length = float(parts[1]) if len(parts) > 1 and parts[1] else 0.30
+    noise = float(parts[2]) if len(parts) > 2 and parts[2] else 1e-3
+    length = max(length, 1e-6)
+    noise = max(noise, 1e-10)
+    if family == "rbf":
+        base = RBF(length_scale=length, length_scale_bounds="fixed")
+    elif family in {"matern32", "matern3/2"}:
+        base = Matern(length_scale=length, length_scale_bounds="fixed", nu=1.5)
+    elif family in {"matern52", "matern5/2"}:
+        base = Matern(length_scale=length, length_scale_bounds="fixed", nu=2.5)
+    elif family in {"rq", "rational_quadratic"}:
+        base = RationalQuadratic(length_scale=length, alpha=1.0, length_scale_bounds="fixed", alpha_bounds="fixed")
+    else:
+        raise ValueError(f"Unknown GP kernel family in specification '{spec}'")
+    return ConstantKernel(1.0, constant_value_bounds="fixed") * base + WhiteKernel(noise_level=noise, noise_level_bounds="fixed")
+
+
+def _normalize_time_for_gp(t: np.ndarray, reference_t: np.ndarray) -> np.ndarray:
+    reference_t = np.asarray(reference_t, dtype=float)
+    scale = max(float(reference_t[-1] - reference_t[0]), EPS)
+    return ((np.asarray(t, dtype=float) - reference_t[0]) / scale).reshape(-1, 1)
+
+
+def _fit_temporal_gp_matrix(U: np.ndarray, t_obs: np.ndarray, t_eval: np.ndarray, kernel_spec: str) -> np.ndarray:
+    """Fit independent scalar GP smoothers at each spatial grid point."""
+    try:
+        from sklearn.gaussian_process import GaussianProcessRegressor
+    except Exception as exc:  # pragma: no cover
+        raise ImportError("gp_smoothing_cv requires scikit-learn. Install requirements.txt.") from exc
+
+    tt = _normalize_time_for_gp(t_obs, t_obs)
+    te = _normalize_time_for_gp(t_eval, t_obs)
+    kernel = _make_gp_kernel(kernel_spec)
+    cols = []
+    for j in range(U.shape[1]):
+        y = np.asarray(U[:, j], dtype=float)
+        mu = float(np.mean(y))
+        sig = max(float(np.std(y)), EPS)
+        y_std = (y - mu) / sig
+        gp = GaussianProcessRegressor(kernel=kernel, alpha=1e-10, optimizer=None, normalize_y=False, copy_X_train=False)
+        gp.fit(tt, y_std)
+        cols.append(mu + sig * gp.predict(te))
+    return np.column_stack(cols)
+
+
+def _gp_validation_spatial_indices(n_space: int, max_points: int) -> np.ndarray:
+    max_points = int(max(1, min(max_points, n_space)))
+    if max_points >= n_space:
+        return np.arange(n_space)
+    return np.unique(np.round(np.linspace(0, n_space - 1, max_points)).astype(int))
+
+
+def select_temporal_gp_kernel_cv(
+    U: np.ndarray,
+    t_obs: np.ndarray,
+    kernel_specs: Sequence[str],
+    n_folds: int = 3,
+    max_spatial_points: int = 8,
+) -> tuple[str, float, int, int]:
+    """Select a GP kernel from sparse noisy snapshots using interior holdout.
+
+    Validation uses a deterministic subset of spatial grid points for speed.
+    The selected kernel is then refit independently at every spatial grid point.
+    """
+    splits = _cv_splits_from_observations(len(t_obs), n_folds)
+    cols = _gp_validation_spatial_indices(U.shape[1], max_spatial_points)
+    if not splits:
+        return str(kernel_specs[0]), np.nan, 0, len(cols)
+    best_spec, best_score = str(kernel_specs[0]), np.inf
+    U_sub = U[:, cols]
+    for spec in kernel_specs:
+        fold_scores = []
+        for train_idx, val_idx in splits:
+            U_train = U_sub[train_idx]
+            t_train = t_obs[train_idx]
+            try:
+                pred = _fit_temporal_gp_matrix(U_train, t_train, t_obs[val_idx], str(spec))
+                if np.all(np.isfinite(pred)):
+                    fold_scores.append(_normalized_validation_mse(U_sub[val_idx], pred, U_train))
+            except Exception:
+                continue
+        score = float(np.mean(fold_scores)) if fold_scores else np.inf
+        if score < best_score - 1e-12:
+            best_spec, best_score = str(spec), score
+    if not np.isfinite(best_score):
+        return str(kernel_specs[0]), np.nan, len(splits), len(cols)
+    return best_spec, best_score, len(splits), len(cols)
+
+
+def temporal_gp_reconstruct_cv(U: np.ndarray, t_obs: np.ndarray, t_new: np.ndarray, args: argparse.Namespace) -> np.ndarray:
+    kernel_specs = parse_gp_kernel_grid(getattr(args, "gp_kernel_grid", None))
+    n_folds = int(getattr(args, "gp_cv_folds", 3))
+    max_spatial = int(getattr(args, "gp_cv_spatial_points", 8))
+    spec, val_score, n_splits, n_space = select_temporal_gp_kernel_cv(
+        U, t_obs, kernel_specs, n_folds=n_folds, max_spatial_points=max_spatial
+    )
+    args._last_gp_kernel = spec
+    args._last_gp_cv_error = val_score
+    args._last_gp_cv_folds = n_splits
+    args._last_gp_cv_spatial_points = n_space
+    return _fit_temporal_gp_matrix(U, t_obs, t_new, kernel_spec=spec)
+
+
 def select_temporal_spline_alpha_cv(
     U: np.ndarray,
     t_obs: np.ndarray,
@@ -470,7 +598,7 @@ def select_temporal_spline_alpha_cv(
                     fold_scores.append(_normalized_validation_mse(U[val_idx], pred, U_train))
             except Exception:
                 continue
-        score = float(np.mean(fold_scores)) if fold_scores else np.inf
+        score = float(np.mean(fold_scores)) if len(fold_scores) == len(splits) else np.inf
         if (score < best_score - 1e-12) or (np.isfinite(score) and np.isclose(score, best_score, rtol=1e-4, atol=1e-12) and float(alpha) > best_alpha):
             best_alpha, best_score = float(alpha), score
     if not np.isfinite(best_score):
@@ -510,18 +638,40 @@ def _pde_reconstruct_for_rank_cv(
     rank: int,
     rng: np.random.Generator,
     args: argparse.Namespace,
+    nominal_dt: float,
 ) -> np.ndarray:
-    """Predict held-out sparse noisy snapshots for rank validation.
+    """Fit without held-out observations and evaluate at their actual times.
 
-    The validation target is the sparse noisy data itself.  No dense clean
-    trajectory, true coefficient vector, threshold selection score, or PDE-FIND
-    output is used here.
+    EDMD uses only training pairs one original observation interval apart.
+    Removing an interior snapshot therefore never creates a spurious one-step
+    pair spanning two intervals. Each query is advanced from the preceding
+    available training snapshot using its actual elapsed time.
     """
-    if method == "pod_edmd_rbf":
-        return pod_edmd_reconstruct(U_train, t_train, t_val, rank, "rbf", rng, args.rbf_centers)
     if method == "pydmd_optdmd":
         return pydmd_optdmd_reconstruct(U_train, t_train, t_val, rank, args.pydmd_timeout)
-    raise ValueError(f"rank CV is defined only for POD-based proposed methods, got {method}")
+    if method != "pod_edmd_rbf":
+        raise ValueError(f"rank CV is defined only for POD methods, got {method}")
+    mean, modes, Z = pod_fit(U_train, rank)
+    params = rbf_fit(Z, args.rbf_centers, rng)
+    Phi = rbf_features(Z, params)
+    usable = np.isclose(np.diff(t_train), nominal_dt, rtol=1e-7, atol=1e-12)
+    if np.count_nonzero(usable) < 2:
+        raise ValueError("insufficient equally spaced training pairs for EDMD rank validation")
+    left, right = Phi[:-1][usable], Phi[1:][usable]
+    K = np.linalg.solve(left.T @ left + 1e-8 * np.eye(Phi.shape[1]), left.T @ right)
+    state_indices = np.arange(1, 1 + Z.shape[1])
+    predicted = []
+    evolution = FractionalEvolution(K)
+    steps = {}
+    for tt in t_val:
+        j = int(np.searchsorted(t_train, tt, side="right") - 1)
+        if j < 0 or tt > t_train[-1]:
+            raise ValueError("rank-validation queries must lie inside training endpoints")
+        fraction = round(float((tt - t_train[j]) / nominal_dt), 12)
+        if fraction not in steps:
+            steps[fraction] = evolution.power(fraction)
+        predicted.append(np.real(Phi[j] @ steps[fraction])[state_indices])
+    return pod_reconstruct(mean, modes, np.asarray(predicted))
 
 
 def select_pod_rank_cv_for_method(
@@ -556,13 +706,14 @@ def select_pod_rank_cv_for_method(
                 fold_seed = int(rng.integers(0, 2**32 - 1))
                 fold_rng = np.random.default_rng(fold_seed)
                 pred = _pde_reconstruct_for_rank_cv(
-                    method, U_obs[train_idx], t_obs[train_idx], t_obs[val_idx], int(rank), fold_rng, args
+                    method, U_obs[train_idx], t_obs[train_idx], t_obs[val_idx], int(rank), fold_rng, args,
+                    nominal_dt=float(np.median(np.diff(t_obs)))
                 )
                 if np.all(np.isfinite(pred)):
                     fold_scores.append(_normalized_validation_mse(U_obs[val_idx], pred, U_obs[train_idx]))
             except Exception:
                 continue
-        score = float(np.mean(fold_scores)) if fold_scores else np.inf
+        score = float(np.mean(fold_scores)) if len(fold_scores) == len(splits) else np.inf
         if (score < best_score - 1e-12) or (np.isfinite(score) and np.isclose(score, best_score, rtol=1e-4, atol=1e-12) and int(rank) < int(best_rank)):
             best_rank, best_score = int(rank), score
     if not np.isfinite(best_score):
@@ -649,28 +800,19 @@ def pod_edmd_reconstruct(U: np.ndarray, t_obs: np.ndarray, t_new: np.ndarray, ra
         ffun = lambda Y: rbf_features(Y, params)
     else:
         raise ValueError(kind)
-    K = np.linalg.solve(Phi[:-1].T @ Phi[:-1] + 1e-8 * np.eye(Phi.shape[1]), Phi[:-1].T @ Phi[1:])
-    dt_obs = t_obs[1] - t_obs[0]
-    dt_new = t_new[1] - t_new[0] if len(t_new) > 1 else dt_obs
-    Kstep = fractional_step_matrix(K, dt_new / dt_obs)
-    out = []
-    j = 0
-    phi = np.real(ffun(Z[[0]])[0])
-    for tt in t_new:
-        while j + 1 < len(t_obs) and tt >= t_obs[j + 1] - 0.5 * dt_new:
-            j += 1
-            phi = np.real(ffun(Z[[j]])[0])
-        out.append(phi[state_indices].copy())
-        phi = np.real(phi @ Kstep)
-    Zrec = np.asarray(out)
+    nominal_dt, usable_pairs = nominal_observation_pairs(t_obs)
+    left, right = Phi[:-1][usable_pairs], Phi[1:][usable_pairs]
+    K = np.linalg.solve(left.T @ left + 1e-8 * np.eye(Phi.shape[1]), left.T @ right)
+    Zrec = local_observable_reconstruction(K, Phi, t_obs, t_new, state_indices, nominal_dt)
     return pod_reconstruct(mean, modes, Zrec)
 
 
 def optimized_dmd_latent(Z: np.ndarray, t_obs: np.ndarray, t_new: np.ndarray, n_exp: int | None = None, max_nfev: int = 80) -> np.ndarray:
     """Lightweight real-valued optDMD-style variable projection in POD coordinates.
 
-    This intentionally uses real exponents because the chosen PDE examples are
-    dissipative/non-oscillatory; for dispersive waves one should use complex-pair optDMD.
+    This retains the restricted real-exponent comparator used in the original
+    advection--diffusion experiment. Travelling Fourier modes are oscillatory;
+    this comparator is not a full complex-exponent optimized-DMD model.
     """
     m, d = Z.shape
     if n_exp is None:
@@ -742,6 +884,8 @@ METHOD_LABELS = {
     "smoothing_spline": "Smoothing spline",
     "smoothing_spline_cv": "Tuned smoothing spline",
     "spline": "Smoothing spline",
+    "gp_smoothing_cv": "Tuned GP smoothing",
+    "gaussian_process_cv": "Tuned GP smoothing",
     "pydmd_optdmd": "optDMD",
     "pod_edmd_rbf": "POD-EDMD-RBF",
 }
@@ -749,31 +893,20 @@ DEFAULT_METHODS = ["baseline", "pydmd_optdmd", "pod_edmd_rbf"]
 
 
 def configure_preset(args: argparse.Namespace) -> argparse.Namespace:
-    if args.preset == "quick":
-        args.dt = 0.01; args.nx = 48; args.rank = 6
-        args.rank_mode = "system" if args.rank_mode is None else args.rank_mode
-        args.burgers_rank = 6 if args.burgers_rank is None else args.burgers_rank
-        args.fisher_rank = 4 if args.fisher_rank is None else args.fisher_rank
-        args.advection_rank = 4 if args.advection_rank is None else args.advection_rank
-        args.fisher_ic = "default" if args.fisher_ic is None else args.fisher_ic
-        args.sparse_factors = [8, 32]; args.noise = [0.0, 0.05, 0.10]; args.seeds = [0, 1]
-        args.max_rows = 12000; args.rbf_centers = 20
-    elif args.preset == "publication":
-        args.dt = 0.005; args.nx = 64; args.rank = 8
-        args.rank_mode = "system" if args.rank_mode is None else args.rank_mode
-        args.burgers_rank = 8 if args.burgers_rank is None else args.burgers_rank
-        # Fisher--KPP is smoother and more reaction dominated than Burgers in
-        # this benchmark.  A lower POD rank limits high-rank noise amplification
-        # while preserving the default Fisher--KPP initial condition used in the
-        # main publication table.  The steeper front-type initial condition is
-        # reserved for the model-selection and sensitivity runs.
-        args.fisher_rank = 2 if args.fisher_rank is None else args.fisher_rank
-        args.advection_rank = 4 if args.advection_rank is None else args.advection_rank
-        args.fisher_ic = "default" if args.fisher_ic is None else args.fisher_ic
-        args.sparse_factors = [4, 8, 16, 32]; args.noise = [0.0, 0.01, 0.03, 0.05, 0.10]; args.seeds = list(range(8))
-        args.max_rows = 30000; args.rbf_centers = 30
-    else:
-        raise ValueError(args.preset)
+    """Apply defaults only; publication settings match archived main results."""
+    presets = {
+        "quick": dict(dt=0.01, nx=48, rank=6, burgers_rank=6, fisher_rank=4,
+                      sparse_factors=[8, 32], noise=[0.0, 0.05, 0.10], seeds=[0, 1],
+                      max_rows=12000, rbf_centers=20),
+        "publication": dict(dt=0.005, nx=64, rank=8, burgers_rank=8, fisher_rank=5,
+                            sparse_factors=[4, 8, 16, 32], noise=[0.0, 0.01, 0.03, 0.05, 0.10],
+                            seeds=list(range(8)), max_rows=30000, rbf_centers=30),
+    }
+    defaults = dict(rank_mode="system", advection_rank=4, fisher_ic="default")
+    defaults.update(presets[args.preset])
+    for name, value in defaults.items():
+        if getattr(args, name, None) is None:
+            setattr(args, name, value)
     return args
 
 
@@ -826,11 +959,19 @@ def pydmd_optdmd_reconstruct(U: np.ndarray, t_obs: np.ndarray, t_new: np.ndarray
         ctx = mp.get_context("spawn")
         q = ctx.Queue()
         p = ctx.Process(target=_pydmd_optdmd_latent_worker, args=(q, Z, t_obs, t_new))
-        p.start(); p.join(timeout)
-        if p.is_alive():
-            p.terminate(); p.join()
-            raise TimeoutError(f"optimized DMD exceeded {timeout} seconds")
-        status, payload = q.get_nowait()
+        p.start()
+        try:
+            import queue
+            try:
+                status, payload = q.get(timeout=timeout)
+            except queue.Empty as exc:
+                raise TimeoutError(f"optimized DMD exceeded {timeout} seconds") from exc
+        finally:
+            p.join(timeout=1.0)
+            if p.is_alive():
+                p.terminate()
+                p.join()
+            q.close()
         if status != "ok":
             raise RuntimeError(payload)
         Zrec = payload
@@ -851,6 +992,8 @@ def reconstruct_pde_method(method: str, sys_name: str, U_obs: np.ndarray, t_obs:
         return temporal_spline_reconstruct(U_obs, t_obs, t_new, rel_noise=rel_noise), t_new, 0
     if method in {"smoothing_spline_cv", "tuned_smoothing_spline"}:
         return temporal_spline_reconstruct_cv(U_obs, t_obs, t_new, args=args), t_new, 0
+    if method in {"gp_smoothing_cv", "gaussian_process_cv"}:
+        return temporal_gp_reconstruct_cv(U_obs, t_obs, t_new, args=args), t_new, 0
     if method in {"pod_edmd_rbf", "pydmd_optdmd"} and getattr(args, "rank_mode", None) == "cv":
         r_pod, rank_cv_error, rank_cv_folds = select_pod_rank_cv_for_method(method, U_obs, t_obs, args, rng)
         args._last_rank_cv_error = rank_cv_error
@@ -872,6 +1015,11 @@ def run_benchmark(args: argparse.Namespace):
         fisher_kpp_system(args.nx, D=args.fisher_D, r=args.fisher_r, T=args.fisher_T, ic_variant=args.fisher_ic),
         advection_diffusion_system(args.nx),
     ]
+    keep_systems = set(str(getattr(args, "systems", "burgers,fisher_kpp")).split(","))
+    known_systems = {system.name for system in systems}
+    if not keep_systems <= known_systems:
+        raise ValueError(f"Unknown PDE systems: {sorted(keep_systems - known_systems)}")
+    systems = [system for system in systems if system.name in keep_systems]
     methods = args.methods
     thresholds = np.array([0.0, 1e-5, 3e-5, 1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1, 3e-1])
     rows, coef_rows = [], []
@@ -902,6 +1050,10 @@ def run_benchmark(args: argparse.Namespace):
             args._last_spline_alpha = np.nan
             args._last_spline_cv_error = np.nan
             args._last_spline_cv_folds = 0
+            args._last_gp_kernel = ""
+            args._last_gp_cv_error = np.nan
+            args._last_gp_cv_folds = 0
+            args._last_gp_cv_spatial_points = 0
             args._last_rank_cv_error = np.nan
             args._last_rank_cv_folds = 0
             U_use,t_use,pod_rank_used=reconstruct_pde_method(method,sys.name,U_obs,t_obs,t_new,rng,args)
@@ -915,7 +1067,7 @@ def run_benchmark(args: argparse.Namespace):
                         coef_rows.append({"system":sys.name,"method":method,"method_label":METHOD_LABELS.get(method,method),"sparse_factor":sparse_factor,"noise":noise,"seed":seed,"feature":name,"coef":xi[i],"true_coef":xi_true[i]})
         except Exception as exc:
             f1=cerr=score=thr=np.nan; status=f"fail: {type(exc).__name__}: {exc}"
-        row={"system":sys.name,"method":method,"method_label":METHOD_LABELS.get(method,method),"sparse_factor":sparse_factor,"obs_dt":float(t_obs[1]-t_obs[0]),"noise":noise,"seed":seed,"upsample":args.upsample if method!="baseline" else 1,"pod_rank":pod_rank_used if method!="baseline" else 0,"rank_mode":args.rank_mode,"rank_cv_error":getattr(args,"_last_rank_cv_error",np.nan),"rank_cv_folds":getattr(args,"_last_rank_cv_folds",0),"rank_grid":getattr(args,"rank_grid",None),"spline_alpha":getattr(args,"_last_spline_alpha",np.nan),"spline_cv_error":getattr(args,"_last_spline_cv_error",np.nan),"spline_cv_folds":getattr(args,"_last_spline_cv_folds",0),"support_f1":f1,"coef_error":cerr,"practical_score":score,"threshold":thr,"status":status}
+        row={"system":sys.name,"method":method,"method_label":METHOD_LABELS.get(method,method),"sparse_factor":sparse_factor,"obs_dt":float(t_obs[1]-t_obs[0]),"noise":noise,"seed":seed,"upsample":args.upsample if method!="baseline" else 1,"pod_rank":pod_rank_used if method!="baseline" else 0,"rank_mode":args.rank_mode,"rank_cv_error":getattr(args,"_last_rank_cv_error",np.nan),"rank_cv_folds":getattr(args,"_last_rank_cv_folds",0),"rank_grid":getattr(args,"rank_grid",None),"spline_alpha":getattr(args,"_last_spline_alpha",np.nan),"spline_cv_error":getattr(args,"_last_spline_cv_error",np.nan),"spline_cv_folds":getattr(args,"_last_spline_cv_folds",0),"gp_kernel":getattr(args,"_last_gp_kernel",""),"gp_cv_error":getattr(args,"_last_gp_cv_error",np.nan),"gp_cv_folds":getattr(args,"_last_gp_cv_folds",0),"gp_cv_spatial_points":getattr(args,"_last_gp_cv_spatial_points",0),"support_f1":f1,"coef_error":cerr,"practical_score":score,"threshold":thr,"status":status}
         rows.append(row)
         if args.verbose: print(row, flush=True)
         if args.checkpoint and len(rows)%args.checkpoint==0: pd.DataFrame(rows).to_csv(raw_path,index=False)
@@ -968,9 +1120,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--preset", choices=["quick", "publication"], default="quick")
     parser.add_argument("--outdir", default="results_pde")
-    parser.add_argument("--dt", type=float, default=0.005)
-    parser.add_argument("--nx", type=int, default=64)
-    parser.add_argument("--rank", type=int, default=8)
+    parser.add_argument("--dt", type=float, default=None)
+    parser.add_argument("--nx", type=int, default=None)
+    parser.add_argument("--rank", type=int, default=None)
     parser.add_argument("--rank-mode", choices=["fixed", "system", "energy", "cv"], default=None)
     parser.add_argument("--burgers-rank", type=int, default=None)
     parser.add_argument("--fisher-rank", type=int, default=None)
@@ -983,6 +1135,7 @@ def main() -> None:
     parser.add_argument("--sparse-factors", type=str, default=None)
     parser.add_argument("--noise", type=str, default=None)
     parser.add_argument("--seeds", type=str, default=None)
+    parser.add_argument("--systems", default="burgers,fisher_kpp", help="Comma-separated PDE systems: burgers,fisher_kpp,advection_diffusion.")
     parser.add_argument("--methods", type=str, default=",".join(DEFAULT_METHODS))
     parser.add_argument("--upsample", type=int, default=5)
     parser.add_argument("--rbf-centers", type=int, default=None)
@@ -1011,6 +1164,24 @@ def main() -> None:
         type=int,
         default=4,
         help="Number of deterministic interior folds used to tune smoothing_spline_cv.",
+    )
+    parser.add_argument(
+        "--gp-kernel-grid",
+        type=str,
+        default=None,
+        help="Comma-separated GP kernel specs family:length_scale:noise for gp_smoothing_cv.",
+    )
+    parser.add_argument(
+        "--gp-cv-folds",
+        type=int,
+        default=3,
+        help="Number of deterministic interior folds used to tune gp_smoothing_cv.",
+    )
+    parser.add_argument(
+        "--gp-cv-spatial-points",
+        type=int,
+        default=8,
+        help="Number of deterministic spatial grid points used during PDE GP-kernel validation.",
     )
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-progress", action="store_true")

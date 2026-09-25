@@ -1,0 +1,44 @@
+{
+  "generated_utc": "2026-09-24T12:31:41Z",
+  "purpose": "Reporting-only regeneration; no fits or experimental reruns",
+  "command": "/workspace/scratch/bab98803fbb1/revision_v2/code_repository/revision_tv_reporting.py",
+  "portable_command": "python revision_tv_reporting.py",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "preserved_execution_sha256": {
+    "raw_results.csv": "336f8ce088722b1f50a9c19b265c448b982b748b7fb02a77ae42c7aa9da2929f",
+    "coefficients.csv": "2085b6f73a250ee979b8e87fdfd3525a381d60ff4aa604ca456f93efe2dcccad",
+    "tv_cv_diagnostics.csv": "69a31ddbdf13b37400bd2711b3bab679c4336cf1aef4f405a5039ff442b6b55c",
+    "run_manifest.json": "2035502c284014adc67e3f15d26fcddfefa4ca1e76e9f416e1507b1b69c17f0a"
+  },
+  "optional_evidence_input_sha256": {
+    "results/revision_nonoracle_tv/selected_by_equation.csv": "6b6e7d5ac4bfef7db47771a5791accf8efe9c915dd4fa16dbf6c52902d960fdd"
+  },
+  "reporting_source_sha256": {
+    "revision_tv_reporting.py": "d510da0408f428d1aa20b7e1f1106e550ea2bc86cb6c0f2a52e683024e0da5ff",
+    "revision_tv_comparison.py": "5d13d1d1bfb19040f4b44ae7d2785b0ae426d06b7d6a97cc698d151d7a6e49c8"
+  },
+  "output_sha256": {
+    "README_RESULTS.md": "41d798c8762ed11870d035d6ac6fcf88114a9c4c7b7b1112ba106e6b86c9cab2",
+    "failed_records.csv": "75a477d88808cd83496374159adbb0aff632a415b3dc5a13ba5f4c8877dd3cc3",
+    "nonoracle_tv_evidence.csv": "d0f39ee259725ab3ed7dcffe96cc2f7034aa927e854b2b57730c0c3e059ff423",
+    "nonoracle_tv_paired_evidence.csv": "21c763175adbd583a08ecfdf54cbe017ab0f83393ce6cd8b950697c70679ccf3",
+    "paired_by_noise.csv": "5cfb17ddae5759e2e6991737f8c348e50b4b06e042a1456c3804995cd326b562",
+    "paired_by_noise_band.csv": "393b3537d939b9df87569088c8df7b51bb18ae70c3772654fd8b9b8426c61eff",
+    "paired_by_noise_spacing.csv": "2418fb0844a6fdacd58808f3c96fd0fcf01505d0faf5ca3f3bfce3622c4a9cb9",
+    "paired_record_comparisons.csv": "b70b314466bbb8edc4e5c071abd34a38a9e5aed80d1748219b9987de965eaa61",
+    "summary_all_noise.csv": "d9fcb05c9676d7f348d1e4ee8963464e87e72b62cd1d8e6d048f8d1fd7e24cd4",
+    "summary_by_noise.csv": "0208e6f7ccc008f4b028c51c142863235c1d9359e6e56ab64f383abcd7598218",
+    "summary_by_noise_band.csv": "70cbcbd7c6588859d2293311bd225d2895493d44023ce13b3fabb3dacb702be3",
+    "summary_by_noise_spacing.csv": "b13a459a434091e3b78cfde97f7ec4c406e3f81fd01b40160275d278c3387619",
+    "summary_high_noise.csv": "24e1debf49108313f079c6d5d1df91478055cfa2985a9d7beef0fce5907ccbfd",
+    "tv_high_noise_coefficient_error.pdf": "779fae1fa548452c82812e6c65adfde36183455c563f6a5dcbe5dc4ae4c8c024",
+    "tv_high_noise_coefficient_error.png": "c53594d2b0f8769bbe86f90cc517904983ed31f4038afa19de955f8ea6baf9ae",
+    "tv_high_noise_support_f1.pdf": "cc561828c63f9d85b9c648ce48f257cf61df688e521e630a563d78062f8376d4",
+    "tv_high_noise_support_f1.png": "f8d00b57f94e938a3d84fb6e008bf374ff52c1dfcafec345ca101b0b86820da3",
+    "tv_noise_coefficient_score.pdf": "b2d4fa57b9ef992dbdda830c2b80c75582df687c76478aaf4d461177290ccbec",
+    "tv_noise_coefficient_score.png": "fe1e86a01b42ffefd7c11998cd25a1f6857eb420c40bfd92b12316b030ac83e7",
+    "tv_tuning_summary.csv": "dd68a6de65bd0aa9b7008c59a390e797a478326e2564d8656513543fd3991f8c"
+  }
+}

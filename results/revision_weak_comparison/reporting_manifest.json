@@ -1,0 +1,44 @@
+{
+  "python": "3.12.14",
+  "tabulate": "0.9.0",
+  "note": "Numerical run completed before missing optional tabulate reporting dependency was installed. No numerical source or output changed; --summarize-only then succeeded.",
+  "commands": [
+    "python -m pip install tabulate==0.9.0",
+    "python revision_weak_comparison.py --summarize-only",
+    "python make_revision_weak_table.py"
+  ],
+  "source_sha256": {
+    "README_WEAK_COMPARISON.md": "962ff73a27a13c80d431a3387d717dbbd5b97e4ac38787c6d55e95b63aaa2312",
+    "make_revision_weak_table.py": "92cacd0320b0888d5b61bdac8599d5db44425861dad4f177ae29bc3db2cf420f",
+    "validate_revision_weak.py": "1ac18796b32bdbe1ef4619848c692d1e05d4c2161d9b9cdd9b2189157bef52b7"
+  },
+  "numerical_sources_still_match": true,
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "tabulate": "0.9.0 (installed after numerical computation, reporting only)",
+    "kneed": "not installed; not used by this oracle experiment"
+  },
+  "previous_presentation_source_sha256": {
+    "make_revision_weak_table.py": "46431ea9a595d9fe2b9b7ea3f4720203c002879c5b7628eff8ab7f1cb60e210b"
+  },
+  "final_presentation_note": "Journal formatting only: CUP table wrapper, system blocks and normal table font; scientific values unchanged. Numerical execution manifest remains unchanged.",
+  "final_presentation_updated_utc": "2026-09-24T12:47:04Z",
+  "previous_documentation_source_sha256": {
+    "README_WEAK_COMPARISON.md": "f783a0bc4cf888332cf8fa42cfbfa78b48d0a14334f1f4f41cdf3814874941b0"
+  },
+  "final_documentation_note": "Final README wording and command clarification only; previous documentary hash retained. Numerical sources, results, and execution manifest are unchanged.",
+  "final_documentation_updated_utc": "2026-09-24T12:50:35Z",
+  "v4_previous_presentation_source_sha256": {
+    "make_revision_weak_table.py": "29916d7f52604baf5a230e7b18893be9812dcb8609484e587a0f9b5a7ff4738f"
+  },
+  "v4_presentation_updated_utc": "2026-09-25T05:20:46.095195+00:00",
+  "v4_presentation_note": "Only table boldface was added; all numerical sources and outputs are unchanged.",
+  "v5_previous_source_sha256": {
+    "make_revision_weak_table.py": "8083532da1dbe2e26581ecffe57618c0a6beff26c353473d189591aeb509ca16"
+  },
+  "v5_presentation_note": "Only requested float placement/header presentation changed; numerical inputs, experimental outputs and execution manifests remain unchanged."
+}

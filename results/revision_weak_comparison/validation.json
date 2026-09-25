@@ -1,0 +1,205 @@
+{
+  "checks": [
+    {
+      "check": "noisy piecewise-linear quadrature derivative0",
+      "error": 4.440892098500626e-16,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "noisy piecewise-linear quadrature derivative1",
+      "error": 1.1102230246251565e-16,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "noisy piecewise-linear quadrature derivative2",
+      "error": 8.326672684688674e-16,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "linear temporal target sign",
+      "error": 4.440892098500626e-16,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "linear second derivative",
+      "error": 2.220446049250313e-16,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "all conservative PDE identities across periodic boundary",
+      "error": 9.79984810411949e-07,
+      "tolerance": 2e-06,
+      "passed": true
+    },
+    {
+      "check": "stationary PDE temporal target",
+      "error": 3.1110847609337196e-19,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "check": "vanderpol_mu2 clean support factor1",
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "vanderpol_mu2 clean weak identity factor1",
+      "error": 2.8347329013416414e-11,
+      "tolerance": 0.04,
+      "passed": true
+    },
+    {
+      "check": "vanderpol_mu2 clean support factor16",
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "vanderpol_mu2 clean weak identity factor16",
+      "error": 2.227668898054197e-08,
+      "tolerance": 0.04,
+      "passed": true
+    },
+    {
+      "check": "vanderpol_mu2 clean support factor64",
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "vanderpol_mu2 clean weak identity factor64",
+      "error": 0.03077635113341036,
+      "tolerance": 0.04,
+      "passed": true
+    },
+    {
+      "check": "burgers clean support factor1",
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "burgers clean weak identity factor1",
+      "error": 6.379635238850264e-07,
+      "tolerance": 0.04,
+      "passed": true
+    },
+    {
+      "check": "burgers clean support factor8",
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "burgers clean weak identity factor8",
+      "error": 6.37672270688427e-07,
+      "tolerance": 0.04,
+      "passed": true
+    },
+    {
+      "check": "burgers clean support factor32",
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    {
+      "check": "burgers clean weak identity factor32",
+      "error": 1.9383777075723606e-05,
+      "tolerance": 0.04,
+      "passed": true
+    }
+  ],
+  "clean_resolution_diagnostic": [
+    {
+      "system": "vanderpol_mu2",
+      "sparse_factor": 1,
+      "n_samples": 3969,
+      "practical_score": 0.9999998797276815,
+      "support_f1": 1.0,
+      "coef_error": 1.2027233287391104e-07,
+      "threshold": 0.0001,
+      "exact_support": 1,
+      "weak_truth_residual": 2.8347329013416414e-11,
+      "weak_fit_residual": 7.12761874663837e-08,
+      "weak_rows": 55,
+      "library_columns": 10
+    },
+    {
+      "system": "vanderpol_mu2",
+      "sparse_factor": 16,
+      "n_samples": 249,
+      "practical_score": 0.9999998732721768,
+      "support_f1": 1.0,
+      "coef_error": 1.2672783925756204e-07,
+      "threshold": 0.0001,
+      "exact_support": 1,
+      "weak_truth_residual": 2.227668898054197e-08,
+      "weak_fit_residual": 7.478897219398174e-08,
+      "weak_rows": 55,
+      "library_columns": 10
+    },
+    {
+      "system": "vanderpol_mu2",
+      "sparse_factor": 64,
+      "n_samples": 63,
+      "practical_score": 0.9799672189994605,
+      "support_f1": 1.0,
+      "coef_error": 0.020442297060704447,
+      "threshold": 0.3,
+      "exact_support": 1,
+      "weak_truth_residual": 0.03077635113341036,
+      "weak_fit_residual": 0.026069878861675725,
+      "weak_rows": 55,
+      "library_columns": 10
+    },
+    {
+      "system": "burgers",
+      "sparse_factor": 1,
+      "n_samples": 385,
+      "practical_score": 0.9999998814101844,
+      "support_f1": 1.0,
+      "coef_error": 1.1858982983000506e-07,
+      "threshold": 1e-05,
+      "exact_support": 1,
+      "weak_truth_residual": 6.379635238850264e-07,
+      "weak_fit_residual": 5.422916185737117e-07,
+      "weak_rows": 112,
+      "library_columns": 8
+    },
+    {
+      "system": "burgers",
+      "sparse_factor": 8,
+      "n_samples": 49,
+      "practical_score": 0.9999998826411913,
+      "support_f1": 1.0,
+      "coef_error": 1.1735882242235048e-07,
+      "threshold": 1e-05,
+      "exact_support": 1,
+      "weak_truth_residual": 6.37672270688427e-07,
+      "weak_fit_residual": 5.427332895788533e-07,
+      "weak_rows": 112,
+      "library_columns": 8
+    },
+    {
+      "system": "burgers",
+      "sparse_factor": 32,
+      "n_samples": 13,
+      "practical_score": 0.9999873319063742,
+      "support_f1": 1.0,
+      "coef_error": 1.2668254108445665e-05,
+      "threshold": 1e-05,
+      "exact_support": 1,
+      "weak_truth_residual": 1.9383777075723606e-05,
+      "weak_fit_residual": 1.3481002316246274e-05,
+      "weak_rows": 112,
+      "library_columns": 8
+    }
+  ],
+  "note": "Clean diagnostics validate implementation and expose discretization error; no parameters were tuned using these outcomes. Exact quadrature applies to nodal-feature interpolants, not the unknown continuous trajectory."
+}

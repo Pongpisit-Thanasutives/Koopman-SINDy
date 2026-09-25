@@ -1,135 +1,116 @@
-# Koopman/DMD-assisted upsampling for sparse equation discovery
+# Koopman-assisted preprocessing for sparse equation discovery
 
-Code, figures, and benchmark outputs for the paper on Koopman/DMD-assisted
-upsampling. The preprocessing step reconstructs a denser trajectory from sparse,
-noisy samples before SINDy/PDE-FIND estimates derivatives and fits sparse
-regression models. The manuscript source and compiled PDF are included at the
-package root.
+This standalone repository contains the corrected implementation, completed benchmark outputs, and revision experiments for “Dynamics-aware identification of governing equations from sparse and noisy data” by Pongpisit Thanasutives and Yoshinobu Kawahara (DCE-2026-0088). Numerical experiments and reporting commands run without manuscript sources. The separately delivered submission package contains `latex_source/`, `submission/`, and `local_checking/`.
 
-## What's here
+## Use the delivered results
 
-- `*.py` — benchmark and figure scripts (see [Scripts](#scripts)).
-- `results/` — generated CSV outputs, one subdirectory per experiment.
-- `figures/` — generated PNG figures used in the manuscript.
-- `requirements.txt` — pinned, import-tested dependencies.
-- `LICENSE` — MIT.
+All numerical work for the submitted revision is complete. Current summaries are generated from the per-record CSVs in `results/`; historical records remain in explicitly named archive directories. The release changes reporting destinations, fixes weak-table output-path handling, and clarifies standalone use. Numerical methods and saved experimental evidence are unchanged. `RELEASE_MANIFEST.json` and `RELEASE_VALIDATION.json` document the release files and preservation checks. See `GITHUB_RELEASE.md` for the local commit and tag procedure.
 
-The bundled `results/` and `figures/` were produced by the commands below and are
-tracked so the paper's numbers can be inspected without rerunning anything.
+The final implementation retains complex fractional evolution until physical readout, fits a nominal-step map only to equal-lag observation pairs, and evaluates queries from their preceding anchor using actual elapsed times. A complex Schur matrix-function implementation handles spectral propagation without an eigenvector inverse. These are numerical consistency corrections; the dictionary, POD ranks, local-reset design, libraries, and STLSQ estimator are retained. See `CODE_AUDIT_AND_REPRODUCIBILITY.md` for details and scope.
 
-## Install
+## Environment
+
+Run commands from the repository root. Use Python 3.12 and the pinned revision dependencies:
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+python3.12 -m venv .venv_revision
+source .venv_revision/bin/activate
+python -m pip install -r requirements_revision.txt
 ```
 
-`SciencePlots` is included for figure styling; the figure scripts fall back to a
-plain matplotlib serif style if it is missing.
+## Standalone checks and reporting
 
-## Reproduce
-
-Every command writes into `results/` and/or `figures/`. The shipped outputs were
-generated with exactly these commands, so a fresh run overwrites them in place.
-
-**Full benchmark suite** (ODE, PDE, advection–diffusion, non-oracle model
-selection, and the interpolation-strategy ablation):
+The following checks need no manuscript files:
 
 ```bash
-bash run_publication_benchmarks.sh            # defaults: preset=publication, outroot=results
+python -m unittest discover -s tests -v
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python validate_complex_propagation.py --outdir generated_assets/propagation_validation
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python validate_revision_weak.py
+python validate_revision_tv_outputs.py
 ```
 
-To regenerate everything in the paper, also run the Appendix A study and the
-figures (next two sections). Or run any single piece on its own:
+The propagation and weak checks execute small implementation diagnostics; they do not rerun the noisy benchmark grids. The weak and TV checks rewrite their validation reports under `results/`. Run checks, reporting regeneration, and experiment reruns in a disposable copy or clean checkout if you want to preserve the delivered files exactly.
 
-**Advection–diffusion benchmark + Figure 2:**
+To regenerate presentation assets from saved records without fitting new models:
 
 ```bash
-python koopman_sindy_advection_diffusion_benchmark.py --outdir results/advection_diffusion_benchmark
+python regenerate_presentation_assets.py
+python make_revision_weak_table.py
 ```
 
-**Non-oracle EBIC/Pareto model selection + Figure 3:**
+Figures, tables, and appendix fragments are written to `generated_assets/` by default. Derived summaries, plots, and reporting manifests under `results/` and `figures/` are also refreshed; protected numerical records and execution manifests are checked for preservation. No sibling `latex_source/` directory is required. The weak-table command reads saved weak-study results and writes `generated_assets/tables/revision_weak_comparison.tex`.
+
+For an explicit manuscript destination in a working copy of the complete package:
 
 ```bash
-python koopman_sindy_model_selection_experiment.py \
-  --preset quick --seeds 0,1,2,3,4 --noise 0.01 \
-  --ode-sparse-factor 8 --pde-sparse-factor 4 \
-  --ode-systems vanderpol_mu2 --pde-systems burgers,fisher_kpp \
-  --fisher-ic front --fisher-rank 2 --max-rows 5000 \
-  --outdir results/model_selection_publication
+python regenerate_presentation_assets.py --latex-dir /path/to/working_copy/latex_source
+python make_revision_weak_table.py --output /path/to/working_copy/latex_source/tables/revision_weak_comparison.tex
 ```
 
-**Appendix A — upsampling-factor `q` / POD-rank `r` sensitivity** (includes the
-`q=1` POD-only denoising control):
+`make_revision1_figures_tables.py` and `sync_revision_outputs.py` also accept `--latex-dir`. Relative destinations are interpreted from the invoking working directory. `README_REVISION1_REPORTING.md` describes the individual reporting steps and their outputs.
+
+The archived `results/final_validation/validate_package.py` is a **full-submission-package validator**, not a standalone repository test. It requires the frozen manuscript, response, local-checking files, and historical source fingerprints from the submitted package. Its historical report does not certify this modified release. Use the original full package for that audit; see `results/final_validation/README.md`.
+
+## Reproduce the revision experiments
+
+In a disposable copy with the revision environment activated:
 
 ```bash
-python koopman_sindy_qr_sensitivity.py --preset appendix                               # full run
-python koopman_sindy_qr_sensitivity.py --preset smoke --outdir results/qr_sensitivity_smoke  # quick check
+bash run_revision_experiments.sh 4
 ```
 
-This also writes the Appendix A LaTeX fragment to
-`results/qr_sensitivity/appendix_a_qr_sensitivity.tex`.
-
-
-**Appendix C — classical non-dynamical interpolation techniques:**
+This command reruns affected EDMD evidence, the TV/high-noise and non-oracle TV comparisons, and the targeted weak-form study, then regenerates the presentation assets in `generated_assets/`. It writes numerical and reporting outputs into this copy of the repository. It reuses shipped unaffected main raw/optDMD and classical-method records. Use `1` instead of `4` for serial TV and weak-study execution. For individual stages:
 
 ```bash
-python classical_interpolation_baselines.py --preset publication \
-  --outdir results/classical_interpolation_publication
-
-# Quick check:
-python classical_interpolation_baselines.py --preset quick \
-  --outdir results/classical_interpolation_smoke
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python rerun_complex_revision.py --help
 ```
 
-This writes CSV summaries and the LaTeX fragment
-`results/classical_interpolation_publication/appendix_c_classical_interpolation.tex`.
-The comparison uses four methods per setting:
+The named stages are `main_ode`, `main_pde`, `advection`, `appendix_a`, `appendix_c`, `model_selection`, `fisher_front`, `strategy`, and `finalize`. Use `--stage NAME` to rerun one stage. The default reruns all stages. `--reuse-completed` is only for resuming isolated outputs produced by the same corrected source and settings; it is not a general configuration-aware cache.
 
-- ODE: Baseline, Linear interpolation, Tuned smoothing spline, EDMD-polynomial.
-- PDE: Baseline, Linear interpolation, Tuned smoothing spline, POD-EDMD-RBF.
+Do not use the obsolete `sync_revision_outputs.py --merge-classical` path; Appendix C updates are handled by the corrected rerun driver.
 
-The interpolation factor `q` is fixed for all non-baseline methods. The
-smoothing-spline parameter and the POD rank `r` for POD-EDMD-RBF are selected by
-deterministic interior holdout validation on sparse noisy observations only. The
-raw CSVs record the selected values and validation errors.
+## Main scripts
 
-**Manuscript figures only:**
+| Script | Purpose |
+|---|---|
+| `koopman_propagation.py` | Shared complex fractional evolution and timestamp-aware reconstruction |
+| `koopman_sindy_ode_benchmark.py` | Lorenz–63 and Van der Pol benchmark |
+| `koopman_sindy_pde_benchmark.py` | PDE infrastructure, Burgers/Fisher benchmark and rank validation |
+| `koopman_sindy_advection_diffusion_benchmark.py` | Separate advection–diffusion benchmark |
+| `koopman_sindy_model_selection_experiment.py` | Equation-wise non-oracle EBIC/Pareto model selection |
+| `koopman_sindy_qr_sensitivity.py` | Paired upsampling/rank sensitivity, including POD-only controls |
+| `dmd_upsampling_strategy_ablation.py` | Matched reconstruction-strategy comparison |
+| `classical_interpolation_baselines.py` | Linear interpolation and observation-tuned smoothing comparisons |
+| `rerun_complex_revision.py` | Reproducible affected-result regeneration and control preservation |
+| `revision_tv_comparison.py` | TV/POD+TV comparison through 50% noise |
+| `revision_nonoracle_tv.py` | Matched modest-noise non-oracle TV comparison |
+| `revision_weak_comparison.py`, `weak_integral_library.py` | Matched compact-test integral regression with raw, linear, EDMD, TV and POD controls |
+| `validate_revision_weak.py` | Independent quadrature, weak identity and clean-recovery checks |
+| `make_revision_weak_table.py` | Appendix D table from the complete weak comparison |
+| `regenerate_presentation_assets.py` | Portable presentation-only regeneration from saved records |
+| `validate_complex_propagation.py` | Propagation correctness and fitted-map diagnostics |
+| `validate_revision_tv_outputs.py` | TV solver/output validation and shared-arm consistency |
+| `make_revision1_figures_tables.py`, `sync_revision_outputs.py` | Manuscript tables, figures and statistics |
+
+## Numerical protocols
+
+Main POD ranks are 8 for Burgers, 5 for Fisher–KPP, and 4 for advection–diffusion. The separate front-type Fisher experiment uses rank 2. The modest-noise non-oracle study uses Burgers rank 6 and Fisher rank 2, base time step 0.01 and 48 spatial points. Main PDE STLSQ uses 11 thresholds; non-oracle and sensitivity PDE studies use 20. Explicit CLI settings override presets.
+
+Burgers/Fisher optDMD uses PyDMD with zero bagging trials. The retained standalone advection–diffusion optDMD comparator fits real exponentials and is explicitly described as restricted; it is not a general complex-rate optDMD implementation. No new algorithm is silently substituted into those historical control rows.
+
+`README_REVISION_EXPERIMENT.md` details TV tuning and the higher-noise design. `README_NONORACLE_TV.md` specifies the frozen optional experiment and observation-only selection. `README_REVISION1_REPORTING.md` defines uncertainty and paired comparisons. `README_WEAK_COMPARISON.md` gives the fully weak library, fixed physical test windows, exact commands and limitations of the targeted experiment. The latter explicitly changes one nuisance PDE term to enable complete derivative transfer; every weak-form method shares that library.
+
+## Optional full regeneration of historical controls
+
+`requirements.txt` records the supplied full-suite dependency set; it is separate from the environment actually used for the focused revision. To rerun original comparison methods as well, create a separate environment with those dependencies, then use:
 
 ```bash
-python make_manuscript_figures.py
+bash run_publication_benchmarks.sh publication results_full
+python classical_interpolation_baselines.py --preset publication --outdir results_full/classical_interpolation_publication
 ```
 
-## Scripts
+These optional independent reruns are not needed to use the submitted results. Original historical runtime versions were not fully recorded, so bitwise agreement of retained controls is not guaranteed. The optional `--include-gp` classical extension is unreported and is not part of the manuscript comparison. `--resume` in the original benchmark scripts assumes unchanged settings; use a fresh output directory after changing any configuration.
 
-- `koopman_sindy_ode_benchmark.py` — ODE benchmark (Lorenz–63, Van der Pol).
-- `koopman_sindy_pde_benchmark.py` — PDE benchmark infrastructure (Burgers, Fisher–KPP, advection–diffusion).
-- `koopman_sindy_advection_diffusion_benchmark.py` — advection–diffusion benchmark and visualisation.
-- `koopman_sindy_model_selection_experiment.py` — equation-wise EBIC/Pareto (non-oracle) model selection.
-- `dmd_upsampling_strategy_ablation.py` — interpolation-strategy ablation (Appendix B).
-- `koopman_sindy_qr_sensitivity.py` — Appendix A `q`/`r` sensitivity study.
-- `classical_interpolation_baselines.py` — Appendix C classical interpolation/smoothing techniques.
-- `make_manuscript_figures.py` — regenerates the manuscript figures.
-- `run_publication_benchmarks.sh` — one-command script for the main publication outputs.
+## License and citation
 
-## Key result files
-
-- `results/ode_publication/ode_by_system.csv`
-- `results/pde_publication/pde_by_system.csv`
-- `results/advection_diffusion_benchmark/advection_diffusion_summary.csv`
-- `results/fisher_kpp_front_sensitivity/fisher_kpp_front_summary.csv`
-- `results/model_selection_publication/model_selection_selected_by_equation.csv`
-- `results/upsampling_strategy_publication/upsampling_strategy_summary.csv`
-- `results/classical_interpolation_publication/classical_interpolation_by_system.csv`
-
-Accuracy is reported per system, not as aggregate ODE/PDE means; each table
-caption states the systems and settings used to produce it.
-
-## License
-
-MIT — see [`LICENSE`](LICENSE).
-
-## Citation
-
-If you use this code, please cite the accompanying paper (Thanasutives &
-Kawahara). Update this section with the final reference once available.
+The code retains the supplied MIT license. Cite the accompanying paper by Pongpisit Thanasutives and Yoshinobu Kawahara when using the research package.

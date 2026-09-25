@@ -1,0 +1,11 @@
+{
+  "source_sha256": "92cacd0320b0888d5b61bdac8599d5db44425861dad4f177ae29bc3db2cf420f",
+  "input_sha256": "0e4c9c7e671cd1f68f3fda7ec6e5b3726f46831345aa67ab1145d28668bafb36",
+  "output_sha256": "7f5076707db0505a9d27f676b5832f857d0328e96e046c10023672a8685ff0d6",
+  "output": "latex_source/tables/revision_weak_comparison.tex",
+  "v5_previous_presentation_sha256": {
+    "source_sha256": "8083532da1dbe2e26581ecffe57618c0a6beff26c353473d189591aeb509ca16",
+    "output_sha256": "51ec7abd167e42f0aaf4c3f2ec45de73d31f5219a9d787dbcb79d8dcce373558"
+  },
+  "v5_presentation_note": "Float placement only; the numerical input hash and displayed values are unchanged."
+}

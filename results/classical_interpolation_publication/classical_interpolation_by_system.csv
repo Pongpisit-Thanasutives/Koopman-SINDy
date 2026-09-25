@@ -1,21 +1,21 @@
-setting,system,system_label,method,method_label,support_f1_mean,coef_error_median,practical_score_mean,upsample_median,pod_rank_median,spline_alpha_median,spline_cv_error_median,rank_cv_error_median,n_ok
-ODE,lorenz63,Lorenz--63,baseline,Baseline,0.724679544815798,0.9111712827736356,0.4769557255980365,1.0,,,,,200
-ODE,lorenz63,Lorenz--63,edmd_poly3,EDMD-polynomial,0.7374491647523904,0.5261199634452383,0.5614942676624893,5.0,,,,,200
-ODE,lorenz63,Lorenz--63,linear_interp,Linear interpolation,0.7267496863544615,0.9106865677063856,0.492534690851196,5.0,,,,,200
-ODE,lorenz63,Lorenz--63,smoothing_spline_cv,Tuned smoothing spline,0.729645145121029,0.936112585682159,0.5295455784346845,5.0,,0.0001,0.25588823556181106,,200
-ODE,vanderpol_mu2,Van der Pol,baseline,Baseline,0.9628928571428571,0.1067549602114993,0.8402051132163758,1.0,,,,,200
-ODE,vanderpol_mu2,Van der Pol,edmd_poly3,EDMD-polynomial,0.9987301587301587,0.0154175621243192,0.9765813929385577,5.0,,,,,200
-ODE,vanderpol_mu2,Van der Pol,linear_interp,Linear interpolation,0.998015873015873,0.04884981725618125,0.9372943940794566,5.0,,,,,200
-ODE,vanderpol_mu2,Van der Pol,smoothing_spline_cv,Tuned smoothing spline,0.9953665223665223,0.02679816883948625,0.9570865923170229,5.0,,0.0001,0.0036337099495257997,,200
-PDE,advection_diffusion,Advection--diffusion,baseline,Baseline,0.6950000000000001,0.16779766643105498,0.5925874989020368,1.0,0.0,,,,160
-PDE,advection_diffusion,Advection--diffusion,linear_interp,Linear interpolation,0.7015277777777778,0.1178181288732669,0.6153088921942821,5.0,0.0,,,,160
-PDE,advection_diffusion,Advection--diffusion,pod_edmd_rbf,POD-EDMD-RBF,0.7338888888888888,0.026508243819650598,0.6948402384322292,5.0,4.0,,,0.0515487503562954,160
-PDE,advection_diffusion,Advection--diffusion,smoothing_spline_cv,Tuned smoothing spline,0.7217361111111111,0.0243289839623504,0.6872154218682109,5.0,0.0,0.03,0.0178790254072911,,160
-PDE,burgers,Burgers,baseline,Baseline,0.7302083333333333,0.2976387412717845,0.5799631964165635,1.0,0.0,,,,160
-PDE,burgers,Burgers,linear_interp,Linear interpolation,0.7322916666666666,0.25177837827187344,0.597603226877122,5.0,0.0,,,,160
-PDE,burgers,Burgers,pod_edmd_rbf,POD-EDMD-RBF,0.7883333333333333,0.19164221954628768,0.6924049811700436,5.0,4.0,,,0.07911522618655639,160
-PDE,burgers,Burgers,smoothing_spline_cv,Tuned smoothing spline,0.7523611111111111,0.16535850085922635,0.6613657885909985,5.0,0.0,10.0,0.0523464194883088,,160
-PDE,fisher_kpp,Fisher--KPP,baseline,Baseline,0.8369805194805195,0.038533166894558296,0.8099015259563724,1.0,0.0,,,,160
-PDE,fisher_kpp,Fisher--KPP,linear_interp,Linear interpolation,0.8385714285714286,0.03914282628902515,0.8120509577224352,5.0,0.0,,,,160
-PDE,fisher_kpp,Fisher--KPP,pod_edmd_rbf,POD-EDMD-RBF,0.8507142857142858,0.0360976725145626,0.8250643624673358,5.0,2.0,,,0.019530646998872102,160
-PDE,fisher_kpp,Fisher--KPP,smoothing_spline_cv,Tuned smoothing spline,0.8569642857142858,0.0418640114176844,0.8306751006392542,5.0,0.0,10.0,0.004272654135516,,160
+setting,system,system_label,method,method_label,support_f1_mean,coef_error_median,practical_score_mean,upsample_median,pod_rank_median,spline_alpha_median,spline_cv_error_median,rank_cv_error_median,gp_cv_error_median,n_ok
+ODE,lorenz63,Lorenz--63,baseline,Raw FD,0.724679544815798,0.9111712827736356,0.4769557255980365,1.0,,,,,,200
+ODE,lorenz63,Lorenz--63,edmd_poly3,EDMD-polynomial,0.7376490844107311,0.5459404568607321,0.5489086514808202,5.0,,,,,,200
+ODE,lorenz63,Lorenz--63,linear_interp,Linear interpolation,0.7267496863544615,0.9106865677063856,0.492534690851196,5.0,,,,,,200
+ODE,lorenz63,Lorenz--63,smoothing_spline_cv,Tuned smoothing spline,0.729645145121029,0.936112585682159,0.5295455784346845,5.0,,0.0001,0.25588823556181106,,,200
+ODE,vanderpol_mu2,Van der Pol,baseline,Raw FD,0.9628928571428571,0.1067549602114993,0.8402051132163758,1.0,,,,,,200
+ODE,vanderpol_mu2,Van der Pol,edmd_poly3,EDMD-polynomial,0.9992857142857143,0.0157954842571266,0.9771487828950695,5.0,,,,,,200
+ODE,vanderpol_mu2,Van der Pol,linear_interp,Linear interpolation,0.998015873015873,0.04884981725618125,0.9372943940794566,5.0,,,,,,200
+ODE,vanderpol_mu2,Van der Pol,smoothing_spline_cv,Tuned smoothing spline,0.9953665223665223,0.02679816883948625,0.9570865923170229,5.0,,0.0001,0.0036337099495257997,,,200
+PDE,advection_diffusion,Advection--diffusion,baseline,Raw FD,0.6950000000000001,0.16779766643105498,0.5925874989020368,1.0,0.0,,,,,160
+PDE,advection_diffusion,Advection--diffusion,linear_interp,Linear interpolation,0.7015277777777778,0.1178181288732669,0.6153088921942821,5.0,0.0,,,,,160
+PDE,advection_diffusion,Advection--diffusion,pod_edmd_rbf,POD-EDMD-RBF,0.7182638888888888,0.02654467038813945,0.6775229938296045,5.0,4.0,,,0.0186690233524342,,160
+PDE,advection_diffusion,Advection--diffusion,smoothing_spline_cv,Tuned smoothing spline,0.7217361111111111,0.0243289839623504,0.6872154218682109,5.0,0.0,0.03,0.0178790254072911,,,160
+PDE,burgers,Burgers,baseline,Raw FD,0.7302083333333333,0.2976387412717845,0.5799631964165635,1.0,0.0,,,,,160
+PDE,burgers,Burgers,linear_interp,Linear interpolation,0.7322916666666666,0.25177837827187344,0.597603226877122,5.0,0.0,,,,,160
+PDE,burgers,Burgers,pod_edmd_rbf,POD-EDMD-RBF,0.7708333333333333,0.19697300554164793,0.6715105750536222,5.0,4.0,,,0.046369595920171355,,160
+PDE,burgers,Burgers,smoothing_spline_cv,Tuned smoothing spline,0.7523611111111111,0.16535850085922635,0.6613657885909985,5.0,0.0,10.0,0.0523464194883088,,,160
+PDE,fisher_kpp,Fisher--KPP,baseline,Raw FD,0.8369805194805195,0.038533166894558296,0.8099015259563724,1.0,0.0,,,,,160
+PDE,fisher_kpp,Fisher--KPP,linear_interp,Linear interpolation,0.8385714285714286,0.03914282628902515,0.8120509577224352,5.0,0.0,,,,,160
+PDE,fisher_kpp,Fisher--KPP,pod_edmd_rbf,POD-EDMD-RBF,0.83495670995671,0.0373367504287182,0.788514166858246,5.0,2.0,,,0.0021022356510504497,,160
+PDE,fisher_kpp,Fisher--KPP,smoothing_spline_cv,Tuned smoothing spline,0.8569642857142858,0.0418640114176844,0.8306751006392542,5.0,0.0,10.0,0.004272654135516,,,160

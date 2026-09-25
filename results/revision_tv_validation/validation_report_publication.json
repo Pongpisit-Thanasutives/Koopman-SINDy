@@ -1,0 +1,709 @@
+{
+  "seed": 20260924,
+  "checks": [
+    {
+      "name": "constant_linear",
+      "lam": 0.0001,
+      "max_state_error": 4.440892098500626e-16,
+      "max_derivative_error": 1.4654943925052066e-14
+    },
+    {
+      "name": "constant_linear",
+      "lam": 1,
+      "max_state_error": 4.440892098500626e-16,
+      "max_derivative_error": 1.4654943925052066e-14
+    },
+    {
+      "name": "constant_linear",
+      "lam": 100,
+      "max_state_error": 4.440892098500626e-16,
+      "max_derivative_error": 1.4654943925052066e-14
+    },
+    {
+      "name": "sine_zero_penalty",
+      "max_derivative_error": 0.0006578437601587606
+    },
+    {
+      "name": "heldout_response_exclusion",
+      "bitwise_identical": true,
+      "relative_gap": 7.307963269670426e-07
+    },
+    {
+      "name": "independent_quadratic_program",
+      "masked": false,
+      "objective_difference": 3.51119133767952e-12,
+      "max_state_difference": 2.663314013773288e-12,
+      "diagnostics": {
+        "primal_objective": [
+          0.36910296111736846
+        ],
+        "dual_objective": [
+          0.3691029611122063
+        ],
+        "primal_dual_gap": [
+          5.162148486448359e-12
+        ],
+        "relative_primal_dual_gap": [
+          5.162148486448359e-12
+        ],
+        "max_relative_gap": 5.162148486448359e-12,
+        "kkt_stationarity_max": 4.530875674646495e-12,
+        "kkt_complementarity_gap": [
+          5.161981952994665e-12
+        ],
+        "kkt_subgradient_prox_max": 6.566192034540563e-12,
+        "masked_dual_stationarity_max": 0.0,
+        "dual_box_violation": 0.0,
+        "dual_scale_min": 0.999999999981245,
+        "converged": true,
+        "iterations": 75,
+        "rho": 0.629,
+        "tolerance": 1e-08,
+        "method": "banded ADMM with dual certificate",
+        "elapsed_seconds": 0.0020572120001816074,
+        "n_observed": 17,
+        "n_times": 17,
+        "n_channels": 1,
+        "objective": "0.5*sum_train((z-y)^2)+lambda*sum(abs(Bz))"
+      }
+    },
+    {
+      "name": "independent_quadratic_program",
+      "masked": true,
+      "objective_difference": 9.57909346288588e-09,
+      "max_state_difference": 3.90658285720491e-08,
+      "diagnostics": {
+        "primal_objective": [
+          0.22901691721233475
+        ],
+        "dual_objective": [
+          0.2290169073767599
+        ],
+        "primal_dual_gap": [
+          9.835574854566431e-09
+        ],
+        "relative_primal_dual_gap": [
+          9.835574854566431e-09
+        ],
+        "max_relative_gap": 9.835574854566431e-09,
+        "kkt_stationarity_max": 5.883069309486899e-10,
+        "kkt_complementarity_gap": [
+          9.835575354166792e-09
+        ],
+        "kkt_subgradient_prox_max": 8.098654080690437e-09,
+        "masked_dual_stationarity_max": 3.647619938136698e-16,
+        "dual_box_violation": 0.0,
+        "dual_scale_min": 0.9999999972814964,
+        "converged": true,
+        "iterations": 175,
+        "rho": 0.629,
+        "tolerance": 1e-08,
+        "method": "banded ADMM with dual certificate",
+        "elapsed_seconds": 0.0043434610001895635,
+        "n_observed": 11,
+        "n_times": 17,
+        "n_channels": 1,
+        "objective": "0.5*sum_train((z-y)^2)+lambda*sum(abs(Bz))"
+      }
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 0,
+      "seconds": 0.000815199999806282,
+      "iterations": 0,
+      "relative_gap": 0.0,
+      "masked_stationarity": 0.0
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 0.0001,
+      "seconds": 0.0069842729999436415,
+      "iterations": 50,
+      "relative_gap": 3.813752976272668e-07,
+      "masked_stationarity": 5.421010862427522e-20
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 0.001,
+      "seconds": 0.006885753999995359,
+      "iterations": 50,
+      "relative_gap": 1.5273139149876193e-06,
+      "masked_stationarity": 6.505213034913027e-19
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 0.01,
+      "seconds": 0.009971549000056257,
+      "iterations": 75,
+      "relative_gap": 6.114152797821043e-06,
+      "masked_stationarity": 5.204170427930421e-18
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 0.1,
+      "seconds": 0.05555961100003515,
+      "iterations": 450,
+      "relative_gap": 9.982998680199695e-06,
+      "masked_stationarity": 5.551115123125783e-17
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 1,
+      "seconds": 0.05911431300000913,
+      "iterations": 475,
+      "relative_gap": 8.164976915525646e-06,
+      "masked_stationarity": 5.551115123125783e-16
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 10,
+      "seconds": 0.06517406100010703,
+      "iterations": 525,
+      "relative_gap": 8.614031331552855e-06,
+      "masked_stationarity": 7.105427357601002e-15
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 100,
+      "seconds": 0.0004064629999902536,
+      "iterations": 0,
+      "relative_gap": 1.7736230339734657e-13,
+      "masked_stationarity": 4.263256414560601e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 0,
+      "lam": 1000,
+      "seconds": 0.0003350750000663538,
+      "iterations": 0,
+      "relative_gap": 1.7587289730536502e-12,
+      "masked_stationarity": 4.263256414560601e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 0,
+      "seconds": 0.0006565600001522398,
+      "iterations": 0,
+      "relative_gap": 0.0,
+      "masked_stationarity": 0.0
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 0.0001,
+      "seconds": 0.006663678999984768,
+      "iterations": 50,
+      "relative_gap": 3.661126711061854e-07,
+      "masked_stationarity": 2.0484644796398e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 0.001,
+      "seconds": 0.006570870000132345,
+      "iterations": 50,
+      "relative_gap": 3.280837684771845e-06,
+      "masked_stationarity": 2.2333046870159912e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 0.01,
+      "seconds": 0.011392291999982262,
+      "iterations": 75,
+      "relative_gap": 2.1164681550285558e-06,
+      "masked_stationarity": 1.9735948986188134e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 0.1,
+      "seconds": 0.03489249199992628,
+      "iterations": 275,
+      "relative_gap": 7.078437810136007e-06,
+      "masked_stationarity": 1.1962653090336062e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 1,
+      "seconds": 0.05628672800003187,
+      "iterations": 450,
+      "relative_gap": 9.470472244421657e-06,
+      "masked_stationarity": 1.509903313490213e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 10,
+      "seconds": 0.06856567599993468,
+      "iterations": 550,
+      "relative_gap": 8.80645490090455e-06,
+      "masked_stationarity": 3.1530333899354446e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 100,
+      "seconds": 0.0004420170000685175,
+      "iterations": 0,
+      "relative_gap": 2.403883549240006e-13,
+      "masked_stationarity": 8.526512829121202e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 1,
+      "lam": 1000,
+      "seconds": 0.00036738399990099424,
+      "iterations": 0,
+      "relative_gap": 2.3817086876175853e-12,
+      "masked_stationarity": 8.526512829121202e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 0,
+      "seconds": 0.0006177810000735917,
+      "iterations": 0,
+      "relative_gap": 0.0,
+      "masked_stationarity": 0.0
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 0.0001,
+      "seconds": 0.006655516999899191,
+      "iterations": 50,
+      "relative_gap": 3.506149581836409e-07,
+      "masked_stationarity": 6.776263578034403e-20
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 0.001,
+      "seconds": 0.006559101999982886,
+      "iterations": 50,
+      "relative_gap": 1.3517988031305425e-06,
+      "masked_stationarity": 8.673617379884035e-19
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 0.01,
+      "seconds": 0.009627619999946546,
+      "iterations": 75,
+      "relative_gap": 3.30307773125163e-06,
+      "masked_stationarity": 6.938893903907228e-18
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 0.1,
+      "seconds": 0.028200370000149633,
+      "iterations": 225,
+      "relative_gap": 5.450011085303408e-06,
+      "masked_stationarity": 5.551115123125783e-17
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 1,
+      "seconds": 0.04944991699994716,
+      "iterations": 400,
+      "relative_gap": 8.26971090828188e-06,
+      "masked_stationarity": 6.661338147750939e-16
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 10,
+      "seconds": 0.08326179999994565,
+      "iterations": 675,
+      "relative_gap": 9.72080450997705e-06,
+      "masked_stationarity": 7.105427357601002e-15
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 100,
+      "seconds": 0.0004917109999951208,
+      "iterations": 0,
+      "relative_gap": 1.8310485631466887e-13,
+      "masked_stationarity": 4.263256414560601e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 51,
+      "d": 64,
+      "fold": 2,
+      "lam": 1000,
+      "seconds": 0.0003427169999667967,
+      "iterations": 0,
+      "relative_gap": 1.845454606986025e-12,
+      "masked_stationarity": 4.263256414560601e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 0,
+      "seconds": 0.0004540850000012142,
+      "iterations": 0,
+      "relative_gap": 0.0,
+      "masked_stationarity": 0.0
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 0.0001,
+      "seconds": 0.0032207579999976588,
+      "iterations": 50,
+      "relative_gap": 1.2052089707816505e-06,
+      "masked_stationarity": 1.8862302941357462e-13
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 0.001,
+      "seconds": 0.0031544580001536815,
+      "iterations": 50,
+      "relative_gap": 4.699289683329777e-06,
+      "masked_stationarity": 5.260093575987224e-13
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 0.01,
+      "seconds": 0.0031688790002135647,
+      "iterations": 50,
+      "relative_gap": 6.4798163832008315e-06,
+      "masked_stationarity": 6.354864551250117e-13
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 0.1,
+      "seconds": 0.01732656100011809,
+      "iterations": 300,
+      "relative_gap": 8.960346400549435e-06,
+      "masked_stationarity": 2.1618991319360958e-13
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 1,
+      "seconds": 0.11611596899979304,
+      "iterations": 1925,
+      "relative_gap": 9.46665600257135e-06,
+      "masked_stationarity": 3.9546838026538467e-13
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 10,
+      "seconds": 0.0639534150000145,
+      "iterations": 1075,
+      "relative_gap": 9.964910213877687e-06,
+      "masked_stationarity": 3.214095656289828e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 100,
+      "seconds": 0.1234755339999083,
+      "iterations": 2175,
+      "relative_gap": 9.999089183364136e-06,
+      "masked_stationarity": 2.0938806244430452e-13
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 0,
+      "lam": 1000,
+      "seconds": 0.06035276000011436,
+      "iterations": 1100,
+      "relative_gap": 4.059285481841734e-06,
+      "masked_stationarity": 1.0718093079731261e-12
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 0,
+      "seconds": 0.0004451309998785291,
+      "iterations": 0,
+      "relative_gap": 0.0,
+      "masked_stationarity": 0.0
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 0.0001,
+      "seconds": 0.0031495800001266616,
+      "iterations": 50,
+      "relative_gap": 8.86452320653661e-07,
+      "masked_stationarity": 5.421010862427522e-20
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 0.001,
+      "seconds": 0.003211894000060056,
+      "iterations": 50,
+      "relative_gap": 4.014614401835065e-06,
+      "masked_stationarity": 6.505213034913027e-19
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 0.01,
+      "seconds": 0.0031907120001051226,
+      "iterations": 50,
+      "relative_gap": 3.293984008723161e-06,
+      "masked_stationarity": 6.938893903907228e-18
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 0.1,
+      "seconds": 0.02476084899990383,
+      "iterations": 450,
+      "relative_gap": 9.87724602360962e-06,
+      "masked_stationarity": 5.551115123125783e-17
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 1,
+      "seconds": 0.0835665469999185,
+      "iterations": 1500,
+      "relative_gap": 9.707190633506668e-06,
+      "masked_stationarity": 4.440892098500626e-16
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 10,
+      "seconds": 0.07248201200013682,
+      "iterations": 1325,
+      "relative_gap": 9.47389977268287e-06,
+      "masked_stationarity": 7.105427357601002e-15
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 100,
+      "seconds": 0.11938039400001799,
+      "iterations": 2175,
+      "relative_gap": 9.794946605083874e-06,
+      "masked_stationarity": 4.263256414560601e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 1,
+      "lam": 1000,
+      "seconds": 0.04970314199999848,
+      "iterations": 875,
+      "relative_gap": 5.267465124500158e-06,
+      "masked_stationarity": 3.410605131648481e-13
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 0,
+      "seconds": 0.0004963680000855675,
+      "iterations": 0,
+      "relative_gap": 0.0,
+      "masked_stationarity": 0.0
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 0.0001,
+      "seconds": 0.003227136000077735,
+      "iterations": 50,
+      "relative_gap": 1.0503032853166182e-06,
+      "masked_stationarity": 5.421010862427522e-20
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 0.001,
+      "seconds": 0.003122919999896112,
+      "iterations": 50,
+      "relative_gap": 5.087253853494622e-06,
+      "masked_stationarity": 8.673617379884035e-19
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 0.01,
+      "seconds": 0.0031083479998414987,
+      "iterations": 50,
+      "relative_gap": 6.746999127976716e-06,
+      "masked_stationarity": 5.204170427930421e-18
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 0.1,
+      "seconds": 0.01183185200011394,
+      "iterations": 200,
+      "relative_gap": 8.920144547397424e-06,
+      "masked_stationarity": 4.163336342344337e-17
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 1,
+      "seconds": 0.13837152199994307,
+      "iterations": 2500,
+      "relative_gap": 9.808018248402828e-06,
+      "masked_stationarity": 6.661338147750939e-16
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 10,
+      "seconds": 0.06245817600006376,
+      "iterations": 1125,
+      "relative_gap": 8.558403678748938e-06,
+      "masked_stationarity": 7.105427357601002e-15
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 100,
+      "seconds": 0.1595614560001195,
+      "iterations": 2875,
+      "relative_gap": 8.615808249395736e-06,
+      "masked_stationarity": 5.684341886080802e-14
+    },
+    {
+      "name": "representative_runtime",
+      "n": 251,
+      "d": 3,
+      "fold": 2,
+      "lam": 1000,
+      "seconds": 0.04953918500018517,
+      "iterations": 875,
+      "relative_gap": 5.154432799212221e-06,
+      "masked_stationarity": 4.547473508864641e-13
+    },
+    {
+      "name": "nonconvergence_raises",
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

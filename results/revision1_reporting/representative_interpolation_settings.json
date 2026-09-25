@@ -1,0 +1,32 @@
+{
+  "seed": 0,
+  "sparse_factor": 16,
+  "relative_noise": 0.03,
+  "upsample": 5,
+  "base_dt": 0.005,
+  "vanderpol": {
+    "degree": 3,
+    "fitting_window": [
+      0,
+      20
+    ],
+    "displayed_window": [
+      2.4,
+      3.2
+    ]
+  },
+  "burgers": {
+    "nx": 64,
+    "rank": 8,
+    "rbf_centers": 30,
+    "spatial_index": 16,
+    "fitting_window": [
+      0,
+      2
+    ],
+    "displayed_window": [
+      0.4,
+      1.2
+    ]
+  }
+}

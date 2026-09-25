@@ -1,0 +1,37 @@
+{
+  "sha256": {
+    "results/ode_publication/ode_raw_results.csv": "93e647eaf34fd25a54722e26a6a7cddc0d7a66ae85e7c35eff68720329699ee8",
+    "results/pde_publication/pde_raw_results.csv": "6dc0025d5fab3273c58b055bdd4719635d2f37cbc730aca848b8cfe127d31fd6",
+    "results/advection_diffusion_benchmark/advection_diffusion_raw.csv": "404c84abb7cd3262f74dcf3b87fdd92f069bb30d2a235b9e53e2f41d3ad8501d",
+    "results/qr_sensitivity/qr_sensitivity_raw.csv": "e4f42d1a3226322ae0341d7ceab548dc743e8b751f3c61e7f6e2eebec1c6c975",
+    "make_revision1_figures_tables.py": "99452b863a0e9f706a40002ae580db6b44389090b69aa9cb2050e863fd9dce4c",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "a35128f1a94aaa06362936533e27e2a9af32ae22b27bbd7a902fe4ac4b413cef",
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683",
+    "sync_revision_outputs.py": "c5202fc5b1a2b41fbddc901558edc9f62b635da2c602be58d730260273b89ae4",
+    "koopman_sindy_qr_sensitivity.py": "f9c036eadfe00cd475b0f153a1491ed6f66719e22fa75119dc5eede397a5d595",
+    "classical_interpolation_baselines.py": "f69424d564d06c145deb2a8654a68227d16bd214a812c90754eb7ecd78806b76",
+    "results/upsampling_strategy_publication/upsampling_strategy_raw.csv": "6fb53771361e216629acf3f0f3506a1a4743e1174e7671ab090ecb2c53db8601",
+    "results/model_selection_publication/model_selection_selected_by_equation.csv": "c2a0bfbea8d54b69d6b8262c0692852e435731b34220b03112defeef05f87e62",
+    "results/classical_interpolation_publication/ode/ode_raw_results.csv": "b0deea152b9e600c48fdf9689d945b5bc4298fc2f9db86704bc5a03e072fde9e",
+    "results/classical_interpolation_publication/pde/pde_raw_results.csv": "91a3a16425f7c1fc1c2ac59ee27478ff8c30607d145be9b2de339143d97edb2e",
+    "results/revision_tv_high_noise/summary_high_noise.csv": "24e1debf49108313f079c6d5d1df91478055cfa2985a9d7beef0fce5907ccbfd"
+  },
+  "main_records": 2340,
+  "main_valid_records": 2338,
+  "representative_interpolation_regenerated": false,
+  "uncertainty": "Seed-cluster CR1 standard error; regime figures show record SD",
+  "control_estimand": "Complete matched seed triples, fixed representative q/r setting",
+  "presentation_provenance_refreshed_utc": "2026-09-24T12:47:16Z",
+  "v4_previous_presentation_source_sha256": {
+    "make_revision1_figures_tables.py": "cbac07746fbc2db2df86b92b6cc19624438715141939f1a9b0c5b3b2d3d1e463",
+    "sync_revision_outputs.py": "bb6e99e9f8e1c9185f33a954db7c8af044188bd15c58a8d4f5571624aa469c1e"
+  },
+  "v4_presentation_refreshed_utc": "2026-09-25T05:20:46.095195+00:00",
+  "v4_presentation_note": "Current reporting-generator hashes after caption and boldface-only changes; numerical inputs and execution records unchanged.",
+  "v5_previous_presentation_source_sha256": {
+    "make_revision1_figures_tables.py": "fdb376958b38d05a4e1fe1b2c5b55ad2b0573c2c387fbe8548cc64328b33621d",
+    "sync_revision_outputs.py": "8b09471ec8fcb428a959b3f047d97ecfd1b3201b2fa08f2f2490a081ec27a833"
+  },
+  "v5_presentation_note": "Only float-placement strings changed; numerical functions, inputs, saved results and figure assets are unchanged."
+}

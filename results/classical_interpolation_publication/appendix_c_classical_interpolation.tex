@@ -2,11 +2,13 @@
 \section{Classical non-dynamical interpolation techniques}
 \label{app:classical_interpolation}
 
-This appendix evaluates whether the improvements from Koopman/DMD-assisted preprocessing can be explained by inserting additional time points before sparse regression. The comparison focuses on direct non-dynamical alternatives: the no-upsampling baseline, componentwise piecewise-linear interpolation, componentwise smoothing-spline interpolation, and the main assisted preprocessors. The ODE assisted method is EDMD-polynomial. The PDE assisted method is POD-EDMD-RBF.
+This appendix evaluates whether the improvements from Koopman-based preprocessing can be explained by inserting additional time points before sparse regression. The comparison focuses on direct non-dynamical alternatives: the no-upsampling baseline, componentwise piecewise-linear interpolation, componentwise smoothing-spline interpolation, and the main assisted preprocessors. The ODE assisted method is EDMD-polynomial. The PDE assisted method is POD-EDMD-RBF.
+
+The ODE comparison uses the main ODE grid in Table~\ref{tab:settings}. All three PDEs in this appendix, including advection--diffusion, use $n_x=64$, base $\Delta t=0.005$, $T=2$, sparse factors $\{4,8,16,32\}$, noise levels $\{0,0.01,0.03,0.05,0.10\}$, eight seeds, and $q=5$. POD-rank validation uses three interior folds, candidate ranks $\{1,2,3,4,6,8\}$, and at most 30 RBF centres. Spline validation uses four interior folds and the smoothing-parameter grid $\{0,10\}\cup\{10^j,3\cdot10^j:j=-8,\ldots,0\}$.
 
 The interpolation factor $q$ is fixed across all non-baseline methods rather than tuned by validation, because it controls the output grid resolution used for subsequent derivative estimation. Observation-only validation at the original sparse measurement times cannot identify a preferred dense-grid spacing without using downstream SINDy/PDE-FIND information. In contrast, the smoothing-spline parameter and the PDE POD rank $r$ directly affect reconstruction of held-out sparse noisy measurements, so these parameters are selected by deterministic interior holdout validation using only the observed sparse noisy trajectories or snapshots.
 
-No dense clean trajectory, true coefficient vector, threshold oracle, or downstream SINDy/PDE-FIND score is used to tune any Appendix~C preprocessing parameter. The appendix therefore provides a fair check against the most direct alternative explanation: ordinary temporal interpolation plus classical smoothing. The Appendix-C advection--diffusion comparison follows this grid, which differs from the main advection--diffusion experiment reported in Table~\ref{tab:pde_system}.
+The POD basis and RBF centers are fitted using the training observations only. The EDMD map is fitted using training pairs separated by the original observation interval; pairs touching held-out snapshots or spanning a longer gap are excluded. Each held-out snapshot is predicted from the nearest preceding training anchor using the actual elapsed time. No dense clean trajectory, true coefficient vector, threshold oracle, or downstream SINDy/PDE-FIND score is used to tune any Appendix~C preprocessing parameter. The appendix therefore provides a fair check against the most direct alternative explanation: ordinary temporal interpolation plus classical smoothing. The Appendix-C advection--diffusion comparison follows this grid, which differs from the main advection--diffusion experiment reported in Table~\ref{tab:pde_system}.
 
 \begin{table}[H]
 \centering
@@ -16,47 +18,47 @@ No dense clean trajectory, true coefficient vector, threshold oracle, or downstr
 \toprule
 \TCH{System} & \TCH{Method} & \TCH{$q$} & \TCH{F1} & \TCH{Coeff. err.} & \TCH{Score} \\
 \midrule
-Lorenz--63 & Baseline & -- & 0.725 & 0.911 & 0.477 \\
+Lorenz--63 & Raw FD & -- & 0.725 & 0.911 & 0.477 \\
  & Linear interpolation & 5 & 0.727 & 0.911 & 0.493 \\
  & Tuned smoothing spline & 5 & 0.730 & 0.936 & 0.530 \\
- & EDMD-polynomial & 5 & \textbf{0.737} & \textbf{0.526} & \textbf{0.561} \\
+ & EDMD-polynomial & 5 & \textbf{0.738} & \textbf{0.546} & \textbf{0.549} \\
 \midrule
-Van der Pol & Baseline & -- & 0.963 & 0.107 & 0.840 \\
+Van der Pol & Raw FD & -- & 0.963 & 0.107 & 0.840 \\
  & Linear interpolation & 5 & 0.998 & 0.049 & 0.937 \\
  & Tuned smoothing spline & 5 & 0.995 & 0.027 & 0.957 \\
- & EDMD-polynomial & 5 & \textbf{0.999} & \textbf{0.015} & \textbf{0.977} \\
+ & EDMD-polynomial & 5 & \textbf{0.999} & \textbf{0.016} & \textbf{0.977} \\
 \botrule
 \end{tabular}%
 }
 \end{table}
 
-The ODE comparison in Table~\ref{tab:appendix_c_ode_classical} supports the main conclusion: non-dynamical interpolation improves over the raw sparse baseline, while EDMD-polynomial gives the best score and coefficient accuracy in both ODE systems.
+For Lorenz--63, the highest mean Score is attained by EDMD-polynomial; the lowest median coefficient error is attained by EDMD-polynomial. For Van der Pol, the highest mean Score is attained by EDMD-polynomial; the lowest median coefficient error is attained by EDMD-polynomial. Near-ties use the same numerical tolerance as the table boldface. These comparisons describe the tested grid and metrics, rather than establishing a general ordering of preprocessing methods.
 
 \begin{table}[H]
 \centering
-\TBL{\caption{Classical non-dynamical interpolation techniques and observation-validated POD-DMD/Koopman preprocessing for the PDE benchmark. The linear and validation-tuned smoothing-spline techniques apply separate temporal interpolants at each spatial grid point, with a single validation-selected smoothing level shared across the field; they do not use POD, DMD, or EDMD. For POD-EDMD-RBF, the POD rank $r$ is selected by deterministic interior holdout validation on the sparse noisy snapshots only. All non-baseline methods use the same fixed interpolation factor $q$. F1 and Score are means, Coeff. err. is the median, and boldface marks the best value within each system and metric.\label{tab:appendix_c_pde_classical}}}
+\TBL{\caption{Classical non-dynamical interpolation techniques and observation-validated Koopman-based preprocessing for the PDE benchmark. The linear and validation-tuned smoothing-spline techniques apply separate temporal interpolants at each spatial grid point, with one validation-selected smoothing level shared across the field; they do not use POD, DMD, or EDMD. For POD-EDMD-RBF, the POD rank $r$ is selected by deterministic interior holdout validation on the sparse noisy snapshots only; the displayed $r$ is its median across records. All non-baseline methods use the same fixed interpolation factor $q$. F1 and Score are means, Coeff. err. is the median, and boldface marks the best value within each system and metric.\label{tab:appendix_c_pde_classical}}}
 {%
 \begin{tabular}{@{}llccccc@{}}
 \toprule
 \TCH{System} & \TCH{Method} & \TCH{$q$} & \TCH{$r$} & \TCH{F1} & \TCH{Coeff. err.} & \TCH{Score} \\
 \midrule
-Burgers & Baseline & -- & -- & 0.730 & 0.298 & 0.580 \\
+Burgers & Raw FD & -- & -- & 0.730 & 0.298 & 0.580 \\
  & Linear interpolation & 5 & -- & 0.732 & 0.252 & 0.598 \\
  & Tuned smoothing spline & 5 & -- & 0.752 & \textbf{0.165} & 0.661 \\
- & POD-EDMD-RBF & 5 & 4 & \textbf{0.788} & 0.192 & \textbf{0.692} \\
+ & POD-EDMD-RBF & 5 & 4 & \textbf{0.771} & 0.197 & \textbf{0.672} \\
 \midrule
-Fisher--KPP & Baseline & -- & -- & 0.837 & 0.039 & 0.810 \\
+Fisher--KPP & Raw FD & -- & -- & 0.837 & 0.039 & 0.810 \\
  & Linear interpolation & 5 & -- & 0.839 & 0.039 & 0.812 \\
  & Tuned smoothing spline & 5 & -- & \textbf{0.857} & 0.042 & \textbf{0.831} \\
- & POD-EDMD-RBF & 5 & 2 & 0.851 & \textbf{0.036} & 0.825 \\
+ & POD-EDMD-RBF & 5 & 2 & 0.835 & \textbf{0.037} & 0.789 \\
 \midrule
-Advection--diffusion & Baseline & -- & -- & 0.695 & 0.168 & 0.593 \\
+Advection--diffusion & Raw FD & -- & -- & 0.695 & 0.168 & 0.593 \\
  & Linear interpolation & 5 & -- & 0.702 & 0.118 & 0.615 \\
- & Tuned smoothing spline & 5 & -- & 0.722 & \textbf{0.024} & 0.687 \\
- & POD-EDMD-RBF & 5 & 4 & \textbf{0.734} & 0.027 & \textbf{0.695} \\
+ & Tuned smoothing spline & 5 & -- & \textbf{0.722} & \textbf{0.024} & \textbf{0.687} \\
+ & POD-EDMD-RBF & 5 & 4 & 0.718 & 0.027 & 0.678 \\
 \botrule
 \end{tabular}%
 }
 \end{table}
 
-In the PDE comparison in Table~\ref{tab:appendix_c_pde_classical}, tuned smoothing splines are competitive, especially for coefficient accuracy in some rows, while POD-EDMD-RBF gives the best aggregate PDE practical score and support recovery over the same publication grid. Thus, the improvements in the main benchmark are not explained solely by adding intermediate time points. The PDE results indicate a system-dependent advantage for learned low-rank dynamics rather than a uniform dominance over classical smoothing.
+For Burgers, the highest mean Score is attained by POD-EDMD-RBF; the lowest median coefficient error is attained by Tuned smoothing spline. For Fisher--KPP, the highest mean Score is attained by Tuned smoothing spline; the lowest median coefficient error is attained by POD-EDMD-RBF. For Advection--diffusion, the highest mean Score is attained by Tuned smoothing spline; the lowest median coefficient error is attained by Tuned smoothing spline. Near-ties use the same numerical tolerance as the table boldface. These comparisons describe the tested grid and metrics, rather than establishing a general ordering of preprocessing methods.

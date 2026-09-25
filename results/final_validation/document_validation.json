@@ -1,0 +1,152 @@
+{
+  "documents": [
+    {
+      "file": "submission/koopman_sindy_revised.pdf",
+      "pages": 31,
+      "sha256": "3d167a0f7d1bbde7b01bc55f5354338cd3d58e73d78b4a139803b504dbacab98",
+      "blank_text_pages": [],
+      "replacement_characters": 0,
+      "unresolved_markers": 0,
+      "critical_log_lines": []
+    },
+    {
+      "file": "submission/koopman_sindy_marked.pdf",
+      "pages": 32,
+      "sha256": "4ebafa9e4731e5e6b975c9628c620a005d2a3385e5702dc3a98c1b5ffdfaa3a7",
+      "blank_text_pages": [],
+      "replacement_characters": 0,
+      "unresolved_markers": 0,
+      "critical_log_lines": []
+    },
+    {
+      "file": "submission/response_to_reviewers.pdf",
+      "pages": 7,
+      "sha256": "5b033d22919b065abe2d4d5291cd3a7d49098ca6873188ab4b68844e163a5c1b",
+      "blank_text_pages": [],
+      "replacement_characters": 0,
+      "unresolved_markers": 0,
+      "critical_log_lines": []
+    }
+  ],
+  "source_reference_audit": {
+    "file": "latex_source/koopman_sindy_revised.tex",
+    "sha256": "e79507a6b48618b5e8c60839d85603809573080d7fb77bb6b51af6bbbdd1c85e",
+    "active_tex_files": 19,
+    "duplicate_labels": [],
+    "unresolved_source_references": [],
+    "cited_keys": 32,
+    "missing_bibliography_keys": [],
+    "custom_algorithm_labels": [
+      "alg:workflow"
+    ]
+  },
+  "reviewer_response_audit": {
+    "count": 15,
+    "all_quotations_verbatim_from_v4": true,
+    "unresolved_manuscript_references": [],
+    "all_quotations_verbatim_from_v5": true,
+    "numerical_statements_unchanged_from_v5": true,
+    "all_response_source_verbatim_from_v6": true
+  },
+  "note": "Packaging-only pass: clean compilation dependencies are isolated in latex_source; submission files and local checking materials are separate. Scientific content, numerical/reporting source code, experimental evidence, figure assets and historical preservation records are unchanged. Historical hash validation uses the exact recorded relocation map. No experiments rerun.",
+  "compiled_source_sha256": {
+    "latex_source/appendices/appendix_a_qr_sensitivity.tex": "7dd2af58206c3cb2c8bf433be4d0164658b09af2a0d9a93fb288ae5c62bb8ff6",
+    "latex_source/appendices/appendix_c_classical_interpolation.tex": "d69ac6e57eb8bb440170aa75e7c2f859dfec18ed2982f44d8e32d9798ff82ff5",
+    "latex_source/appendices/appendix_d_weak_comparison.tex": "fcc4d3559e81565f83efa39a02c37b7cef8ed08b1751a0607abc32c8911b511a",
+    "local_checking/marked/koopman_sindy_marked.tex": "830b5535d5ad083bc9c6128f72be6066664dd35f223a1806e502dfa4d621f88b",
+    "latex_source/koopman_sindy_revised.tex": "e79507a6b48618b5e8c60839d85603809573080d7fb77bb6b51af6bbbdd1c85e",
+    "latex_source/references.bib": "f24ceea5419f5b139bfad70de6cfaf7d577abf4112a148d39868302d1006e705",
+    "latex_source/sections/revision_nonoracle_tv_fragment.tex": "c1482796edbaee5051ccae17b126d4c307dde5c154a0017a8fcf6521e2083390",
+    "latex_source/sections/revision_tv_methods_fragment.tex": "d76addafbc802519671e3e63550e43d6fffbe6c021a2a8e98b1aa0b49bb377c4",
+    "latex_source/sections/revision_tv_results_fragment.tex": "d481972571f24f8dc5304e247eb09a8e36f32829267ef93db0799d6cfeb3e887",
+    "latex_source/tables/main_settings.tex": "5db5fed94382c099f69b4309263e196345e3d38265e63013ca41554cc6babfb5",
+    "latex_source/tables/revision_interpolated_data_figure.tex": "5bd8ed7a9e1806e4177b4db55c52e0d35745217c149b4a194651901fc4687148",
+    "latex_source/tables/revision_nonoracle_tv_table.tex": "8dbfa30d124742c4dfb2a86ec1afd5a43a61fc2883b91bbb6adea47a0b733b1a",
+    "latex_source/tables/revision_ode_regime_figure.tex": "feb07191b6d2c003dd8f5e8ddbef6633a680ba18caf96117ef8bb2a28c757d1f",
+    "latex_source/tables/revision_ode_system.tex": "5d38b8e56d9542380807c158e875e036ce499135dce6d6142445b9b9b5ead340",
+    "latex_source/tables/revision_paired_wins.tex": "2b3b6bc3656ff74b1439777c444b9cc3ead65a9c0f60d66f3590eb9c48b6d53b",
+    "latex_source/tables/revision_pde_regime_figure.tex": "ace58761817f3355b58e3d52145e965ce2301492c04ebc4be31e9d4ffe69057a",
+    "latex_source/tables/revision_pde_system.tex": "f5ce00225bce10de7a30238879f7f3691dc31876c099f2b49439788e791c440a",
+    "latex_source/tables/revision_pod_attribution.tex": "cc95867c9e78f244548e23fc5a61d25dfd5dbcf0d8e1f23a9612197666d63af4",
+    "latex_source/tables/revision_strategy_ablation.tex": "ca5cd2653d811471451e07f1723af04995ba54e2906952efa410547e8869f830",
+    "latex_source/tables/revision_tv_high_noise.tex": "cf02d53cbb393f3fd89fb7d0e6384a783feddca4b783abd680d8a1330b765857",
+    "latex_source/tables/revision_weak_comparison.tex": "7f5076707db0505a9d27f676b5832f857d0328e96e046c10023672a8685ff0d6",
+    "local_checking/response/response_to_reviewers.tex": "a9344770253a19f2cf9ef8a9bb8aadcfe161ceb8e54cddb576ce1a07858a03cf"
+  },
+  "passed": true,
+  "heading_revision_v7": {
+    "baseline_package": "delivered v6",
+    "file": "latex_source/appendices/appendix_d_weak_comparison.tex",
+    "baseline_sha256": "2060bde071aec4be34450e6ddb7536bac02721a60fa791e76f44b5e427cd5463",
+    "current_sha256": "fcc4d3559e81565f83efa39a02c37b7cef8ed08b1751a0607abc32c8911b511a",
+    "old_heading": "\\section{Targeted weak-form preprocessing comparison}",
+    "new_heading": "\\section{Weak-form preprocessing comparison}",
+    "exact_heading_change_only": true,
+    "other_preserved_file_count": 322,
+    "all_pdf_text_unchanged_except_heading": true,
+    "response_source_unchanged": true,
+    "experiments_rerun": false,
+    "marked_pdf_text_normalization": "Ignore colon glyphs from change underlines before whitespace normalization",
+    "visual_changes_clean_pages": [
+      28
+    ],
+    "visual_changes_marked_pages": [
+      28
+    ],
+    "all_other_pages_pixel_identical_to_v6": true,
+    "response_pages_pixel_identical_to_v6": true,
+    "affected_and_adjacent_pages_visually_inspected": true
+  },
+  "packaging_revision_v8": {
+    "baseline_package": "delivered v7",
+    "purpose": "Separate clean compilation sources, submission files and local checking materials without changing scientific content or experimental evidence.",
+    "historical_path_map": {
+      "latex_source/cover_letter.txt": "submission/cover_letter.txt",
+      "latex_source/koopman_sindy_revised.pdf": "submission/koopman_sindy_revised.pdf",
+      "latex_source/koopman_sindy_marked.pdf": "submission/koopman_sindy_marked.pdf",
+      "response/response_to_reviewers.pdf": "submission/response_to_reviewers.pdf",
+      "response/response_to_reviewers.tex": "local_checking/response/response_to_reviewers.tex",
+      "latex_source/koopman_sindy_marked.tex": "local_checking/marked/koopman_sindy_marked.tex",
+      "latex_source/koopman_sindy_changes.diff": "local_checking/marked/koopman_sindy_changes.diff",
+      "latex_source/README_LATEX_SUBMISSION.md": "local_checking/README_LATEX_SUBMISSION.md",
+      "submission_details.txt": "submission/submission_details.txt",
+      "REVISION_NOTES.md": "local_checking/REVISION_NOTES.md",
+      "reference_audit.md": "local_checking/reference_audit.md",
+      "marked_filter.py": "local_checking/marked_filter.py",
+      "build_documents.sh": "local_checking/legacy_build/build_documents.sh",
+      "build_marked.sh": "local_checking/legacy_build/build_marked.sh",
+      "latex_source/tables/revision_model_selection.tex": "local_checking/extra_assets/tables/revision_model_selection.tex",
+      "latex_source/figures/revision_interpolated_data.png": "local_checking/extra_assets/figures/revision_interpolated_data.png",
+      "latex_source/figures/revision_ode_noise_sparsity.png": "local_checking/extra_assets/figures/revision_ode_noise_sparsity.png",
+      "latex_source/figures/revision_pde_noise_sparsity.png": "local_checking/extra_assets/figures/revision_pde_noise_sparsity.png",
+      "latex_source/figures/tv_high_noise_coefficient_error.pdf": "local_checking/extra_assets/figures/tv_high_noise_coefficient_error.pdf",
+      "latex_source/figures/tv_high_noise_support_f1.pdf": "local_checking/extra_assets/figures/tv_high_noise_support_f1.pdf",
+      "latex_source/CUP_Logo.eps": "local_checking/extra_assets/logos/CUP_Logo.eps",
+      "latex_source/CUP_Logo-eps-converted-to.pdf": "local_checking/extra_assets/logos/CUP_Logo-eps-converted-to.pdf",
+      "latex_source/DCE_logo_RGB.eps": "local_checking/extra_assets/logos/DCE_logo_RGB.eps",
+      "latex_source/DCE_logo_RGB-eps-converted-to.pdf": "local_checking/extra_assets/logos/DCE_logo_RGB-eps-converted-to.pdf",
+      "latex_source/orcid_logo.eps": "local_checking/extra_assets/logos/orcid_logo.eps",
+      "latex_source/orcid_logo.pdf": "local_checking/extra_assets/logos/orcid_logo.pdf",
+      "code_repository/README.md": "local_checking/legacy_build/code_repository_README.md",
+      "code_repository/CODE_AUDIT_AND_REPRODUCIBILITY.md": "local_checking/legacy_build/CODE_AUDIT_AND_REPRODUCIBILITY.md"
+    },
+    "experiments_rerun": false,
+    "unchanged_nondocument_code_and_evidence_file_count": 252,
+    "clean_source_file_count": 33,
+    "clean_source_archive": {
+      "file": "submission/latex_source.zip",
+      "clean_source_files": 33,
+      "archive_bytes": 1292136,
+      "sha256": "59fef0a6e209920332a78ffa7fb945f3545c75e9a12c40d68ece4d0e12634c2b",
+      "archive_contents_match_source": true
+    },
+    "all_pdf_text_and_rendered_pages_identical_to_v7": true,
+    "compiled_source_content_unchanged": true,
+    "marked_regeneration_source_and_diff_unchanged": true,
+    "current_build_source_sha256": {
+      "local_checking/build_documents.sh": "384a871078aa8637ccbc4c8cbd859d5725eb55e1f2f53a5d7bdc45cd18e43874",
+      "local_checking/build_marked.sh": "67aeb057e5b490f504ed5661cd6729ca0a881195e4ae8f44e99d34bfffe16199",
+      "local_checking/marked_filter.py": "fd8ed80c52a65be0fab3798ad267423f62630acfa6e8a70754705fa02e823ede"
+    }
+  }
+}

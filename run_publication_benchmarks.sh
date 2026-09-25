@@ -17,7 +17,8 @@ python koopman_sindy_pde_benchmark.py \
   --outdir "$OUTROOT/pde_publication" \
   --rank-mode system \
   --burgers-rank 8 \
-  --fisher-rank 2 \
+  --fisher-rank 5 \
+  --systems burgers,fisher_kpp \
   --resume
 
 echo "Running advection-diffusion PDE benchmark..."

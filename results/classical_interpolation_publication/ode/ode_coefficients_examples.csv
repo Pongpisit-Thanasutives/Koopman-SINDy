@@ -4,30 +4,23 @@ lorenz63,baseline,Baseline,8,0.0,0,x,dy/dt,24.989250094733134,28.0
 lorenz63,baseline,Baseline,8,0.0,0,y,dx/dt,9.677276096483444,10.0
 lorenz63,baseline,Baseline,8,0.0,0,y,dy/dt,-0.4295317208233762,-1.0
 lorenz63,baseline,Baseline,8,0.0,0,z,dz/dt,-2.550689631336993,-2.6666666666666665
-lorenz63,baseline,Baseline,8,0.0,0,x*y,dz/dt,0.9557017577933945,1.0
+lorenz63,baseline,Baseline,8,0.0,0,x*y,dz/dt,0.9557017577933944,1.0
 lorenz63,baseline,Baseline,8,0.0,0,x*z,dy/dt,-0.9153941576420066,-1.0
 lorenz63,linear_interp,Linear interpolation,8,0.0,0,x,dx/dt,-9.971495244580142,-10.0
 lorenz63,linear_interp,Linear interpolation,8,0.0,0,x,dy/dt,27.35042787194319,28.0
-lorenz63,linear_interp,Linear interpolation,8,0.0,0,y,dx/dt,9.972852900919735,10.0
+lorenz63,linear_interp,Linear interpolation,8,0.0,0,y,dx/dt,9.972852900919737,10.0
 lorenz63,linear_interp,Linear interpolation,8,0.0,0,y,dy/dt,-0.8615853361525904,-1.0
 lorenz63,linear_interp,Linear interpolation,8,0.0,0,z,dz/dt,-2.6378787315474743,-2.6666666666666665
 lorenz63,linear_interp,Linear interpolation,8,0.0,0,x*y,dz/dt,0.9974094741979548,1.0
 lorenz63,linear_interp,Linear interpolation,8,0.0,0,x*z,dy/dt,-0.9858063609705782,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x,dx/dt,-9.98771906306966,-10.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x,dy/dt,27.860830752373452,28.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x,dy/dt,27.86083075237345,28.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,y,dx/dt,9.98758186570949,10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,y,dy/dt,-0.9726502181112164,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,z,dz/dt,-2.6616645727797983,-2.6666666666666665
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x*y,dz/dt,0.9981140383071344,1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x*z,dy/dt,-0.9961668515546104,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x,dx/dt,-9.987191026257099,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x,dy/dt,27.873132327422187,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dx/dt,9.98711958863587,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dy/dt,-0.9758660518236814,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,z,dz/dt,-2.662009719183669,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x*y,dz/dt,0.9982159250959424,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x*z,dy/dt,-0.9964422586912863,-1.0
-lorenz63,baseline,Baseline,8,0.1,0,1,dx/dt,-0.9275054680126023,0.0
+lorenz63,baseline,Baseline,8,0.1,0,1,dx/dt,-0.9275054680126024,0.0
 lorenz63,baseline,Baseline,8,0.1,0,1,dy/dt,4.350550003964468,0.0
 lorenz63,baseline,Baseline,8,0.1,0,1,dz/dt,-0.7106560335747881,0.0
 lorenz63,baseline,Baseline,8,0.1,0,x,dx/dt,-8.800461279990621,-10.0
@@ -41,42 +34,34 @@ lorenz63,baseline,Baseline,8,0.1,0,y*z,dy/dt,-0.5690146131675996,0.0
 lorenz63,linear_interp,Linear interpolation,8,0.1,0,1,dx/dt,-0.9563094698916528,0.0
 lorenz63,linear_interp,Linear interpolation,8,0.1,0,1,dy/dt,1.2690158656747803,0.0
 lorenz63,linear_interp,Linear interpolation,8,0.1,0,1,dz/dt,-0.8715655593939629,0.0
-lorenz63,linear_interp,Linear interpolation,8,0.1,0,x,dx/dt,-9.295786417451145,-10.0
+lorenz63,linear_interp,Linear interpolation,8,0.1,0,x,dx/dt,-9.295786417451144,-10.0
 lorenz63,linear_interp,Linear interpolation,8,0.1,0,x,dy/dt,20.72957518594438,28.0
-lorenz63,linear_interp,Linear interpolation,8,0.1,0,x,dz/dt,-0.27947214312025015,0.0
-lorenz63,linear_interp,Linear interpolation,8,0.1,0,y,dx/dt,9.439426746521441,10.0
-lorenz63,linear_interp,Linear interpolation,8,0.1,0,y,dy/dt,2.9901205949151652,-1.0
+lorenz63,linear_interp,Linear interpolation,8,0.1,0,x,dz/dt,-0.2794721431202501,0.0
+lorenz63,linear_interp,Linear interpolation,8,0.1,0,y,dx/dt,9.43942674652144,10.0
+lorenz63,linear_interp,Linear interpolation,8,0.1,0,y,dy/dt,2.990120594915165,-1.0
 lorenz63,linear_interp,Linear interpolation,8,0.1,0,z,dz/dt,-2.5241725324729343,-2.6666666666666665
 lorenz63,linear_interp,Linear interpolation,8,0.1,0,x*y,dz/dt,0.9916956701146366,1.0
 lorenz63,linear_interp,Linear interpolation,8,0.1,0,x*z,dy/dt,-0.8006127450613079,-1.0
-lorenz63,linear_interp,Linear interpolation,8,0.1,0,y*z,dy/dt,-0.10905091203716057,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,1,dx/dt,0.07587556185954596,0.0
+lorenz63,linear_interp,Linear interpolation,8,0.1,0,y*z,dy/dt,-0.1090509120371605,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,1,dx/dt,0.0758755618595459,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,1,dy/dt,0.5519408033361162,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,1,dz/dt,-1.329245989440222,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x,dx/dt,-7.559556245255909,-10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x,dy/dt,20.308923040400504,28.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x,dz/dt,-0.9500399545215238,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y,dx/dt,9.051557215993421,10.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y,dx/dt,9.05155721599342,10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y,dy/dt,3.4080040037409054,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y,dz/dt,1.1441830304524545,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,z,dx/dt,-0.053842052662250395,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,z,dx/dt,-0.0538420526622503,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,z,dz/dt,-2.537535154411634,-2.6666666666666665
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*y,dy/dt,-0.07356830086574473,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*y,dy/dt,-0.0735683008657447,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*y,dz/dt,0.9978249652405504,1.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*z,dx/dt,-0.04483614834644897,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*z,dx/dt,-0.0448361483464489,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*z,dy/dt,-0.7803713736648977,-1.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*z,dz/dt,0.031978890365782164,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*z,dz/dt,0.0319788903657821,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y*y,dy/dt,0.0626044376413265,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y*z,dy/dt,-0.12840949346859196,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y*z,dy/dt,-0.1284094934685919,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y*z,dz/dt,-0.0544069235292896,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,1,dy/dt,6.117663740842606,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x,dx/dt,-9.658964738685171,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x,dy/dt,-12.502753261896457,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dx/dt,9.741626821794641,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dy/dt,9.201993732430346,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,z,dz/dt,-2.618148793913233,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x*y,dz/dt,0.9946900080905561,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x*z,dy/dt,0.0,-1.0
 lorenz63,baseline,Baseline,16,0.0,0,1,dy/dt,1.15398538213621,0.0
 lorenz63,baseline,Baseline,16,0.0,0,x,dx/dt,-8.764125692559457,-10.0
 lorenz63,baseline,Baseline,16,0.0,0,x,dy/dt,17.04038793587283,28.0
@@ -86,35 +71,27 @@ lorenz63,baseline,Baseline,16,0.0,0,z,dz/dt,-2.237577971171921,-2.66666666666666
 lorenz63,baseline,Baseline,16,0.0,0,x*y,dz/dt,0.8362378152307854,1.0
 lorenz63,baseline,Baseline,16,0.0,0,x*z,dy/dt,-0.693486455366295,-1.0
 lorenz63,linear_interp,Linear interpolation,16,0.0,0,1,dy/dt,0.6849043838654613,0.0
-lorenz63,linear_interp,Linear interpolation,16,0.0,0,1,dz/dt,9.677514613000497,0.0
-lorenz63,linear_interp,Linear interpolation,16,0.0,0,x,dx/dt,-9.822630710190557,-10.0
+lorenz63,linear_interp,Linear interpolation,16,0.0,0,1,dz/dt,9.677514613000495,0.0
+lorenz63,linear_interp,Linear interpolation,16,0.0,0,x,dx/dt,-9.822630710190555,-10.0
 lorenz63,linear_interp,Linear interpolation,16,0.0,0,x,dy/dt,24.73332146872682,28.0
 lorenz63,linear_interp,Linear interpolation,16,0.0,0,y,dx/dt,9.827495661757096,10.0
 lorenz63,linear_interp,Linear interpolation,16,0.0,0,y,dy/dt,-0.2772153613434377,-1.0
 lorenz63,linear_interp,Linear interpolation,16,0.0,0,z,dz/dt,-3.0989637120235614,-2.6666666666666665
 lorenz63,linear_interp,Linear interpolation,16,0.0,0,x*x,dz/dt,0.1651022385916968,0.0
 lorenz63,linear_interp,Linear interpolation,16,0.0,0,x*y,dz/dt,0.8726791622507053,1.0
-lorenz63,linear_interp,Linear interpolation,16,0.0,0,x*z,dy/dt,-0.9249026302359639,-1.0
+lorenz63,linear_interp,Linear interpolation,16,0.0,0,x*z,dy/dt,-0.924902630235964,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,x,dx/dt,-9.948545920217654,-10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,x,dy/dt,27.080970597864084,28.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,y,dx/dt,9.946904480358441,10.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,y,dx/dt,9.94690448035844,10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,y,dy/dt,-0.7828002732264824,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,z,dz/dt,-2.6373874122044296,-2.6666666666666665
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,x*y,dz/dt,0.989165105038231,1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,x*z,dy/dt,-0.9766046081095802,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,1,dz/dt,0.36822394591413293,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x,dx/dt,-9.897053260558323,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x,dy/dt,27.91456443000884,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dx/dt,9.899775024333374,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dy/dt,-0.9670465175352412,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,z,dz/dt,-2.651451841600296,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x*y,dz/dt,0.988617361375627,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x*z,dy/dt,-0.9979999380070084,-1.0
 lorenz63,baseline,Baseline,16,0.1,0,1,dx/dt,-1.4674973605192392,0.0
 lorenz63,baseline,Baseline,16,0.1,0,1,dy/dt,2.671010172056978,0.0
-lorenz63,baseline,Baseline,16,0.1,0,1,dz/dt,23.401257493238113,0.0
+lorenz63,baseline,Baseline,16,0.1,0,1,dz/dt,23.401257493238116,0.0
 lorenz63,baseline,Baseline,16,0.1,0,x,dx/dt,-8.0400008316462,-10.0
-lorenz63,baseline,Baseline,16,0.1,0,x,dy/dt,11.445178430548097,28.0
+lorenz63,baseline,Baseline,16,0.1,0,x,dy/dt,11.445178430548095,28.0
 lorenz63,baseline,Baseline,16,0.1,0,y,dx/dt,8.315538829209812,10.0
 lorenz63,baseline,Baseline,16,0.1,0,y,dy/dt,4.8609109488446745,-1.0
 lorenz63,baseline,Baseline,16,0.1,0,y,dz/dt,0.2429718978581797,0.0
@@ -123,28 +100,28 @@ lorenz63,baseline,Baseline,16,0.1,0,x*x,dz/dt,0.6222222739927931,0.0
 lorenz63,baseline,Baseline,16,0.1,0,x*y,dz/dt,0.0,1.0
 lorenz63,baseline,Baseline,16,0.1,0,x*z,dy/dt,-0.5223789007415242,-1.0
 lorenz63,baseline,Baseline,16,0.1,0,y*y,dz/dt,0.2904794608071433,0.0
-lorenz63,baseline,Baseline,16,0.1,0,y*z,dy/dt,-0.12844356404920704,0.0
+lorenz63,baseline,Baseline,16,0.1,0,y*z,dy/dt,-0.128443564049207,0.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,1,dx/dt,-1.5929089872550453,0.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,1,dy/dt,2.4798243178036343,0.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,1,dz/dt,10.717264220252549,0.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,x,dx/dt,-9.179167478972712,-10.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,x,dy/dt,18.132750261803366,28.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,x,dz/dt,-0.5563138386297071,0.0
-lorenz63,linear_interp,Linear interpolation,16,0.1,0,y,dx/dt,9.465817121329529,10.0
+lorenz63,linear_interp,Linear interpolation,16,0.1,0,y,dx/dt,9.465817121329527,10.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,y,dy/dt,4.333954455534327,-1.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,y,dz/dt,0.5321195864836067,0.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,z,dz/dt,-3.1184431467055016,-2.6666666666666665
-lorenz63,linear_interp,Linear interpolation,16,0.1,0,x*x,dz/dt,0.20368147294684802,0.0
+lorenz63,linear_interp,Linear interpolation,16,0.1,0,x*x,dz/dt,0.203681472946848,0.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,x*y,dz/dt,0.807057027086895,1.0
 lorenz63,linear_interp,Linear interpolation,16,0.1,0,x*z,dy/dt,-0.7216658944572926,-1.0
-lorenz63,linear_interp,Linear interpolation,16,0.1,0,y*z,dy/dt,-0.15660357043124778,0.0
+lorenz63,linear_interp,Linear interpolation,16,0.1,0,y*z,dy/dt,-0.1566035704312477,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,1,dx/dt,1.1488003860936042,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,1,dz/dt,-55.05806643551072,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x,dx/dt,0.0,-10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x,dy/dt,9.960448926500773,28.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x,dz/dt,1.013029998476459,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dx/dt,1.758826193580188,10.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dy/dt,9.819836533787699,-1.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dy/dt,9.8198365337877,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dz/dt,-0.6835569375517611,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,z,dx/dt,-2.161269315548319,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,z,dz/dt,0.0,-2.6666666666666665
@@ -152,18 +129,6 @@ lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x*y,dx/dt,0.5897214
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x*y,dz/dt,0.8578486458285826,1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x*z,dy/dt,-0.4882006288711227,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y*z,dy/dt,-0.3124502696916526,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,1,dx/dt,-1.6443732937702937,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,1,dy/dt,1.7904871888680047,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,1,dz/dt,-1.657674702168873,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dx/dt,-9.53382751639318,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dy/dt,26.949449804574282,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dz/dt,-0.5222545307498005,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dx/dt,9.825992608283899,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dy/dt,-0.8743567075029577,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dz/dt,0.4080657870882714,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,z,dz/dt,-2.4898807354783057,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x*y,dz/dt,0.9560452272050383,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x*z,dy/dt,-0.9745480990512907,-1.0
 lorenz63,baseline,Baseline,32,0.0,0,1,dy/dt,-1.0753900646335102,0.0
 lorenz63,baseline,Baseline,32,0.0,0,x,dx/dt,-6.1205593749075575,-10.0
 lorenz63,baseline,Baseline,32,0.0,0,x,dy/dt,0.0,28.0
@@ -178,7 +143,7 @@ lorenz63,linear_interp,Linear interpolation,32,0.0,0,x,dx/dt,-8.644169649728592,
 lorenz63,linear_interp,Linear interpolation,32,0.0,0,x,dy/dt,0.0,28.0
 lorenz63,linear_interp,Linear interpolation,32,0.0,0,y,dx/dt,8.648873786584042,10.0
 lorenz63,linear_interp,Linear interpolation,32,0.0,0,y,dy/dt,0.0,-1.0
-lorenz63,linear_interp,Linear interpolation,32,0.0,0,z,dy/dt,-1.1897575252262467,0.0
+lorenz63,linear_interp,Linear interpolation,32,0.0,0,z,dy/dt,-1.189757525226247,0.0
 lorenz63,linear_interp,Linear interpolation,32,0.0,0,z,dz/dt,-5.888080028006994,-2.6666666666666665
 lorenz63,linear_interp,Linear interpolation,32,0.0,0,x*x,dz/dt,1.2017545714775952,0.0
 lorenz63,linear_interp,Linear interpolation,32,0.0,0,x*y,dz/dt,0.0,1.0
@@ -190,26 +155,12 @@ lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x,dx/dt,-9.53328080
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x,dy/dt,16.512493327639348,28.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x,dz/dt,0.6655458327050431,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,y,dx/dt,9.439511630510134,10.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,y,dy/dt,1.5929921596759617,-1.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,y,dy/dt,1.5929921596759615,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,z,dx/dt,0.36108427670669,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,z,dz/dt,-6.6521154863566725,-2.6666666666666665
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x*x,dz/dt,1.276485558885328,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x*y,dz/dt,0.0,1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x*z,dy/dt,-0.7008729769754198,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,1,dx/dt,15.91802514889602,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,1,dz/dt,-1.6512843979144165,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x,dx/dt,-9.93310122449346,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x,dy/dt,21.304311270480518,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x,dz/dt,2.6377050820616916,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dx/dt,9.945206377221087,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dy/dt,0.0,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dz/dt,-1.9067305218026838,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,z,dx/dt,-0.7719711449919923,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,z,dz/dt,-2.4712339000700227,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x*x,dx/dt,0.38502065969847976,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x*y,dx/dt,-0.337747531476864,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x*y,dz/dt,0.9171386206317181,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x*z,dy/dt,-0.806419816024129,-1.0
 lorenz63,baseline,Baseline,32,0.1,0,1,dx/dt,-3.1098360839467523,0.0
 lorenz63,baseline,Baseline,32,0.1,0,1,dy/dt,3.22431781828047,0.0
 lorenz63,baseline,Baseline,32,0.1,0,1,dz/dt,44.10443555520979,0.0
@@ -217,7 +168,7 @@ lorenz63,baseline,Baseline,32,0.1,0,x,dx/dt,9.17529725995428,-10.0
 lorenz63,baseline,Baseline,32,0.1,0,x,dy/dt,-7.433308331162954,28.0
 lorenz63,baseline,Baseline,32,0.1,0,y,dx/dt,0.0,10.0
 lorenz63,baseline,Baseline,32,0.1,0,y,dy/dt,5.6323272623642495,-1.0
-lorenz63,baseline,Baseline,32,0.1,0,y,dz/dt,0.9724546227550785,0.0
+lorenz63,baseline,Baseline,32,0.1,0,y,dz/dt,0.9724546227550784,0.0
 lorenz63,baseline,Baseline,32,0.1,0,z,dz/dt,-4.104044215867641,-2.6666666666666665
 lorenz63,baseline,Baseline,32,0.1,0,x*x,dz/dt,0.7956334410987027,0.0
 lorenz63,baseline,Baseline,32,0.1,0,x*y,dz/dt,0.0,1.0
@@ -227,19 +178,19 @@ lorenz63,linear_interp,Linear interpolation,32,0.1,0,1,dx/dt,-0.6578789402704305
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,1,dz/dt,38.50504714244258,0.0
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,x,dx/dt,-8.323719963649761,-10.0
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,x,dy/dt,12.22817894567093,28.0
-lorenz63,linear_interp,Linear interpolation,32,0.1,0,x,dz/dt,0.45671963362694745,0.0
+lorenz63,linear_interp,Linear interpolation,32,0.1,0,x,dz/dt,0.4567196336269474,0.0
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,y,dx/dt,8.586445497691926,10.0
-lorenz63,linear_interp,Linear interpolation,32,0.1,0,y,dy/dt,2.4127103192624233,-1.0
+lorenz63,linear_interp,Linear interpolation,32,0.1,0,y,dy/dt,2.4127103192624237,-1.0
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,y,dz/dt,0.4335108179286526,0.0
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,z,dz/dt,-4.320596241169934,-2.6666666666666665
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,x*x,dz/dt,0.7534019321528315,0.0
-lorenz63,linear_interp,Linear interpolation,32,0.1,0,x*y,dz/dt,0.34315282047794027,1.0
+lorenz63,linear_interp,Linear interpolation,32,0.1,0,x*y,dz/dt,0.3431528204779402,1.0
 lorenz63,linear_interp,Linear interpolation,32,0.1,0,x*z,dy/dt,-0.5877727931995068,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,1,dx/dt,-7484649254829.97,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,1,dy/dt,38.652105866843925,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,1,dz/dt,-40.728562115501155,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,1,dz/dt,-40.72856211550116,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x,dx/dt,-3503.89256287065,-10.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x,dy/dt,-7.312647504690637e-10,28.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x,dy/dt,-7.312647504690636e-10,28.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x,dz/dt,-4.4549882454822895e-10,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y,dx/dt,-116041637962.6875,10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y,dy/dt,12.68306315290262,-1.0
@@ -250,18 +201,18 @@ lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z,dz/dt,5.275662345
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*x,dx/dt,-4.274668101118471e-11,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*y,dx/dt,171.52716054620257,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*y,dy/dt,5.3897022270013145e-11,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*y,dz/dt,4.348359023206628e-11,1.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*z,dx/dt,242.07727715663717,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*y,dz/dt,4.3483590232066276e-11,1.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*z,dx/dt,242.0772771566372,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*z,dy/dt,4.420594928308338e-11,-1.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*z,dz/dt,2.5093983906211406e-11,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*z,dz/dt,2.509398390621141e-11,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y,dx/dt,-7458916881.584873,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y,dy/dt,-0.0204308041981925,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y,dz/dt,0.680849511730266,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z,dx/dt,40863307224.260704,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z,dy/dt,-0.31285905398154895,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z,dz/dt,-0.01104994153941526,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z,dy/dt,-0.3128590539815489,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z,dz/dt,-0.0110499415394152,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z,dx/dt,-71819305155.5628,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z,dy/dt,0.24245142277354192,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z,dy/dt,0.2424514227735419,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z,dz/dt,-0.4854736194593519,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*x*y,dx/dt,1.1591041772185808e-12,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*x*z,dx/dt,2.3860509466585365e-12,0.0
@@ -271,36 +222,21 @@ lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*y*y,dz/dt,-1.2913
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*y*z,dx/dt,-3.20455486750768,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*z*z,dx/dt,-4.138542174245363,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*y,dx/dt,-1479661906.9653845,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*y,dy/dt,0.00030014392088080125,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*y,dz/dt,-0.006789177437257305,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*y,dy/dt,0.0003001439208808,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*y,dz/dt,-0.0067891774372573,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*z,dx/dt,142997108.5137132,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*z,dy/dt,-0.0026115522986790126,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*z,dz/dt,0.0019838245970749896,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*z,dy/dt,-0.002611552298679,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*y*z,dz/dt,0.0019838245970749,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z*z,dx/dt,-820834476.9345803,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z*z,dy/dt,-0.007469258820198527,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z*z,dz/dt,0.004517042392346683,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z*z,dy/dt,-0.0074692588201985,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y*z*z,dz/dt,0.0045170423923466,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z*z,dx/dt,1013153983.7796214,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z*z,dy/dt,-0.003616808385573407,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z*z,dz/dt,0.009021280700447717,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,1,dx/dt,-19.25430317116968,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,1,dy/dt,-26.905004482822186,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,1,dz/dt,-28.16934072758507,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dx/dt,-7.619963342451816,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dy/dt,20.60349006415087,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dz/dt,0.928778737531687,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dx/dt,8.502662692820966,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dy/dt,1.770235396614042,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dz/dt,0.7321099348297406,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,z,dx/dt,0.7308728422808124,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,z,dy/dt,0.9326954141962196,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,z,dz/dt,-1.0103954055220004,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x*y,dz/dt,0.0,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x*z,dy/dt,-0.8260632481783341,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,y*y,dz/dt,0.600411411742733,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z*z,dy/dt,-0.0036168083855734,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,z*z*z,dz/dt,0.0090212807004477,0.0
 lorenz63,baseline,Baseline,64,0.0,0,1,dz/dt,-1.303688177991118,0.0
 lorenz63,baseline,Baseline,64,0.0,0,x,dx/dt,-1.5096119644056842,-10.0
-lorenz63,baseline,Baseline,64,0.0,0,x,dy/dt,-1.9456202662554603,28.0
-lorenz63,baseline,Baseline,64,0.0,0,y,dx/dt,1.9789974421035634,10.0
+lorenz63,baseline,Baseline,64,0.0,0,x,dy/dt,-1.9456202662554605,28.0
+lorenz63,baseline,Baseline,64,0.0,0,y,dx/dt,1.9789974421035637,10.0
 lorenz63,baseline,Baseline,64,0.0,0,y,dy/dt,1.3630719284715362,-1.0
 lorenz63,baseline,Baseline,64,0.0,0,z,dz/dt,0.0,-2.6666666666666665
 lorenz63,baseline,Baseline,64,0.0,0,x*y,dz/dt,0.0,1.0
@@ -319,28 +255,13 @@ lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,1,dz/dt,-1.67587621
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x,dx/dt,1.1548213329047814,-10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x,dy/dt,9.225052713953664,28.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x,dz/dt,1.1964897116144528,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dx/dt,-0.13195704795828145,10.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dx/dt,-0.1319570479582814,10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dy/dt,-1.117344723226245,-1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dz/dt,-0.5391860794079271,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,z,dx/dt,-1.0631269520847282,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,z,dz/dt,0.0,-2.6666666666666665
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x*y,dz/dt,0.0,1.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x*z,dy/dt,-0.2691384636357003,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,1,dx/dt,11.043519261923961,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,1,dy/dt,16.061286115252056,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,1,dz/dt,-0.47347671815119374,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x,dx/dt,-2.6180912458147683,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x,dy/dt,-3.533269024486636,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x,dz/dt,-0.8430312383582287,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dx/dt,4.151940147334788,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dy/dt,2.1777752414645972,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dz/dt,1.0208690643249994,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,z,dx/dt,-0.642701512559422,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,z,dy/dt,-0.617908427022339,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,z,dz/dt,-1.6830810549917412,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x*x,dz/dt,0.463327932110475,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x*y,dz/dt,0.4251594816898497,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x*z,dy/dt,0.0,-1.0
 lorenz63,baseline,Baseline,64,0.1,0,1,dz/dt,-1.2303874022237158,0.0
 lorenz63,baseline,Baseline,64,0.1,0,x,dx/dt,-1.3771158843590772,-10.0
 lorenz63,baseline,Baseline,64,0.1,0,x,dy/dt,-1.8527874545005056,28.0
@@ -354,9 +275,9 @@ lorenz63,linear_interp,Linear interpolation,64,0.1,0,x,dx/dt,-2.5492035979261525
 lorenz63,linear_interp,Linear interpolation,64,0.1,0,x,dy/dt,-2.76586928056952,28.0
 lorenz63,linear_interp,Linear interpolation,64,0.1,0,x,dz/dt,-1.6856386090763922,0.0
 lorenz63,linear_interp,Linear interpolation,64,0.1,0,y,dx/dt,3.3716654631175964,10.0
-lorenz63,linear_interp,Linear interpolation,64,0.1,0,y,dy/dt,1.9952211092179555,-1.0
+lorenz63,linear_interp,Linear interpolation,64,0.1,0,y,dy/dt,1.9952211092179557,-1.0
 lorenz63,linear_interp,Linear interpolation,64,0.1,0,y,dz/dt,1.384286994192672,0.0
-lorenz63,linear_interp,Linear interpolation,64,0.1,0,z,dz/dt,-0.37752967727141157,-2.6666666666666665
+lorenz63,linear_interp,Linear interpolation,64,0.1,0,z,dz/dt,-0.3775296772714115,-2.6666666666666665
 lorenz63,linear_interp,Linear interpolation,64,0.1,0,x*y,dz/dt,0.7203325726877345,1.0
 lorenz63,linear_interp,Linear interpolation,64,0.1,0,x*z,dy/dt,0.0,-1.0
 lorenz63,linear_interp,Linear interpolation,64,0.1,0,y*y,dz/dt,-0.3360733231151057,0.0
@@ -366,99 +287,74 @@ lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,1,dz/dt,4.291709123
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x,dx/dt,2.304706004774677,-10.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x,dy/dt,2.858546915688767,28.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x,dz/dt,1.2301394856843704,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dx/dt,0.021638955205363023,10.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dy/dt,0.14442274798476132,-1.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dz/dt,0.32723795097270486,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z,dx/dt,-0.052626636297813716,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z,dy/dt,-0.09184329681745323,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dx/dt,0.021638955205363,10.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dy/dt,0.1444227479847613,-1.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dz/dt,0.3272379509727048,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z,dx/dt,-0.0526266362978137,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z,dy/dt,-0.0918432968174532,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z,dz/dt,-0.2557334259636769,-2.6666666666666665
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*x,dx/dt,-0.08294963628909162,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*x,dy/dt,-0.10334504243088463,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*x,dz/dt,-0.06057492137540553,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*y,dx/dt,0.08290762412630977,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*y,dy/dt,0.08274040773298888,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*y,dz/dt,0.05163323688532386,1.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*z,dx/dt,-0.04957660518993478,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*x,dx/dt,-0.0829496362890916,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*x,dy/dt,-0.1033450424308846,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*x,dz/dt,-0.0605749213754055,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*y,dx/dt,0.0829076241263097,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*y,dy/dt,0.0827404077329888,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*y,dz/dt,0.0516332368853238,1.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*z,dx/dt,-0.0495766051899347,0.0
 lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*z,dy/dt,0.0,-1.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*z,dz/dt,-0.009317908495931046,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y*y,dx/dt,-0.00984836334393328,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y*z,dy/dt,-0.041946402420245776,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y*z,dz/dt,-0.030151441007800883,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z*z,dx/dt,-0.03468619106646135,0.0
-lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z*z,dy/dt,-0.02851997515447475,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,1,dx/dt,-6.278366034374059,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,1,dy/dt,2.292664140163187,0.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x,dx/dt,-3.7716078854721715,-10.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x,dy/dt,-1.4171923624556846,28.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dx/dt,8.05796127955117,10.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dy/dt,0.0,-1.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,z,dz/dt,0.0,-2.6666666666666665
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x*y,dz/dt,0.0,1.0
-lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x*z,dy/dt,0.0,-1.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*z,dz/dt,-0.009317908495931,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y*y,dx/dt,-0.0098483633439332,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y*z,dy/dt,-0.0419464024202457,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y*z,dz/dt,-0.0301514410078008,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z*z,dx/dt,-0.0346861910664613,0.0
+lorenz63,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,z*z,dy/dt,-0.0285199751544747,0.0
 vanderpol_mu2,baseline,Baseline,8,0.0,0,x,dy/dt,-0.9984653756307664,-1.0
-vanderpol_mu2,baseline,Baseline,8,0.0,0,y,dx/dt,0.9986833426330133,1.0
+vanderpol_mu2,baseline,Baseline,8,0.0,0,y,dx/dt,0.9986833426330132,1.0
 vanderpol_mu2,baseline,Baseline,8,0.0,0,y,dy/dt,1.9840588316510217,2.0
-vanderpol_mu2,baseline,Baseline,8,0.0,0,x*x*y,dy/dt,-1.9841066617333938,-2.0
+vanderpol_mu2,baseline,Baseline,8,0.0,0,x*x*y,dy/dt,-1.9841066617333936,-2.0
 vanderpol_mu2,linear_interp,Linear interpolation,8,0.0,0,x,dy/dt,-0.9988320070595766,-1.0
-vanderpol_mu2,linear_interp,Linear interpolation,8,0.0,0,y,dx/dt,0.9999454890474777,1.0
-vanderpol_mu2,linear_interp,Linear interpolation,8,0.0,0,y,dy/dt,1.9922140657811411,2.0
+vanderpol_mu2,linear_interp,Linear interpolation,8,0.0,0,y,dx/dt,0.9999454890474776,1.0
+vanderpol_mu2,linear_interp,Linear interpolation,8,0.0,0,y,dy/dt,1.992214065781141,2.0
 vanderpol_mu2,linear_interp,Linear interpolation,8,0.0,0,x*x*y,dy/dt,-1.9937406796484776,-2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x,dy/dt,-0.9999379228101783,-1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,y,dx/dt,0.9999472226984197,1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,y,dy/dt,1.9993446001424837,2.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x*x*y,dy/dt,-1.9993474927567394,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,x,dy/dt,-0.9999373670339934,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dx/dt,0.9999472330051892,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dy/dt,1.9994706017395496,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,x*x*y,dy/dt,-1.9994678681510056,-2.0
-vanderpol_mu2,baseline,Baseline,8,0.1,0,x,dy/dt,-0.9906924466136473,-1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,y,dx/dt,0.9999472226984196,1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,y,dy/dt,1.999344600142484,2.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.0,0,x*x*y,dy/dt,-1.9993474927567396,-2.0
+vanderpol_mu2,baseline,Baseline,8,0.1,0,x,dy/dt,-0.9906924466136472,-1.0
 vanderpol_mu2,baseline,Baseline,8,0.1,0,y,dx/dt,0.9742602526849894,1.0
 vanderpol_mu2,baseline,Baseline,8,0.1,0,y,dy/dt,1.7632383786178485,2.0
 vanderpol_mu2,baseline,Baseline,8,0.1,0,x*x*y,dy/dt,-1.760028049037875,-2.0
-vanderpol_mu2,linear_interp,Linear interpolation,8,0.1,0,x,dy/dt,-0.9902171919122553,-1.0
+vanderpol_mu2,linear_interp,Linear interpolation,8,0.1,0,x,dy/dt,-0.9902171919122552,-1.0
 vanderpol_mu2,linear_interp,Linear interpolation,8,0.1,0,y,dx/dt,0.9788536593731012,1.0
 vanderpol_mu2,linear_interp,Linear interpolation,8,0.1,0,y,dy/dt,1.8070138597804857,2.0
-vanderpol_mu2,linear_interp,Linear interpolation,8,0.1,0,x*x*y,dy/dt,-1.8239479723724066,-2.0
+vanderpol_mu2,linear_interp,Linear interpolation,8,0.1,0,x*x*y,dy/dt,-1.8239479723724064,-2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x,dy/dt,-1.0938773250036984,-1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y,dx/dt,0.9447040201365271,1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y,dx/dt,0.9447040201365272,1.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,y,dy/dt,1.9890585616737129,2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,8,0.1,0,x*x*y,dy/dt,-2.0977748750737386,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,x,dy/dt,-1.0081292920231697,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dx/dt,0.9836223941545317,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dy/dt,1.9042584931130337,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,x*x*y,dy/dt,-1.9426752686588786,-2.0
 vanderpol_mu2,baseline,Baseline,16,0.0,0,x,dy/dt,-0.9938829236952692,-1.0
 vanderpol_mu2,baseline,Baseline,16,0.0,0,y,dx/dt,0.9947645108365346,1.0
-vanderpol_mu2,baseline,Baseline,16,0.0,0,y,dy/dt,1.9371082195616962,2.0
+vanderpol_mu2,baseline,Baseline,16,0.0,0,y,dy/dt,1.937108219561696,2.0
 vanderpol_mu2,baseline,Baseline,16,0.0,0,x*x*y,dy/dt,-1.93728933295417,-2.0
 vanderpol_mu2,linear_interp,Linear interpolation,16,0.0,0,x,dy/dt,-0.9953470133943294,-1.0
 vanderpol_mu2,linear_interp,Linear interpolation,16,0.0,0,y,dx/dt,0.9997625235421844,1.0
 vanderpol_mu2,linear_interp,Linear interpolation,16,0.0,0,y,dy/dt,1.9691750245953752,2.0
-vanderpol_mu2,linear_interp,Linear interpolation,16,0.0,0,x*x*y,dy/dt,-1.9751460639950011,-2.0
+vanderpol_mu2,linear_interp,Linear interpolation,16,0.0,0,x*x*y,dy/dt,-1.9751460639950007,-2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,x,dy/dt,-0.9997375350654624,-1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,y,dx/dt,0.9997889285795573,1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,y,dx/dt,0.9997889285795571,1.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,y,dy/dt,1.9971706729716705,2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.0,0,x*x*y,dy/dt,-1.9971935309104285,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,x,dy/dt,-0.9997461484145719,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dx/dt,0.9997891703046585,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dy/dt,1.997895316316772,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,x*x*y,dy/dt,-1.9978613580337923,-2.0
 vanderpol_mu2,baseline,Baseline,16,0.1,0,x,dy/dt,-0.9719916181691874,-1.0
-vanderpol_mu2,baseline,Baseline,16,0.1,0,y,dx/dt,0.9718381253259013,1.0
+vanderpol_mu2,baseline,Baseline,16,0.1,0,y,dx/dt,0.9718381253259012,1.0
 vanderpol_mu2,baseline,Baseline,16,0.1,0,y,dy/dt,1.7537836921135104,2.0
 vanderpol_mu2,baseline,Baseline,16,0.1,0,x*x*y,dy/dt,-1.6196288858206582,-2.0
 vanderpol_mu2,linear_interp,Linear interpolation,16,0.1,0,x,dy/dt,-0.9787980885534048,-1.0
-vanderpol_mu2,linear_interp,Linear interpolation,16,0.1,0,y,dx/dt,0.9786994464274059,1.0
+vanderpol_mu2,linear_interp,Linear interpolation,16,0.1,0,y,dx/dt,0.978699446427406,1.0
 vanderpol_mu2,linear_interp,Linear interpolation,16,0.1,0,y,dy/dt,1.83819706493022,2.0
 vanderpol_mu2,linear_interp,Linear interpolation,16,0.1,0,x*x*y,dy/dt,-1.7197490308967738,-2.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x,dy/dt,-1.1514761275973895,-1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dx/dt,0.9200515907677855,1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dy/dt,1.9933090572619836,2.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x,dy/dt,-1.1514761275973897,-1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dx/dt,0.9200515907677856,1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,y,dy/dt,1.993309057261984,2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,16,0.1,0,x*x*y,dy/dt,-2.073359080995783,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dy/dt,-1.0005454889535697,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dx/dt,0.9843342628416633,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dy/dt,1.9965040111310246,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,x*x*y,dy/dt,-1.8710357033898943,-2.0
 vanderpol_mu2,baseline,Baseline,32,0.0,0,x,dy/dt,-0.9762063469276338,-1.0
 vanderpol_mu2,baseline,Baseline,32,0.0,0,y,dx/dt,0.9795409716770972,1.0
 vanderpol_mu2,baseline,Baseline,32,0.0,0,y,dy/dt,1.7620273076697912,2.0
@@ -466,51 +362,39 @@ vanderpol_mu2,baseline,Baseline,32,0.0,0,x*x*y,dy/dt,-1.7626173906195857,-2.0
 vanderpol_mu2,linear_interp,Linear interpolation,32,0.0,0,x,dy/dt,-0.9817924967074964,-1.0
 vanderpol_mu2,linear_interp,Linear interpolation,32,0.0,0,y,dx/dt,0.9987518359434968,1.0
 vanderpol_mu2,linear_interp,Linear interpolation,32,0.0,0,y,dy/dt,1.8817542115655177,2.0
-vanderpol_mu2,linear_interp,Linear interpolation,32,0.0,0,x*x*y,dy/dt,-1.9036046268212354,-2.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x,dy/dt,-0.9985767466641613,-1.0
+vanderpol_mu2,linear_interp,Linear interpolation,32,0.0,0,x*x*y,dy/dt,-1.9036046268212357,-2.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x,dy/dt,-0.9985767466641612,-1.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,y,dx/dt,0.9991506196222436,1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,y,dy/dt,1.9834146263919998,2.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x*x*y,dy/dt,-1.9837144549893502,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,x,dy/dt,-0.9989545573290238,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dx/dt,0.9991524387491723,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dy/dt,1.991453348298194,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,x*x*y,dy/dt,-1.9911951187076735,-2.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,y,dy/dt,1.983414626392,2.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.0,0,x*x*y,dy/dt,-1.9837144549893504,-2.0
 vanderpol_mu2,baseline,Baseline,32,0.1,0,x,dy/dt,-0.9135237549900558,-1.0
-vanderpol_mu2,baseline,Baseline,32,0.1,0,y,dx/dt,0.9879135994705881,1.0
+vanderpol_mu2,baseline,Baseline,32,0.1,0,y,dx/dt,0.987913599470588,1.0
 vanderpol_mu2,baseline,Baseline,32,0.1,0,y,dy/dt,1.7088315486327206,2.0
 vanderpol_mu2,baseline,Baseline,32,0.1,0,x*x*y,dy/dt,-1.54840210595759,-2.0
 vanderpol_mu2,linear_interp,Linear interpolation,32,0.1,0,x,dy/dt,-0.9244934702307348,-1.0
 vanderpol_mu2,linear_interp,Linear interpolation,32,0.1,0,y,dx/dt,1.0128393459814962,1.0
 vanderpol_mu2,linear_interp,Linear interpolation,32,0.1,0,y,dy/dt,1.8773689689605408,2.0
-vanderpol_mu2,linear_interp,Linear interpolation,32,0.1,0,x*x*y,dy/dt,-1.7278807122567985,-2.0
+vanderpol_mu2,linear_interp,Linear interpolation,32,0.1,0,x*x*y,dy/dt,-1.7278807122567983,-2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x,dy/dt,-0.933960665191575,-1.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y,dx/dt,1.0156526984392675,1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y,dy/dt,1.9699293853120055,2.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,y,dy/dt,1.9699293853120052,2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,32,0.1,0,x*x*y,dy/dt,-1.8084068294763804,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dy/dt,-0.9473040225928884,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dx/dt,1.0159268097596699,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dy/dt,2.143180145855331,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,x*x*y,dy/dt,-1.9396573777536759,-2.0
-vanderpol_mu2,baseline,Baseline,64,0.0,0,x,dy/dt,-1.2042719349156485,-1.0
-vanderpol_mu2,baseline,Baseline,64,0.0,0,y,dx/dt,0.9203609358870759,1.0
-vanderpol_mu2,baseline,Baseline,64,0.0,0,y,dy/dt,3.8871390403151094,2.0
+vanderpol_mu2,baseline,Baseline,64,0.0,0,x,dy/dt,-1.2042719349156483,-1.0
+vanderpol_mu2,baseline,Baseline,64,0.0,0,y,dx/dt,0.920360935887076,1.0
+vanderpol_mu2,baseline,Baseline,64,0.0,0,y,dy/dt,3.887139040315109,2.0
 vanderpol_mu2,baseline,Baseline,64,0.0,0,x*x*y,dy/dt,-2.6111047306614203,-2.0
-vanderpol_mu2,baseline,Baseline,64,0.0,0,x*y*y,dy/dt,0.9984346717746881,0.0
+vanderpol_mu2,baseline,Baseline,64,0.0,0,x*y*y,dy/dt,0.998434671774688,0.0
 vanderpol_mu2,baseline,Baseline,64,0.0,0,y*y*y,dy/dt,-0.36903953598639,0.0
 vanderpol_mu2,linear_interp,Linear interpolation,64,0.0,0,x,dy/dt,-0.9394547659831382,-1.0
 vanderpol_mu2,linear_interp,Linear interpolation,64,0.0,0,y,dx/dt,0.987691336142206,1.0
-vanderpol_mu2,linear_interp,Linear interpolation,64,0.0,0,y,dy/dt,1.7073002234476433,2.0
+vanderpol_mu2,linear_interp,Linear interpolation,64,0.0,0,y,dy/dt,1.707300223447643,2.0
 vanderpol_mu2,linear_interp,Linear interpolation,64,0.0,0,x*x*y,dy/dt,-1.731376104735783,-2.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x,dy/dt,-0.9910109385860039,-1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dx/dt,0.9908738916730969,1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dy/dt,1.9252625476682956,2.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x,dy/dt,-0.991010938586004,-1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dx/dt,0.9908738916730968,1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,y,dy/dt,1.925262547668296,2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.0,0,x*x*y,dy/dt,-1.8735087376121284,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,x,dy/dt,-1.0090175885115507,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dx/dt,0.9889380268155916,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dy/dt,2.0783569088921894,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,x*x*y,dy/dt,-2.046030963828398,-2.0
 vanderpol_mu2,baseline,Baseline,64,0.1,0,x,dy/dt,-0.8602735490689618,-1.0
-vanderpol_mu2,baseline,Baseline,64,0.1,0,y,dx/dt,0.9314922139338935,1.0
+vanderpol_mu2,baseline,Baseline,64,0.1,0,y,dx/dt,0.9314922139338936,1.0
 vanderpol_mu2,baseline,Baseline,64,0.1,0,y,dy/dt,1.0905158917050868,2.0
 vanderpol_mu2,baseline,Baseline,64,0.1,0,x*x*y,dy/dt,-1.0346959557091675,-2.0
 vanderpol_mu2,linear_interp,Linear interpolation,64,0.1,0,x,dy/dt,-0.8802260671656963,-1.0
@@ -518,10 +402,115 @@ vanderpol_mu2,linear_interp,Linear interpolation,64,0.1,0,y,dx/dt,0.999252352162
 vanderpol_mu2,linear_interp,Linear interpolation,64,0.1,0,y,dy/dt,1.458735788132635,2.0
 vanderpol_mu2,linear_interp,Linear interpolation,64,0.1,0,x*x*y,dy/dt,-1.4317237129708278,-2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x,dy/dt,-0.936895853981544,-1.0
-vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dx/dt,0.9972325313166247,1.0
+vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dx/dt,0.9972325313166248,1.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,y,dy/dt,1.6105226676976592,2.0
 vanderpol_mu2,smoothing_spline_cv,Tuned smoothing spline,64,0.1,0,x*x*y,dy/dt,-1.5261241263092462,-2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,x,dy/dt,-0.9542539474811863,-1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dx/dt,1.022143887813941,1.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dy/dt,1.69943369070256,2.0
-vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,x*x*y,dy/dt,-1.6557480926362957,-2.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x,dx/dt,-9.987191026257394,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x,dy/dt,27.87313232742868,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dx/dt,9.98711958863576,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dy/dt,-0.975866051824805,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,z,dz/dt,-2.662009719183512,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x*y,dz/dt,0.9982159250958508,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.0,0,x*z,dy/dt,-0.9964422586914764,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,1,dy/dt,6.13566878184884,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x,dx/dt,-9.666885116271066,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x,dy/dt,-12.51278924008555,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dx/dt,9.746120981400765,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dy/dt,9.209728570451205,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,z,dz/dt,-2.618732602268748,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x*y,dz/dt,0.9948915602164978,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,8,0.1,0,x*z,dy/dt,0.0,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,1,dz/dt,0.2513076472782803,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x,dx/dt,-9.87216868900561,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x,dy/dt,27.91471506708941,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dx/dt,9.877627607823994,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dy/dt,-0.9873563031304292,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,z,dz/dt,-2.648130951824853,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x*y,dz/dt,0.9896021547435369,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.0,0,x*z,dy/dt,-0.9971764669527194,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,1,dx/dt,-2.519057892109641,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,1,dz/dt,-1.247054225474742,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dx/dt,16.275585335025056,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dy/dt,28.36267357161636,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dz/dt,-0.5393942428168342,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dx/dt,0.0,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dy/dt,-1.1731100922579556,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dz/dt,0.4320921732182734,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,z,dz/dt,-2.49495457018579,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x*y,dz/dt,0.9508390053769976,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x*z,dx/dt,-0.5388402674592434,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,16,0.1,0,x*z,dy/dt,-1.0090299833365648,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,1,dx/dt,1.008252744452488,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,1,dy/dt,7.198312290705736,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,1,dz/dt,74.94672194629662,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x,dx/dt,-9.02331820592926,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x,dy/dt,-11.868363967263605,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dx/dt,8.946538175274542,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dy/dt,8.741585108393249,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,z,dz/dt,-6.556726345696181,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x*x,dz/dt,1.258587146828622,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x*y,dz/dt,0.0,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.0,0,x*z,dy/dt,0.0,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,1,dx/dt,-1.62564108335239,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,1,dy/dt,7.372610946063079,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,1,dz/dt,-1.332752466481647,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dx/dt,-6.471248838181933,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dy/dt,-9.862605330402806,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dz/dt,-1.814070357328541,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dx/dt,7.250511784454368,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dy/dt,6.502061122557589,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dz/dt,2.082742579309425,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,z,dz/dt,0.0,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x*y,dz/dt,0.0,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,32,0.1,0,x*z,dy/dt,0.0,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,1,dx/dt,-3.7231391935106193,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,1,dy/dt,1.994474469427768,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x,dx/dt,-2.732686567933209,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x,dy/dt,-3.890383030500279,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dx/dt,4.066371761475289,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dy/dt,2.254474473031279,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,z,dz/dt,0.0,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x*y,dz/dt,0.0,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.0,0,x*z,dy/dt,0.0,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,1,dx/dt,-6.356106186578003,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,1,dy/dt,-1.684957943834258,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,1,dz/dt,-2.0426854501195137,0.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x,dx/dt,-2.244347613595757,-10.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x,dy/dt,-1.611085517460735,28.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dx/dt,6.685014963339294,10.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dy/dt,1.7969266824000536,-1.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,z,dz/dt,0.0,-2.6666666666666665
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x*y,dz/dt,0.0,1.0
+lorenz63,edmd_poly3,EDMD-polynomial,64,0.1,0,x*z,dy/dt,0.0,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,x,dy/dt,-0.9999373670339816,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dx/dt,0.9999472330051862,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,y,dy/dt,1.999470601739552,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.0,0,x*x*y,dy/dt,-1.999467868151004,-2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,x,dy/dt,-1.0081292920231664,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dx/dt,0.983622394154528,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,y,dy/dt,1.9042584931130304,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,8,0.1,0,x*x*y,dy/dt,-1.9426752686588764,-2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,x,dy/dt,-0.9997461484145652,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dx/dt,0.9997891703046596,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,y,dy/dt,1.99789531631678,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.0,0,x*x*y,dy/dt,-1.997861358033798,-2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,x,dy/dt,-1.0005454889535674,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dx/dt,0.9843342628416633,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,y,dy/dt,1.9965040111310268,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,16,0.1,0,x*x*y,dy/dt,-1.8710357033899048,-2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,x,dy/dt,-0.9989545573290248,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dx/dt,0.9991524387491736,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,y,dy/dt,1.991453348298165,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.0,0,x*x*y,dy/dt,-1.991195118707647,-2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,x,dy/dt,-0.9473040225928906,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dx/dt,1.015926809759672,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,y,dy/dt,2.143180145855311,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,32,0.1,0,x*x*y,dy/dt,-1.9396573777536688,-2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,x,dy/dt,-1.0089874622014752,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dx/dt,0.9887978895758448,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,y,dy/dt,2.0797485136627034,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.0,0,x*x*y,dy/dt,-2.047297990388765,-2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,x,dy/dt,-0.9640388181331988,-1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dx/dt,1.021247933269526,1.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,y,dy/dt,1.695704641848958,2.0
+vanderpol_mu2,edmd_poly3,EDMD-polynomial,64,0.1,0,x*x*y,dy/dt,-1.6495769764295631,-2.0

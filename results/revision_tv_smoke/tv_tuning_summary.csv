@@ -1,0 +1,4 @@
+system,method,n,lower_edge,upper_edge,lambda_min,lambda_max
+burgers,pod_tv_diff,2,0.0,0.0,0.1,1.0
+burgers,tv_diff,2,0.0,0.0,0.01,1.0
+lorenz63,tv_diff,2,1.0,1.0,0.0001,100.0

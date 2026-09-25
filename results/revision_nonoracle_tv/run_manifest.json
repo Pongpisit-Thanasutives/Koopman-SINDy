@@ -1,0 +1,127 @@
+{
+  "protocol": {
+    "noise": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "q": 5,
+    "tv_tolerance": 1e-05,
+    "ode_dt": 0.01,
+    "ode_sparse_factor": 8,
+    "ode_system": "vanderpol_mu2",
+    "pde_dt": 0.01,
+    "pde_sparse_factor": 4,
+    "nx": 48,
+    "pde_max_rows": 5000,
+    "burgers_rank": 6,
+    "fisher_rank": 2,
+    "fisher_ic": "front",
+    "rbf_centers": 20,
+    "ebic_gamma": 0.5,
+    "knee_sensitivity": 1.0,
+    "selection_rule": "elbow_ebic",
+    "ode_thresholds": [
+      0.0,
+      0.0001,
+      0.0003,
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0
+    ],
+    "pde_thresholds": [
+      0.0,
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003,
+      0.001,
+      0.002,
+      0.003,
+      0.005,
+      0.007,
+      0.01,
+      0.013,
+      0.015,
+      0.02,
+      0.03,
+      0.05,
+      0.07,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "tv_grid": [
+      0.0,
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "sampling": "uniform observed intervals and endpoint-inclusive q5 grids; all factors divide horizons",
+    "arms_ode": [
+      "baseline",
+      "edmd_poly3",
+      "tv_diff"
+    ],
+    "arms_pde": [
+      "baseline",
+      "pod_edmd_rbf",
+      "tv_diff",
+      "pod_tv_diff"
+    ],
+    "row_policy": "Original 5000-row PDE cap and record RNG convention; TV/raw grids fall below cap",
+    "purpose": "Focused matched extension of existing non-oracle 1%-noise demonstration; no additional regimes"
+  },
+  "started_utc": "2026-09-24T05:34:59Z",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pandas": "2.2.3",
+  "kneed": "0.8.6",
+  "source_sha256": {
+    "revision_nonoracle_tv.py": "5845a29d52e5f7f28db5ee57b1129745c65b9dabc79c9fa8e0dca74ae7389f90",
+    "revision_tv_comparison.py": "ce6f0406bba46d7474c67953b6305d0027ef01f3ed4bb03d019f2507057f667c",
+    "revision_tv_solver.py": "732341fee0a2d3c5061c9bf2e1be807f63c297679bcd433fc1517993cec34e9f",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "4038823a559d543c7b351b56f6768e005a488a224441ab56de91987065a48fd7",
+    "koopman_sindy_model_selection_experiment.py": "4264f49870d2b4ac514e69b1b61aa8c4b42d32f1381c1fc2bd537d30b858f8b3",
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683"
+  },
+  "selection_inputs": "Only candidate support sizes, RSS/BIC/EBIC and data-fitted coefficients; truth constructed after model selection",
+  "elapsed_seconds": 11.507328464999773,
+  "finished_utc": "2026-09-24T05:35:11Z",
+  "final_package_source_sha256": {
+    "revision_nonoracle_tv.py": "6246d60608f8112b8188fdf35a7a22c8d150990fa811aa36c5373a63f71de9dc",
+    "revision_tv_comparison.py": "ce6f0406bba46d7474c67953b6305d0027ef01f3ed4bb03d019f2507057f667c",
+    "revision_tv_solver.py": "732341fee0a2d3c5061c9bf2e1be807f63c297679bcd433fc1517993cec34e9f",
+    "koopman_sindy_ode_benchmark.py": "5476c20ccd9292860560b7d03c8796aafe005d984fc750376996fd6ce88365c1",
+    "koopman_sindy_pde_benchmark.py": "a35128f1a94aaa06362936533e27e2a9af32ae22b27bbd7a902fe4ac4b413cef",
+    "koopman_sindy_model_selection_experiment.py": "4264f49870d2b4ac514e69b1b61aa8c4b42d32f1381c1fc2bd537d30b858f8b3",
+    "koopman_propagation.py": "9257e105a87ae6a0f8d7fef0f833174feec290651240cc52dc46aba36d322683"
+  },
+  "post_run_nonfunctional_changes": [
+    {
+      "file": "koopman_sindy_pde_benchmark.py",
+      "type": "documentation only",
+      "description": "Corrected restricted-real-exponent comparator docstring to acknowledge oscillatory travelling modes; no function body changed."
+    },
+    {
+      "file": "revision_nonoracle_tv.py",
+      "type": "table presentation only",
+      "description": "Added selected support-size range and tab:model_selection label alias; candidate generation, selection and numerical outputs unchanged."
+    }
+  ],
+  "final_package_hashes_recorded_utc": "2026-09-24T05:42:17Z"
+}

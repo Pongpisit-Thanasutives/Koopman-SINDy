@@ -2,7 +2,7 @@
 \section{Upsampling-factor and POD-rank sensitivity}
 \label{app:qr_sensitivity}
 
-This appendix examines the fixed interpolation factor $q$ and POD rank $r$ used by the assisted preprocessors. For PDEs, the $q=1$ column is a POD-only denoising control: the noisy sparse snapshots are projected to rank $r$ and reconstructed at the observed times, but no temporal points are inserted. Values with $q>1$ combine the same POD projection with DMD/EDMD temporal upsampling. The study is not used for oracle selection in the main tables; it is a representative robustness check at the same synthetic-equation level. Unless otherwise stated, the sensitivity run uses relative noise 0.03, ODE sparse factor 16, PDE sparse factor 8, and 5 random seeds.
+This appendix examines the fixed interpolation factor $q$ and POD rank $r$ used by the assisted preprocessors. For PDEs, the $q=1$ column is a POD-only denoising control: the noisy sparse snapshots are projected to rank $r$ and reconstructed at the observed times, but no temporal points are inserted. Values with $q>1$ combine the same POD projection with DMD/EDMD temporal upsampling. The study is not used for oracle selection in the main tables; it is a representative robustness check at the same synthetic-equation level. Unless otherwise stated, the sensitivity run uses relative noise 0.03, ODE sparse factor 16, PDE sparse factor 8, and 5 random seeds. The ODE base step is $\Delta t=0.01$; PDEs use $\Delta t=0.01$, $n_x=64$, $T=2$, and 12 RBF centres. These representative-slice settings need not equal every main-benchmark setting.
 
 \begin{figure}[H]
 \centering
@@ -16,22 +16,22 @@ This appendix examines the fixed interpolation factor $q$ and POD rank $r$ used 
 \TBL{\caption{ODE $q$ sensitivity for Lorenz--63 and Van der Pol under EDMD-polynomial preprocessing. The sensitivity run uses relative noise 0.03, sparse factor 16, and five random seeds. F1 and practical score are means; coefficient error is the median over valid evaluation records. Boldface marks the best value at reported precision within each system.\label{tab:appendix_ode_q_sensitivity}}}
 {\begin{tabular}{@{}llcccc@{}}\toprule
 \TCH{System} & \TCH{Method} & \TCH{$q$} & \TCH{F1} & \TCH{Coeff. err.} & \TCH{Score} \\ \midrule
-Lorenz--63 & Baseline & -- & 0.554 & 0.986 & 0.268 \\
- & EDMD-polynomial & 1 & 0.562 & 0.986 & 0.272 \\
- & EDMD-polynomial & 3 & 0.591 & 1.321 & 0.261 \\
- & EDMD-polynomial & 5 & 0.563 & \textbf{0.934} & \textbf{0.288} \\
- & EDMD-polynomial & 7 & \textbf{0.609} & 1.300 & 0.273 \\
+Lorenz-63 & Raw FD & -- & 0.560 & 1.185 & 0.266 \\
+ & EDMD-polynomial & 1 & 0.560 & 1.185 & 0.266 \\
+ & EDMD-polynomial & 3 & 0.585 & \textbf{0.904} & 0.292 \\
+ & EDMD-polynomial & 5 & 0.553 & 1.195 & 0.268 \\
+ & EDMD-polynomial & 7 & \textbf{0.604} & 0.957 & \textbf{0.298} \\
 \midrule
-Van der Pol & Baseline & -- & \textbf{1.000} & 0.122 & 0.893 \\
- & EDMD-polynomial & 1 & \textbf{1.000} & 0.122 & 0.893 \\
- & EDMD-polynomial & 3 & \textbf{1.000} & 0.016 & 0.982 \\
- & EDMD-polynomial & 5 & \textbf{1.000} & 0.016 & \textbf{0.984} \\
- & EDMD-polynomial & 7 & \textbf{1.000} & \textbf{0.015} & \textbf{0.984} \\
+Van der Pol & Raw FD & -- & \textbf{1.000} & 0.116 & 0.900 \\
+ & EDMD-polynomial & 1 & \textbf{1.000} & 0.116 & 0.900 \\
+ & EDMD-polynomial & 3 & \textbf{1.000} & 0.010 & 0.987 \\
+ & EDMD-polynomial & 5 & \textbf{1.000} & \textbf{0.009} & \textbf{0.990} \\
+ & EDMD-polynomial & 7 & \textbf{1.000} & \textbf{0.009} & \textbf{0.990} \\
 \botrule
 \end{tabular}}
 \end{table}
 
-Figure~\ref{fig:appendix_q_sensitivity_ode} and Table~\ref{tab:appendix_ode_q_sensitivity} show that the usefulness of increasing $q$ is system-dependent. For Van der Pol, EDMD-polynomial is already substantially better than the baseline for $q\geq3$, and the default $q=5$ is near the best observed value. For Lorenz--63, the sensitivity is less monotone, which is consistent with the chaotic trajectory and the difficulty of estimating accurate derivatives from sparse noisy measurements. The default $q=5$ gives the lowest median coefficient error among the EDMD-polynomial values tested for Lorenz--63, although the practical score varies only modestly across the grid.
+Figure~\ref{fig:appendix_q_sensitivity_ode} and Table~\ref{tab:appendix_ode_q_sensitivity} report the full tested interpolation grid, including the no-insertion control $q=1$. They assess the sensitivity of equation recovery to temporal insertion without assuming that the main choice $q=5$ is optimal. The selected value of $q$ is held fixed in the main benchmark rather than chosen using these ground-truth metrics.
 
 \begin{figure}[H]
 \centering
@@ -48,12 +48,12 @@ Figure~\ref{fig:appendix_q_sensitivity_ode} and Table~\ref{tab:appendix_ode_q_se
 \TCH{System} & \multicolumn{4}{c}{\TCH{Default}} & \multicolumn{4}{c}{\TCH{Best}} \\
 \cmidrule(lr){2-5}\cmidrule(lr){6-9}
  & \TCH{$(q,r)$} & \TCH{F1} & \TCH{Coeff. err.} & \TCH{Score} & \TCH{$(q,r)$} & \TCH{F1} & \TCH{Coeff. err.} & \TCH{Score} \\ \midrule
-Advection--diffusion & (5,4) & \textbf{0.667} & 0.041 & 0.641 & (3,4) & \textbf{0.667} & \textbf{0.035} & \textbf{0.643} \\
-Burgers & (5,8) & \textbf{0.667} & 0.220 & 0.545 & (1,6) & \textbf{0.667} & \textbf{0.193} & \textbf{0.559} \\
-Fisher--KPP & (5,2) & \textbf{0.800} & \textbf{0.037} & \textbf{0.771} & (7,10) & \textbf{0.800} & 0.041 & \textbf{0.771} \\
+Advection--diffusion & (5,4) & \textbf{0.667} & \textbf{0.036} & \textbf{0.643} & (3,4) & \textbf{0.667} & \textbf{0.036} & \textbf{0.643} \\
+Burgers & (5,8) & \textbf{0.667} & 0.225 & 0.538 & (1,5) & \textbf{0.667} & \textbf{0.194} & \textbf{0.559} \\
+Fisher--KPP & (5,5) & \textbf{0.800} & 0.039 & 0.770 & (3,10) & \textbf{0.800} & \textbf{0.032} & \textbf{0.773} \\
 \botrule
 \end{tabular}%
 }}
 \end{table}
 
-The PDE grid in Figure~\ref{fig:appendix_qr_sensitivity_pde} and Table~\ref{tab:appendix_pde_qr_sensitivity} supports the use of fixed system-specific ranks in the main study. The $q=1$ column provides the requested POD-only control, while $q>1$ combines the same low-rank spatial projection with temporal upsampling. The default advection--diffusion choice $(q,r)=(5,4)$ is close to the best grid point $(3,4)$; the Burgers default $(5,8)$ is not the lowest-error point in this sensitivity slice but remains in a stable region of the heatmap; and Fisher--KPP has a broad low-error region in which the default rank $r=2$ remains competitive. These results do not imply that $q$ and $r$ are universally optimal. They show that the main conclusions are not based on an isolated unstable choice of interpolation factor or POD rank.
+The highest-score grid points in this representative slice are Advection--diffusion: $(q,r)=(3,4)$; Burgers: $(q,r)=(1,5)$; Fisher--KPP: $(q,r)=(3,10)$. These descriptive optima use synthetic ground truth and do not define a deployable hyperparameter-selection rule. A default-versus-best comparison may change both rank and interpolation factor. Attribution specifically to temporal insertion therefore requires comparing $q=1$ and $q=5$ at the same rank on the same noisy snapshots; the matched controls retain the fixed main ranks rather than selecting the best point from this grid.

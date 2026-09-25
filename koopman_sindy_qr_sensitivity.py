@@ -12,7 +12,7 @@ Default appendix setting
 ODE: Lorenz--63 and Van der Pol, EDMD-polynomial, noise=3%, sparse factor 16,
      q in {1, 3, 5, 7}, five seeds.
 PDE: Burgers, Fisher--KPP, and advection--diffusion, POD-EDMD-RBF, noise=3%,
-     sparse factor 8, q in {1, 3, 5, 7}, r in {1,2,4,6,8,10,12}, five seeds.
+     sparse factor 8, q in {1, 3, 5, 7}, r in {1,2,4,5,6,8,10,12}, five seeds.
 
 Outputs are written to results/qr_sensitivity by default:
   qr_sensitivity_raw.csv
@@ -54,7 +54,7 @@ PDE_THRESHOLDS = np.array([
     0.0, 1e-5, 3e-5, 1e-4, 3e-4, 1e-3, 2e-3, 3e-3, 5e-3, 7e-3,
     1e-2, 1.3e-2, 1.5e-2, 2e-2, 3e-2, 5e-2, 7e-2, 1e-1, 2e-1, 3e-1
 ])
-PDE_DEFAULT_RANKS = {"burgers": 8, "fisher_kpp": 2, "advection_diffusion": 4}
+PDE_DEFAULT_RANKS = {"burgers": 8, "fisher_kpp": 5, "advection_diffusion": 4}
 SYSTEM_LABELS = {
     "lorenz63": "Lorenz-63",
     "vanderpol_mu2": "Van der Pol",
@@ -63,7 +63,7 @@ SYSTEM_LABELS = {
     "advection_diffusion": "Advection--diffusion",
 }
 METHOD_LABELS = {
-    "baseline": "Baseline",
+    "baseline": "Raw FD",
     "edmd_poly3": "EDMD-polynomial",
     "pod_edmd_rbf": "POD-EDMD-RBF",
 }
@@ -107,12 +107,11 @@ def apply_plot_style() -> None:
 
 
 def row_seed(setting: str, system: str, sparse_factor: int, noise: float, seed: int, q: int, rank: int = 0) -> int:
-    # Deterministic seed that changes when q/r changes but is stable across runs.
+    """Stable, paired seeds: observations and centers are shared across q/r."""
+    system_codes = {"lorenz63": 11, "vanderpol_mu2": 23, "burgers": 37,
+                    "fisher_kpp": 41, "advection_diffusion": 53}
     base = seed + 1000 * sparse_factor + 100000 * int(round(noise * 1000))
-    if setting == "PDE":
-        base += 10000000 + 100 * q + 10000 * rank + (abs(hash(system)) % 997)
-    else:
-        base += 200 * q + (abs(hash(system)) % 997)
+    base += 10000000 * (setting == "PDE") + system_codes[system]
     return int(base % (2**32 - 1))
 
 
@@ -167,10 +166,13 @@ def run_ode_sensitivity(args: argparse.Namespace) -> List[Dict[str, object]]:
                 X_obs = ode.add_noise(X_clean_obs, args.noise, rng)
                 t_new = ode.make_tnew(t_obs, q)
                 try:
-                    X_use = ode.edmd_reconstruct(
-                        X_obs, t_obs, t_new,
-                        kind="poly", degree=3, var_names=sys.var_names, rng=rng,
-                    )
+                    if q == 1:
+                        X_use, t_new = X_obs.copy(), t_obs.copy()
+                    else:
+                        X_use = ode.edmd_reconstruct(
+                            X_obs, t_obs, t_new,
+                            kind="poly", degree=3, var_names=sys.var_names, rng=rng,
+                        )
                     if len(t_new) < 5 or not np.all(np.isfinite(X_use)):
                         raise FloatingPointError("non-finite or too-short reconstruction")
                     res = ode.fit_sindy_oracle(X_use, t_new, sys.var_names, 3, Xi_true, ODE_THRESHOLDS)
@@ -246,9 +248,13 @@ def run_pde_sensitivity(args: argparse.Namespace) -> List[Dict[str, object]]:
                     rng = np.random.default_rng(row_seed("PDE", sys.name, args.pde_sparse_factor, args.noise, seed, q=q, rank=rank))
                     U_obs = pde.add_noise(U_clean_obs, args.noise, rng)
                     try:
-                        U_use = pde.pod_edmd_reconstruct(
-                            U_obs, t_obs, t_new, int(rank), "rbf", rng, rbf_centers=args.rbf_centers
-                        )
+                        if q == 1:
+                            mean, modes, Z = pde.pod_fit(U_obs, int(rank))
+                            U_use, t_new = pde.pod_reconstruct(mean, modes, Z), t_obs.copy()
+                        else:
+                            U_use = pde.pod_edmd_reconstruct(
+                                U_obs, t_obs, t_new, int(rank), "rbf", rng, rbf_centers=args.rbf_centers
+                            )
                         if len(t_new) < 5 or not np.all(np.isfinite(U_use)):
                             raise FloatingPointError("non-finite or too-short reconstruction")
                         res = pde.fit_pdefind_oracle(U_use, t_new, k, xi_true, PDE_THRESHOLDS, rng, max_rows=args.max_rows)
@@ -327,7 +333,7 @@ def plot_ode_q(summary: pd.DataFrame, outdir: str) -> None:
         edmd = g[g.method == "edmd_poly3"].sort_values("q")
         if len(base):
             bval = float(base.coef_error_median.iloc[0])
-            ax.axhline(bval, color="black", linestyle="-", linewidth=1.3, label="Baseline")
+            ax.axhline(bval, color="black", linestyle="-", linewidth=1.3, label="Raw FD")
         if len(edmd):
             ax.plot(edmd.q, edmd.coef_error_median, color="tab:blue", linestyle="--", marker="o", markerfacecolor="none", markeredgecolor="tab:blue", markeredgewidth=1.0, label="EDMD-polynomial")
             if 5 in set(edmd.q):
@@ -415,7 +421,10 @@ def write_appendix_fragment(summary: pd.DataFrame, outdir: str, args: argparse.N
         "DMD/EDMD temporal upsampling. The study is not used for oracle selection in the main tables; "
         "it is a representative robustness check at the same synthetic-equation level. Unless otherwise stated, "
         f"the sensitivity run uses relative noise {args.noise:g}, ODE sparse factor {args.ode_sparse_factor}, "
-        f"PDE sparse factor {args.pde_sparse_factor}, and {len(args.seeds)} random seeds."
+        f"PDE sparse factor {args.pde_sparse_factor}, and {len(args.seeds)} random seeds. "
+        rf"The ODE base step is $\Delta t={args.ode_dt:g}$; PDEs use $\Delta t={args.pde_dt:g}$, "
+        rf"$n_x={args.pde_n}$, $T=2$, and {args.rbf_centers} RBF centres. "
+        "These representative-slice settings need not equal every main-benchmark setting."
     )
     lines.append("")
     lines.extend([
@@ -446,7 +455,7 @@ def write_appendix_fragment(summary: pd.DataFrame, outdir: str, args: argparse.N
             q = "--" if row.method == "baseline" else str(int(row.q))
             sys_label = system if j == 0 else ""
             lines.append(
-                f"{sys_label} & {row.method_label} & {q} & "
+                f"{sys_label} & {METHOD_LABELS.get(row.method, row.method_label)} & {q} & "
                 f"{bold_fmt(row.support_f1_mean, targets['f1'], 'max')} & "
                 f"{bold_fmt(row.coef_error_median, targets['coef'], 'min')} & "
                 f"{bold_fmt(row.practical_score_mean, targets['score'], 'max')} " + r"\\"
@@ -454,7 +463,7 @@ def write_appendix_fragment(summary: pd.DataFrame, outdir: str, args: argparse.N
     lines.extend([r"\botrule", r"\end{tabular}}", r"\end{table}", ""])
 
     lines.extend([
-        r"Figure~\ref{fig:appendix_q_sensitivity_ode} and Table~\ref{tab:appendix_ode_q_sensitivity} show that the usefulness of increasing $q$ is system-dependent. For Van der Pol, EDMD-polynomial is already substantially better than the baseline for $q\geq3$, and the default $q=5$ is near the best observed value. For Lorenz--63, the sensitivity is less monotone, which is consistent with the chaotic trajectory and the difficulty of estimating accurate derivatives from sparse noisy measurements. The default $q=5$ gives the lowest median coefficient error among the EDMD-polynomial values tested for Lorenz--63, although the practical score varies only modestly across the grid.",
+        r"Figure~\ref{fig:appendix_q_sensitivity_ode} and Table~\ref{tab:appendix_ode_q_sensitivity} report the full tested interpolation grid, including the no-insertion control $q=1$. They assess the sensitivity of equation recovery to temporal insertion without assuming that the main choice $q=5$ is optimal. The selected value of $q$ is held fixed in the main benchmark rather than chosen using these ground-truth metrics.",
         "",
         r"\begin{figure}[H]",
         r"\centering",
@@ -497,8 +506,16 @@ def write_appendix_fragment(summary: pd.DataFrame, outdir: str, args: argparse.N
             r"\end{table}",
             "",
         ])
+    best_settings = "; ".join(
+        f"{row.system_label}: $(q,r)=({int(row.best_q)},{int(row.best_rank)})$"
+        for row in pde_best.sort_values("system_label").itertuples()
+    ) if not pde_best.empty else ""
     lines.append(
-        r"The PDE grid in Figure~\ref{fig:appendix_qr_sensitivity_pde} and Table~\ref{tab:appendix_pde_qr_sensitivity} supports the use of fixed system-specific ranks in the main study. The $q=1$ column provides the requested POD-only control, while $q>1$ combines the same low-rank spatial projection with temporal upsampling. The default advection--diffusion choice $(q,r)=(5,4)$ is close to the best grid point $(3,4)$; the Burgers default $(5,8)$ is not the lowest-error point in this sensitivity slice but remains in a stable region of the heatmap; and Fisher--KPP has a broad low-error region in which the default rank $r=2$ remains competitive. These results do not imply that $q$ and $r$ are universally optimal. They show that the main conclusions are not based on an isolated unstable choice of interpolation factor or POD rank."
+        r"The highest-score grid points in this representative slice are " + best_settings + ". "
+        r"These descriptive optima use synthetic ground truth and do not define a deployable hyperparameter-selection rule. "
+        r"A default-versus-best comparison may change both rank and interpolation factor. "
+        r"Attribution specifically to temporal insertion therefore requires comparing $q=1$ and $q=5$ at the same rank on the same noisy snapshots; "
+        r"the matched controls retain the fixed main ranks rather than selecting the best point from this grid."
     )
     with open(os.path.join(outdir, "appendix_a_qr_sensitivity.tex"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
@@ -517,7 +534,7 @@ def configure_preset(args: argparse.Namespace) -> argparse.Namespace:
     elif args.preset == "appendix":
         args.seeds = [0, 1, 2, 3, 4] if args.seeds is None else args.seeds
         args.q_values = [1, 3, 5, 7] if args.q_values is None else args.q_values
-        args.r_values = [1, 2, 4, 6, 8, 10, 12] if args.r_values is None else args.r_values
+        args.r_values = [1, 2, 4, 5, 6, 8, 10, 12] if args.r_values is None else args.r_values
         args.noise = 0.03 if args.noise is None else args.noise
         args.ode_sparse_factor = 16 if args.ode_sparse_factor is None else args.ode_sparse_factor
         args.pde_sparse_factor = 8 if args.pde_sparse_factor is None else args.pde_sparse_factor
